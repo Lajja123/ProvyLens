@@ -28,6 +28,7 @@ function SelectTemplate() {
               label="Status"
               // onChange={handleChange}
             >
+              <MenuItem value={10}>None </MenuItem>
               <MenuItem value={10}>Supplier </MenuItem>
               <MenuItem value={20}>Manufacturer </MenuItem>
               <MenuItem value={30}>Distributor</MenuItem>

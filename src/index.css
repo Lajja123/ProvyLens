@@ -8,7 +8,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #21292d;
+  background-image: url("../src/assets/homeBg.png");
+  height: auto;
+  min-height: 150vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
   /* background-color: rgb(21, 22, 25); */
 }
 

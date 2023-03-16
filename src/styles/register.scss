@@ -6,11 +6,58 @@
   min-width: 220px !important;
 }
 .register-main {
-  padding: 20px;
-  width: 30%;
+  padding: 40px;
+  width: 35%;
+
   margin: 10% auto;
-  border: 1px solid gray;
+  box-shadow: rgb(0 0 0 / 15%) 0px 0px 8px, rgb(0 0 0 / 23%) 0px 0px 3px -2px,
+    rgb(0 0 0 / 17%) 0px 0px 25px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.09)
+  );
+  border-radius: 10px;
 }
 .register-title {
   padding: 10px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 2rem;
+  font-family: "Carme-Regular";
+  letter-spacing: 5px;
+}
+.css-xn6ruc > :not(style) {
+  margin: 10px !important;
+  width: 38ch !important;
+}
+.select-label-status {
+  font-family: "HammersmithOne-Regular";
+}
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root-Mui-focused {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+.css-1x51dt5-MuiInputBase-input-MuiInput-input:focus {
+  outline: none !important;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  font-family: "HammersmithOne-Regular" !important;
+}
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  font-family: "HammersmithOne-Regular" !important;
+  color: rgb(255, 255, 255) !important;
+}
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
+  border-bottom: none !important;
+}
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+  font-family: "HammersmithOne-Regular" !important;
+  font-size: 17px !important;
+}
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  font-family: "HammersmithOne-Regular" !important;
+  font-size: 15px !important;
+}
+.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  font-family: "HammersmithOne-Regular" !important;
+  font-size: 15px !important;
 }
