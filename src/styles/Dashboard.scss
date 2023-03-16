@@ -51,7 +51,7 @@
         }
       }
       li.active {
-        background-color: #4c2ffd;
+        background-color: #0bb2ca;
         color: #ffffff;
 
         svg {
@@ -63,9 +63,6 @@
   .right-db {
     width: 100%;
     padding: 0px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin: 20px 10px;
     border-radius: 20px;
     padding-top: 20px;
@@ -106,5 +103,22 @@
       width: 50%;
       margin: 0 auto;
     }
+    .avilabletest-front-buttons {
+      padding: 10px;
+      width: 50%;
+    }
+  }
+  #product-btn {
+    padding: 10px;
+    border-left: 1px solid gray;
+    border: none;
+  }
+  #chain-btn {
+    padding: 10px;
+
+    border: none;
+  }
+  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    display: -webkit-inline-box !important;
   }
 }

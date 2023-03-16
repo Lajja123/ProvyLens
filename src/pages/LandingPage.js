@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LandingPage.scss";
+import heroimg2 from "../assets/landingpage.png";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -14,9 +15,11 @@ function LandingPage() {
   return (
     <>
       <section className="hero">
-        {/* <div className="gradient-3"></div>
+        <div>
+          {/* <div className="gradient-3"></div>
         <div className="gradient-4"></div> */}
-        {/* <img src={heroimg2} alt="hero" className="hero-image" /> */}
+          <img src={heroimg2} alt="hero" className="hero-image" />
+        </div>
         <div className="hero-img-overlay"></div>
         <h1>Welcome to the Supply Chain management</h1>
         {/* <p>Create your own DataDao in few minutes with ease.</p> */}

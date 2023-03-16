@@ -106,9 +106,10 @@ function Navbar() {
       <Container maxWidth="100%">
         <Toolbar disableGutters>
           <div className="logo-div">
-            <Link to="/">
-              {/* <img src={logo} alt="logo" className="logo" /> */}
-            </Link>
+            Logo
+            {/* <Link to="/">
+              <img src={logo} alt="logo" className="logo" />
+            </Link> */}
           </div>
 
           <div className="conncet-btn-div">

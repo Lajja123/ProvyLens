@@ -46,9 +46,9 @@
 
   img.hero-image {
     position: absolute;
-    top: 0%;
+    top: 15%;
     right: 0%;
-    width: 100vw;
+    width: 40vw;
     z-index: -1;
     // margin-top: 20px;
     // width: 100%;
@@ -59,8 +59,9 @@
     top: 0%;
     right: 0%;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.2);
-    width: 100%;
+    // background-color: black;
+    // background-color: rgb(221, 225, 229);
+    width: 50%;
     height: 100vh;
   }
 
@@ -70,7 +71,8 @@
     font-size: 4rem;
     font-weight: 700;
     margin: 20px 20px;
-    color: black;
+    color: white;
+    font-family: "Carme-Regular";
     // color: #f14c2c;
   }
   p {
@@ -80,6 +82,7 @@
   .hero-btns {
     position: relative;
     z-index: 50;
+    font-family: "HammersmithOne-Regular";
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -90,6 +93,7 @@
       cursor: pointer;
       padding: 20px 30px;
       margin: 20px;
+      font-family: "HammersmithOne-Regular";
       border-radius: 10px;
       font-size: 1.2rem;
       background: none;
@@ -100,9 +104,9 @@
       }
     }
     button.create-dao-btn {
-      background-color: #0bb2ca;
-      color: #fff;
-      border: 1px solid #0bb2ca;
+      background-color: #dbff73;
+      color: black;
+      border: 1px solid #dbff73;
     }
     button.existing-dao-btn {
       background-color: transparent;

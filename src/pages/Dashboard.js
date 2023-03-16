@@ -55,27 +55,6 @@ function Dashboard() {
     }
   };
 
-  const [data, setData] = useState([
-    {
-      // cover: image1,
-      title: "Proposals",
-      link: "Proposals",
-      info: "Check all the Active Proposals and contribute to your Data Dao ! ",
-    },
-    {
-      // cover: image2,
-      title: "YourDaos",
-      link: "YourDaos",
-      info: "Check all the data daos that you have created and contribute in it to build your community !",
-    },
-    {
-      // cover: image3,
-      title: "DataDAOs",
-      link: "DataDAOs",
-      info: "Check all the data daos available in the platform and be part of one you like the most !",
-    },
-  ]);
-
   return (
     <div className="dashboard-main">
       <div className="left-db">
@@ -204,9 +183,14 @@ function Dashboard() {
       <div className="right-db">
         <div className="avilabletest-front-buttons">
           <button
+            id="product-btn"
             onClick={() => {
               setProduct(true);
+              setaddProduct(true);
               setChain(false);
+              setDeleteProduct(false);
+              setTransfer(false);
+              setTransferHistory(false);
             }}
             for="first_name"
             className={
@@ -220,9 +204,14 @@ function Dashboard() {
           </button>
 
           <button
+            id="chain-btn"
             onClick={() => {
               setChain(true);
               setProduct(false);
+              setaddProduct(false);
+              setDeleteProduct(false);
+              setTransfer(true);
+              setTransferHistory(false);
               // showAvailableTests();
             }}
             for="first_name"

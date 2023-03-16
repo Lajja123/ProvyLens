@@ -3,7 +3,6 @@
   width: 100%;
   max-width: 1240px;
   margin: 20px auto;
-  /* background-color: bisque; */
 }
 .availabel-proposal-section1 {
   display: flex;
@@ -26,7 +25,6 @@
   margin-bottom: 30px;
 }
 .availabel-proposal-section2 {
-  /* border: 1px solid gray; */
   display: flex;
   padding: 10px 0px;
   justify-content: flex-start;
@@ -40,11 +38,11 @@ svg.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
   fill: #fffffa77;
 }
 div.select-parent {
-  color: #ffffff;
+  /* color: #ffffff; */
   border-radius: 10px;
   border: none;
-  background-color: rgb(21, 22, 25);
-  color: rgb(255, 255, 255);
+  /* background-color: rgb(21, 22, 25); */
+  /* color: rgb(255, 255, 255); */
   transition: box-shadow 300ms cubic-bezier(0.55, 0, 0.1, 1) 0ms;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
     rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
@@ -136,4 +134,10 @@ button.create-proposal-btn-popup {
 }
 .proposal-details table td {
   padding: 10px 20px;
+}
+.delete-product-main-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

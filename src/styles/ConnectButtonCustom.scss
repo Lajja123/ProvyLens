@@ -8,10 +8,11 @@ button {
 }
 button.connect-wallet {
   padding: 10px 20px;
+  font-family: "HammersmithOne-Regular";
   font-size: 1rem;
-  background-color: #0bb2ca;
-  color: #ffffff;
-  border: 1px solid #0bb2ca;
+  background-color: #dbff73;
+  color: black;
+  border: 1px solid #dbff73;
   font-weight: 700;
   border-radius: 10px;
   letter-spacing: 1.5px;
@@ -24,6 +25,7 @@ button.connect-wallet {
 }
 button.chain-button {
   margin: auto 10px;
+  font-family: "HammersmithOne-Regular";
   padding: 5px;
   font-size: 0.865rem;
   background-color: #ffffff;
@@ -61,6 +63,7 @@ button.address-balance {
 span.account-balance {
   background-color: #3842f7;
   // padding: 5px;
+  font-family: "HammersmithOne-Regular";
   color: #ffffff;
   margin-left: 5px;
   border-radius: 10px;
@@ -72,13 +75,14 @@ span.account-balance {
 }
 button.wrong-network {
   display: flex;
+  font-family: "HammersmithOne-Regular";
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  border: 1px solid #f14c2c;
+  border: 1px solid #dbff73;
   padding: 10px 20px;
-  background-color: #f14c2c;
-  color: #ffffff;
+  background-color: #dbff73;
+  color: black;
   font-weight: 700;
 }
 

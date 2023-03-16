@@ -7,35 +7,7 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-function DataDaoDetails({
-  datadaos,
-  setDatadaos,
-  setSingleDataDao,
-  setYourDaos,
-  yourDaos,
-  daoAddress,
-}) {
-  const inputRef = useRef();
-  const inputRefEnd = useRef();
-  const fileInputRef = useRef();
-  const [showCreateProposal, setCreateProposal] = useState(false);
-  const handleOpen2 = () => setCreateProposal(true);
-  const handleClose2 = () => setCreateProposal(false);
-
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 900,
-
-    boxShadow: 24,
-    p: 4,
-  };
-  const { ethereum } = window;
-
-  const [dataDaoInfo, setDataDaoInfo] = useState([]);
-
+function DataDaoDetails() {
   return (
     <>
       <div className="datadao-details-main-div">
@@ -45,7 +17,7 @@ function DataDaoDetails({
           id="dropdown-formcontrol"
           className="select-parent"
         >
-          <InputLabel id="select-label-status">Status</InputLabel>
+          <InputLabel id="select-label-status">Product Name</InputLabel>
           <Select
             labelId="demo-select-small"
             id="demo-select-small"
@@ -53,18 +25,14 @@ function DataDaoDetails({
             label="Status"
             // onChange={handleChange}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Supplier </MenuItem>
-            <MenuItem value={20}>Manufacturer </MenuItem>
-            <MenuItem value={30}>Distributor</MenuItem>
+            <MenuItem value={10}>abc </MenuItem>
+            <MenuItem value={30}>xyz</MenuItem>
           </Select>
         </FormControl>
         <TextField
           helperText=" "
           id="demo-helper-text-aligned-no-helper"
-          label="Name"
+          label="Quality"
         />
         <Button variant="contained" size="large">
           Request

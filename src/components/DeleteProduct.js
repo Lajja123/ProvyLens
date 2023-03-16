@@ -20,27 +20,27 @@ function AvailabelProposal() {
   return (
     <>
       <div className="availabel-proposal-main-div">
-        <div>
+        <div className="delete-product-main-div">
           <FormControl
             sx={{ m: 1, minWidth: 70 }}
             size="small"
             id="dropdown-formcontrol"
             className="select-parent"
           >
-            <InputLabel id="select-label-status">Status</InputLabel>
+            <InputLabel id="select-label-status">Product Id</InputLabel>
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
               // value={age}
-              label="Status"
+              label="Product-Id"
               // onChange={handleChange}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Supplier </MenuItem>
-              <MenuItem value={20}>Manufacturer </MenuItem>
-              <MenuItem value={30}>Distributor</MenuItem>
+              <MenuItem value={10}>1 </MenuItem>
+              <MenuItem value={20}>2 </MenuItem>
+              <MenuItem value={30}>3</MenuItem>
             </Select>
           </FormControl>
           <Button variant="contained" size="large">

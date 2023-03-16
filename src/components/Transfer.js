@@ -2,40 +2,17 @@ import React, { useEffect, useState } from "react";
 import "../styles/transfer.css";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { ContractFactory, ethers } from "ethers";
-// import dataDaoFactory from "../contracts/artifacts/dataDaoFactory.json";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useAccount, useSigner } from "wagmi";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 
-const dataDaoFactoryContract = "0x0caC8C986452628Ed38483bcEE0D1cF85816946D";
-
-function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
+function YourDaos() {
   const [allDataDaos, setDataDaos] = useState([]);
-  const { address, isConnected } = useAccount();
-
-  // copy to clipboard function ***************
-  const toastInfo = () => toast.success("Address Copied");
-  const copyContent = async (e) => {
-    try {
-      await navigator.clipboard.writeText(e);
-      toastInfo();
-      console.log("Content copied to clipboard");
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
-  };
 
   return (
     <>
-      <div>
+      <div className="transfer-main-div">
         <div className="all-datadao-main-div">
           <div className="first-row">
             <FormControl
@@ -44,7 +21,7 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Status</InputLabel>
+              <InputLabel id="select-label-status">Product Id</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -52,12 +29,9 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
                 label="Status"
                 // onChange={handleChange}
               >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Supplier </MenuItem>
-                <MenuItem value={20}>Manufacturer </MenuItem>
-                <MenuItem value={30}>Distributor</MenuItem>
+                <MenuItem value={10}>1 </MenuItem>
+                <MenuItem value={20}>2 </MenuItem>
+                <MenuItem value={30}>3</MenuItem>
               </Select>
             </FormControl>
             <div className="product-details">
@@ -76,7 +50,7 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Status</InputLabel>
+              <InputLabel id="select-label-status">Manufacturer Id</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -84,12 +58,9 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
                 label="Status"
                 // onChange={handleChange}
               >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Supplier </MenuItem>
-                <MenuItem value={20}>Manufacturer </MenuItem>
-                <MenuItem value={30}>Distributor</MenuItem>
+                <MenuItem value={10}>1 </MenuItem>
+                <MenuItem value={20}>2 </MenuItem>
+                <MenuItem value={30}>3</MenuItem>
               </Select>
             </FormControl>
             <div className="manufacture-details">
@@ -111,21 +82,7 @@ function YourDaos({ setSingleYourDataDao, setYourDaos, setDaoAddress }) {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Status</InputLabel>
-              <Select
-                labelId="demo-select-small"
-                id="demo-select-small"
-                // value={age}
-                label="Status"
-                // onChange={handleChange}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Supplier </MenuItem>
-                <MenuItem value={20}>Manufacturer </MenuItem>
-                <MenuItem value={30}>Distributor</MenuItem>
-              </Select>
+              <label className="manufacture-details-quality">Quality</label>
             </FormControl>
             <div className="manufacture-details">
               <label className="manufacture-details-quality">25%</label>

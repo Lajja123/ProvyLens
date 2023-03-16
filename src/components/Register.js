@@ -13,7 +13,7 @@ function SelectTemplate() {
     <>
       <div className="register-main-div">
         <div className="register-main">
-          <h1>Register Here</h1>
+          <h1 className="register-title">Register Here</h1>
           <FormControl
             sx={{ m: 1, minWidth: 70 }}
             size="small"
@@ -28,9 +28,6 @@ function SelectTemplate() {
               label="Status"
               // onChange={handleChange}
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
               <MenuItem value={10}>Supplier </MenuItem>
               <MenuItem value={20}>Manufacturer </MenuItem>
               <MenuItem value={30}>Distributor</MenuItem>
