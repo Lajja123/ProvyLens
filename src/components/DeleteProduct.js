@@ -43,7 +43,7 @@ function AvailabelProposal() {
               <MenuItem value={30}>3</MenuItem>
             </Select>
           </FormControl>
-          <Button variant="contained" size="large">
+          <Button variant="contained" size="large" className="delete-btn">
             Delete
           </Button>
         </div>

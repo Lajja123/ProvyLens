@@ -1,12 +1,18 @@
 .datadao-details-main-div {
-  width: 100%;
+  width: 30%;
+  padding: 20px;
   margin: 20px auto;
   max-width: 1240px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 25vh;
+  height: 30vh;
   justify-content: space-around;
+  margin: 10% auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background: #1a1156;
+  border-radius: 20px;
 }
 .datadao-details-div {
   /* width: 50%; */
@@ -14,6 +20,14 @@
 }
 .padding-div {
   padding: 10px;
+}
+.request-btn {
+  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  color: #ffffff;
+  width: 40%;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
 }
 
 .datadao-details-button {
@@ -151,4 +165,7 @@ div.Toastify__toast-icon svg {
 
 div.Toastify__progress-bar--success {
   background: #4c2ffd;
+}
+.dashboard-main .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  display: -webkit-inline-flex !important;
 }

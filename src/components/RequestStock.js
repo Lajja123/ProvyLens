@@ -34,7 +34,7 @@ function DataDaoDetails() {
           id="demo-helper-text-aligned-no-helper"
           label="Quality"
         />
-        <Button variant="contained" size="large">
+        <Button variant="contained" size="large" className="request-btn">
           Request
         </Button>
       </div>

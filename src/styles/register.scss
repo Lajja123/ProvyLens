@@ -12,10 +12,11 @@
   margin: 10% auto;
   box-shadow: rgb(0 0 0 / 15%) 0px 0px 8px, rgb(0 0 0 / 23%) 0px 0px 3px -2px,
     rgb(0 0 0 / 17%) 0px 0px 25px;
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.09),
-    rgba(255, 255, 255, 0.09)
-  );
+  // background-image: linear-gradient(
+  //   rgba(255, 255, 255, 0.09),
+  //   rgba(255, 255, 255, 0.09)
+  // );
+  background: #1a1156;
   border-radius: 10px;
 }
 .register-title {
@@ -36,6 +37,9 @@
 .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root-Mui-focused {
   color: rgba(0, 0, 0, 0.6) !important;
 }
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
 .css-1x51dt5-MuiInputBase-input-MuiInput-input:focus {
   outline: none !important;
 }
@@ -44,7 +48,7 @@
 }
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
   font-family: "HammersmithOne-Regular" !important;
-  color: rgb(255, 255, 255) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 .css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
   border-bottom: none !important;
@@ -60,4 +64,31 @@
 .css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   font-family: "HammersmithOne-Regular" !important;
   font-size: 15px !important;
+  color: white !important;
+}
+.register-btn {
+  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  color: #ffffff;
+  border: none;
+  width: 30%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 50px;
+  font-family: "HammersmithOne-Regular";
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: white !important;
+}
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+  color: white !important;
+}
+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+  color: white !important;
 }

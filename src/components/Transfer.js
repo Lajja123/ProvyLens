@@ -35,10 +35,10 @@ function YourDaos() {
               </Select>
             </FormControl>
             <div className="product-details">
-              <label className="product-details-quality">
+              <label className="manufacture-details-quality">
                 Total Quality : KG
               </label>
-              <label className="product-details-quality">
+              <label className="manufacture-details-quality">
                 Current Price : $
               </label>
             </div>
@@ -92,7 +92,7 @@ function YourDaos() {
             </div>
           </div>
         </div>
-        <Button variant="contained" size="large">
+        <Button variant="contained" size="large" className="transfer-btn">
           Transfer
         </Button>
       </div>

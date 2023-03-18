@@ -7,10 +7,12 @@ import TextField from "@mui/material/TextField";
 import { Button, CardActions } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import "../styles/register.scss";
+import Navbar from "./Navbar";
 
 function SelectTemplate() {
   return (
     <>
+      <Navbar />
       <div className="register-main-div">
         <div className="register-main">
           <h1 className="register-title">Register Here</h1>
@@ -29,9 +31,9 @@ function SelectTemplate() {
               // onChange={handleChange}
             >
               <MenuItem value={10}>None </MenuItem>
-              <MenuItem value={10}>Supplier </MenuItem>
-              <MenuItem value={20}>Manufacturer </MenuItem>
-              <MenuItem value={30}>Distributor</MenuItem>
+              <MenuItem value={20}>Supplier </MenuItem>
+              <MenuItem value={30}>Manufacturer </MenuItem>
+              <MenuItem value={40}>Distributor</MenuItem>
             </Select>
           </FormControl>
           <Box
@@ -68,20 +70,7 @@ function SelectTemplate() {
               variant="standard"
             />
           </Box>
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              id="standard-basic"
-              label="Standard"
-              variant="standard"
-            />
-          </Box>
+          <button className="register-btn">Register</button>
         </div>
       </div>
     </>

@@ -13,13 +13,12 @@
     max-width: 250px;
   }
 }
-
 .hero {
   position: relative;
   overflow: hidden;
   min-height: 90vh;
   // min-width: 100vw;
-  width: 100vw;
+  width: 90vw;
   // background-image: linear-gradient(
   //   to left bottom,
   //   #044049,
@@ -43,12 +42,13 @@
   align-items: flex-start;
   padding-left: 20px;
   color: white;
+  // height: 100%;
 
   img.hero-image {
     position: absolute;
-    top: 15%;
+    top: 20%;
     right: 0%;
-    width: 40vw;
+    width: 40%;
     z-index: -1;
     // margin-top: 20px;
     // width: 100%;
@@ -105,9 +105,9 @@
       }
     }
     button.create-dao-btn {
-      background-color: #dbff73;
-      color: black;
-      border: 1px solid #dbff73;
+      background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+      color: #ffffff;
+      border: none;
     }
     button.existing-dao-btn {
       background-color: transparent;
@@ -116,7 +116,6 @@
     }
   }
 }
-
 .second-section {
   min-height: 100vh;
   display: flex;
@@ -143,7 +142,6 @@
     }
   }
 }
-
 div.push-box {
   background-color: rgb(21, 22, 25);
   color: rgb(255, 255, 255);
@@ -168,6 +166,69 @@ div.push-box {
     color: #4c2ffd;
   }
 }
+#header-06 {
+  background: #0e044d;
+  position: relative;
+  height: 100%;
+  z-index: 99;
+}
+#header-06 .shape1 {
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#header-06 .header-shape {
+  position: absolute;
+}
+#header-06 .shape2 {
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+#header-06 .shape3 {
+  top: -28%;
+  right: -22%;
+  z-index: -2;
+}
+#header-06 .shape4 {
+  top: 10%;
+  right: 12%;
+  z-index: -2;
+  animation-name: spin;
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#header-06 .shape5 {
+  bottom: 0%;
+  right: -30%;
+  z-index: -2;
+}
+#header-06 .shape6 {
+  bottom: -30%;
+  right: 0;
+  z-index: -1;
+}
+#header-06 .bubble1 {
+  top: 20%;
+  left: 12%;
+}
+#header-06 .bubble2 {
+  top: 11%;
+  right: 11%;
+}
+#header-06 .bubble3 {
+  bottom: 21%;
+  right: 15%;
+}
+#header-06 .bubble4 {
+  top: 35%;
+  left: 45%;
+}
+.css-1772xa9-MuiContainer-root {
+  width: 85% !important;
+}
+
 @media only screen and (max-width: 1200px) {
   .hero {
     padding: 10px;
