@@ -106,12 +106,12 @@ button.view-more-all-dao {
   padding: 10px 0px;
 }
 .transfer-btn {
-  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   width: 20%;
   font-size: 15px !important;
   font-weight: 500 !important;
-
+  padding: 10px !important;
   border-radius: 10px !important;
   font-family: "HammersmithOne-Regular" !important;
   letter-spacing: 3px !important;

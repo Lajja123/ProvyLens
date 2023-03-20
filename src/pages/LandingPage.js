@@ -38,7 +38,7 @@ function LandingPage() {
           </div>
           <div className="hero-img-overlay"></div>
           <h1>Welcome to the ProvyLens</h1>
-          <p>A supply chain management app on web3</p>
+          <p>A supply chain management app on web3.</p>
           <div className="hero-btns">
             <button
               className="create-dao-btn"
@@ -84,6 +84,14 @@ function LandingPage() {
         <span className="bubble4 header-shape">
           <img src={bubble4}></img>
         </span>
+        <footer id="footer">
+          <div className="copyright">
+            <p>
+              {" "}
+              Copyright © 2023, Created by <span>ProvyLense</span>
+            </p>
+          </div>
+        </footer>
       </section>
     </>
   );

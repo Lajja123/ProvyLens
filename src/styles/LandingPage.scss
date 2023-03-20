@@ -100,7 +100,7 @@
       margin: 20px;
       font-family: "HammersmithOne-Regular";
       border-radius: 10px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       background: none;
       transition: all 0.2s linear;
 
@@ -109,14 +109,18 @@
       }
     }
     button.create-dao-btn {
-      background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+      background: linear-gradient(to left, #f879b6 0%, #9982ed 100%);
       color: #ffffff;
       border: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
     button.existing-dao-btn {
       background-color: transparent;
       color: #ffffff;
       border: 1px solid #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
   }
 }
@@ -200,11 +204,12 @@ div.push-box {
   right: 10%;
   z-index: -2;
 
-  animation-name: spin;
-  animation-duration: 20000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  // animation-name: spin;
+  // animation-duration: 20000ms;
+  // animation-iteration-count: infinite;
+  // animation-timing-function: linear;
 }
+
 #header-06 .shape5 {
   bottom: 0%;
   right: 0;
@@ -246,6 +251,32 @@ div.push-box {
 }
 .css-1772xa9-MuiContainer-root {
   width: 85% !important;
+}
+#footer {
+  background: transparent;
+  z-index: 1;
+  position: relative;
+}
+#footer .copyright {
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+
+  text-align: center;
+
+  color: white;
+}
+#footer .copyright p {
+  font-size: 1rem;
+  margin: 0;
+  padding: 40px 0;
+  border-top: 1px solid #271e5f;
+  line-height: 14px;
+  text-align: center;
+  position: relative;
+  color: white;
+  letter-spacing: 3px;
+  font-family: "HammersmithOne-Regular";
 }
 
 @media only screen and (max-width: 1200px) {

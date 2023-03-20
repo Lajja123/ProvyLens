@@ -68,13 +68,13 @@
   color: white !important;
 }
 .register-btn {
-  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   border: none;
   width: 30%;
   text-transform: uppercase;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px 10px;
   margin-top: 50px;
   font-family: "HammersmithOne-Regular";
   font-size: 15px;
@@ -93,4 +93,21 @@
 }
 .css-v4u5dn-MuiInputBase-root-MuiInput-root {
   color: white !important;
+}
+.register-main-div .shape1 {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  z-index: -1;
+}
+
+.register-main-div .bubble3 {
+  top: 40%;
+  left: 11%;
+  position: absolute;
+}
+.register-main-div .bubble4 {
+  top: 15%;
+  right: 11%;
+  position: absolute;
 }

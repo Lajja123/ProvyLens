@@ -8,6 +8,9 @@ import { Button, CardActions } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import "../styles/register.scss";
 import Navbar from "./Navbar";
+import feature1 from "../assets/feature-1.png";
+import bubble2 from "../assets/fixed2.png";
+import bubble4 from "../assets/fixed4.png";
 
 function SelectTemplate() {
   return (
@@ -73,6 +76,16 @@ function SelectTemplate() {
           </Box>
           <button className="register-btn">Register</button>
         </div>
+        <span className="shape1 header-shape">
+          <img src={feature1}></img>
+        </span>
+
+        <span className="bubble3 header-shape">
+          <img src={bubble4}></img>
+        </span>
+        <span className="bubble4 header-shape">
+          <img src={bubble4}></img>
+        </span>
       </div>
     </>
   );

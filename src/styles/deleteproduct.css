@@ -142,12 +142,12 @@ button.create-proposal-btn-popup {
   padding: 20px;
 }
 .delete-btn {
-  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   width: 30%;
   font-size: 1rem !important;
   font-weight: 500 !important;
-
+  padding: 10px !important;
   border-radius: 10px !important;
   font-family: "HammersmithOne-Regular" !important;
   letter-spacing: 3px !important;
