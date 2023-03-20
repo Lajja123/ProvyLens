@@ -13,6 +13,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Navbar from "../components/Navbar";
 import addProduct from "../assets/add.png";
+// import Particles from "react-particles";
+import Particles from "../components/Particles";
 // ...........
 
 function Dashboard() {
@@ -62,6 +64,7 @@ function Dashboard() {
     <>
       <Navbar />
       <div className="dashboard-main">
+        <Particles />
         <div className="left-db">
           <ul>
             {product === true ? (

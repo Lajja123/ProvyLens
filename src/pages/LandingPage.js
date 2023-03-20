@@ -13,6 +13,7 @@ import bubble2 from "../assets/fixed2.png";
 import bubble3 from "../assets/fixed2.png";
 import bubble4 from "../assets/fixed4.png";
 import Navbar from "../components/Navbar";
+import Particles from "../components/Particles";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ function LandingPage() {
     <>
       <section className="header" id="header-06">
         <Navbar />
+        <Particles />
         <div className="hero">
           <div>
             {/* <div className="gradient-3"></div>

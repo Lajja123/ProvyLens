@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 
 import Dashboard from "./pages/Dashboard";
+import Particles from "./components/Particles";
 
 function App() {
   const { chains, provider } = configureChains(
@@ -33,6 +34,7 @@ function App() {
     connectors,
     provider,
   });
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
@@ -41,13 +43,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="register" element={<Register />} />
-
               <Route path="/open-existing-data-dao" element={<Dashboard />} />
-
-              {/* <Route
-                path="/open-existing-data-dao/:id"
-                element={<Dashboard />}
-              /> */}
             </Routes>
           </Router>
         </div>
