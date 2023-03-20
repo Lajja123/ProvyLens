@@ -77,6 +77,10 @@ button.view-more-all-dao {
   color: white;
   font-family: "HammersmithOne-Regular" !important;
   margin-top: 20px;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 .manufacture-details {
   display: flex;
@@ -85,15 +89,17 @@ button.view-more-all-dao {
   color: white;
   font-family: "HammersmithOne-Regular" !important;
   margin-top: 20px;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 .transfer-main-div {
   text-align: center;
-  margin: 10% auto;
+  margin: 5% auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
     rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
   background: #1a1156;
   border-radius: 20px;
-  padding: 20px;
+  padding: 50px 20px;
   width: 80%;
 }
 .manufacture-details-quality {
@@ -103,14 +109,20 @@ button.view-more-all-dao {
   background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   width: 20%;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 3px;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+
+  border-radius: 10px !important;
+  font-family: "HammersmithOne-Regular" !important;
+  letter-spacing: 3px !important;
 }
 .transfer-history {
-  color: white;
+  color: black;
   font-family: "Carme-Regular";
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
+  background-color: white;
+  padding: 10px 30px;
   border-radius: 10px;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  font-weight: 600;
 }

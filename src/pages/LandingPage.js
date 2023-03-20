@@ -28,15 +28,17 @@ function LandingPage() {
     <>
       <section className="header" id="header-06">
         <Navbar />
-        <Particles />
+
         <div className="hero">
+          <Particles />
           <div>
             {/* <div className="gradient-3"></div>
         <div className="gradient-4"></div> */}
             <img src={heroimg2} alt="hero" className="hero-image" />
           </div>
           <div className="hero-img-overlay"></div>
-          <h1>Welcome to the Supply Chain management</h1>
+          <h1>Welcome to the ProvyLens</h1>
+          <p>A supply chain management app on web3</p>
           <div className="hero-btns">
             <button
               className="create-dao-btn"

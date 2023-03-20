@@ -20,7 +20,7 @@ function AllDataDaos({ setSingleDataDao, setDatadaos, setDaoAddress }) {
             </div>
           </div>
           <div className="second-row">
-            <label className="transfer-history">product Id:1</label>
+            <label className="transfer-history">Manufacturer Id:1</label>
             <div className="manufacture-details">
               <label className="manufacture-details-quality">
                 Manufacturer details
@@ -34,7 +34,7 @@ function AllDataDaos({ setSingleDataDao, setDatadaos, setDaoAddress }) {
           </div>
           <div className="third-row">
             {" "}
-            <label className="transfer-history">product Id:1</label>
+            <label className="transfer-history">Quality</label>
             <div className="manufacture-details">
               <label className="manufacture-details-quality">25%</label>
               <label className="manufacture-details-quality">50%</label>

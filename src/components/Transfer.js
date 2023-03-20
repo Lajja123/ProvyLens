@@ -36,10 +36,10 @@ function YourDaos() {
             </FormControl>
             <div className="product-details">
               <label className="manufacture-details-quality">
-                Total Quality : KG
+                Total Quality : 500KG
               </label>
               <label className="manufacture-details-quality">
-                Current Price : $
+                Current Price : $24
               </label>
             </div>
           </div>

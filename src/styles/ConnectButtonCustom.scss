@@ -29,13 +29,13 @@ button.chain-button {
   font-family: "HammersmithOne-Regular";
   padding: 5px;
   font-size: 0.865rem;
-  background-color: #ffffff;
-  color: #0914d9;
-  font-weight: 700;
+  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  color: white;
+  font-weight: 500;
   // border: 1px solid #f14c2c;
   border: 1px solid #ffffff;
   border-radius: 10px;
-  // letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
 }
 button.address-balance {
   display: flex;
@@ -62,7 +62,7 @@ button.address-balance {
 }
 
 span.account-balance {
-  background-color: #3842f7;
+  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
   // padding: 5px;
   font-family: "HammersmithOne-Regular";
   color: #ffffff;
@@ -73,6 +73,8 @@ span.account-balance {
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
+  letter-spacing: 3px;
+  font-weight: 500;
 }
 button.wrong-network {
   display: flex;
@@ -80,10 +82,10 @@ button.wrong-network {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  border: 1px solid #dbff73;
+  // border: 1px solid #dbff73;
   padding: 10px 20px;
-  background-color: #dbff73;
-  color: black;
+  background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
+  color: white;
   font-weight: 700;
 }
 
@@ -103,11 +105,11 @@ button.wrong-network {
   }
   span.account-balance {
     background-color: #ffffff;
-    color: #0914d9;
+    color: black;
     font-size: 0.865rem;
     padding: 0;
     svg {
-      fill: #0914d9;
+      fill: black;
     }
   }
   button.address-balance {

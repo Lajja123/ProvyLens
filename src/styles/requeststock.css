@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 30vh;
+  height: 35vh;
   justify-content: space-around;
   margin: 10% auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
@@ -25,9 +25,13 @@
   background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   width: 40%;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 3px;
+
+  font-size: 15px !important;
+  font-weight: 500 !important;
+
+  border-radius: 10px !important;
+  font-family: "HammersmithOne-Regular" !important;
+  letter-spacing: 3px !important;
 }
 
 .datadao-details-button {

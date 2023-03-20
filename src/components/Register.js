@@ -8,13 +8,12 @@ import { Button, CardActions } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import "../styles/register.scss";
 import Navbar from "./Navbar";
-import Particles from "./Particles";
 
 function SelectTemplate() {
   return (
     <>
       <Navbar />
-      <Particles />
+
       <div className="register-main-div">
         <div className="register-main">
           <h1 className="register-title">Register Here</h1>

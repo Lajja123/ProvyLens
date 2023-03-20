@@ -64,7 +64,6 @@ function Dashboard() {
     <>
       <Navbar />
       <div className="dashboard-main">
-        <Particles />
         <div className="left-db">
           <ul>
             {product === true ? (

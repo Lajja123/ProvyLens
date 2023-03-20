@@ -48,7 +48,7 @@
     position: absolute;
     top: 20%;
     right: 0%;
-    width: 40%;
+    width: 50%;
     z-index: -1;
     // margin-top: 20px;
     // width: 100%;
@@ -66,12 +66,13 @@
   }
 
   h1 {
-    width: 70%;
+    width: 60%;
     word-wrap: break-word;
-    font-size: 4rem;
+    font-size: 3.7rem;
     font-weight: 700;
     margin: 20px 20px;
     color: white;
+    text-transform: capitalize;
     font-family: "Carme-Regular";
     letter-spacing: 5px;
     // color: #f14c2c;
@@ -79,6 +80,9 @@
   p {
     font-size: 1.1rem;
     margin: 10px 20px;
+    font-family: "Carme-Regular";
+    letter-spacing: 3px;
+    color: #a2b2ff;
   }
   .hero-btns {
     position: relative;
@@ -92,7 +96,7 @@
 
     button {
       cursor: pointer;
-      padding: 20px 30px;
+      padding: 15px 30px;
       margin: 20px;
       font-family: "HammersmithOne-Regular";
       border-radius: 10px;
@@ -136,7 +140,7 @@
     padding: 6px;
     border-radius: 5px;
     &:hover {
-      background-color: #4c2ffd;
+      background-color: #f879b6;
 
       // fill: #4c2ffd;
     }
@@ -163,7 +167,7 @@ div.push-box {
     font-size: 1rem;
     font-weight: 600;
     border-radius: 10px;
-    color: #4c2ffd;
+    // color: #4c2ffd;
   }
 }
 #header-06 {
@@ -192,11 +196,12 @@ div.push-box {
   z-index: -2;
 }
 #header-06 .shape4 {
-  top: 10%;
-  right: 5%;
+  top: 12%;
+  right: 10%;
   z-index: -2;
+
   animation-name: spin;
-  animation-duration: 10000ms;
+  animation-duration: 20000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
