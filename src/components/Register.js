@@ -9,10 +9,9 @@ import FormControl from "@mui/material/FormControl";
 import "../styles/register.scss";
 import Navbar from "./Navbar";
 import feature1 from "../assets/feature-1.png";
-import bubble2 from "../assets/fixed2.png";
 import bubble4 from "../assets/fixed4.png";
 
-function SelectTemplate() {
+function Register() {
   return (
     <>
       <Navbar />
@@ -91,4 +90,4 @@ function SelectTemplate() {
   );
 }
 
-export default SelectTemplate;
+export default Register;

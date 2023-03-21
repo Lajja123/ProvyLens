@@ -43,7 +43,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="register" element={<Register />} />
-              <Route path="/open-existing-data-dao" element={<Dashboard />} />
+              <Route path="/open-existing-dashboard" element={<Dashboard />} />
             </Routes>
           </Router>
         </div>

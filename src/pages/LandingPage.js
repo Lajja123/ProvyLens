@@ -21,7 +21,7 @@ function LandingPage() {
     navigate("register");
   };
   const openExistingDaoPage = () => {
-    navigate("/open-existing-data-dao");
+    navigate("/open-existing-dashboard");
   };
 
   return (
@@ -50,7 +50,7 @@ function LandingPage() {
               className="existing-dao-btn"
               onClick={() => openExistingDaoPage()}
             >
-              Open Existing DataDao
+              Open Existing Dashboard
             </button>
           </div>
         </div>

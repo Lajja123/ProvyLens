@@ -7,6 +7,7 @@ import ConnectButtonCustom from "./ConnectButtonCustom";
 import { Link } from "react-router-dom";
 import { useAccount, useSigner } from "wagmi";
 import * as PushAPI from "@pushprotocol/restapi";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const { address, isConnected } = useAccount();
@@ -106,10 +107,9 @@ function Navbar() {
       <Container maxWidth="100%">
         <Toolbar disableGutters>
           <div className="logo-div">
-            Logo
-            {/* <Link to="/">
+            <Link to="/">
               <img src={logo} alt="logo" className="logo" />
-            </Link> */}
+            </Link>
           </div>
 
           <div className="conncet-btn-div">

@@ -2,7 +2,7 @@
   flex-grow: 1;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
 
   img.logo {
@@ -10,7 +10,7 @@
     padding-top: 10px;
     cursor: pointer;
     width: 400px;
-    max-width: 250px;
+    max-width: 200px;
   }
 }
 .hero {
@@ -18,7 +18,7 @@
   overflow: hidden;
   min-height: 90vh;
   // min-width: 100vw;
-  width: 90vw;
+  width: 85vw;
   // background-image: linear-gradient(
   //   to left bottom,
   //   #044049,
@@ -48,7 +48,7 @@
     position: absolute;
     top: 20%;
     right: 0%;
-    width: 50%;
+    width: 40%;
     z-index: -1;
     // margin-top: 20px;
     // width: 100%;
@@ -61,8 +61,8 @@
     z-index: -1;
     // background-color: black;
     // background-color: rgb(221, 225, 229);
-    width: 50%;
-    height: 100vh;
+    width: 40%;
+    height: 70vh;
   }
 
   h1 {
@@ -277,6 +277,12 @@ div.push-box {
   color: white;
   letter-spacing: 3px;
   font-family: "HammersmithOne-Regular";
+}
+.css-r6ewbb-MuiToolbar-root {
+  height: 70px !important;
+}
+.css-1772xa9-MuiContainer-root {
+  padding-left: 0px !important;
 }
 
 @media only screen and (max-width: 1200px) {

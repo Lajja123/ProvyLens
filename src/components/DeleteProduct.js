@@ -5,12 +5,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import "../styles/createproposal.css";
 
-function AvailabelProposal() {
-  const inputRef1 = useRef();
-  const inputRef3 = useRef();
-
+function DeleteProduct() {
   const [age, setAge] = useState("");
 
   const handleChange = (event) => {
@@ -52,4 +48,4 @@ function AvailabelProposal() {
   );
 }
 
-export default AvailabelProposal;
+export default DeleteProduct;

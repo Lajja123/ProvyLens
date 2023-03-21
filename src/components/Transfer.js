@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 
-function YourDaos() {
+function Transfer() {
   const [allDataDaos, setDataDaos] = useState([]);
 
   return (
@@ -99,4 +99,4 @@ function YourDaos() {
     </>
   );
 }
-export default YourDaos;
+export default Transfer;

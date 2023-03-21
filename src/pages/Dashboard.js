@@ -15,6 +15,7 @@ import Navbar from "../components/Navbar";
 import addProduct from "../assets/add.png";
 // import Particles from "react-particles";
 import Particles from "../components/Particles";
+import HistoryDetails from "../components/HistoryDetails";
 // ...........
 
 function Dashboard() {
@@ -25,6 +26,7 @@ function Dashboard() {
   const [stock, setStock] = useState(false);
   const [product, setProduct] = useState(true);
   const [chain, setChain] = useState();
+  const [transferHistoryDetails, setTransferHistoryDetails] = useState(false);
 
   const dashboardLinks = (a) => {
     if (a === "AddProduct") {
@@ -51,12 +53,20 @@ function Dashboard() {
       setTransfer(false);
       setTransferHistory(true);
       setStock(false);
+    } else if (a === "HistoryDetails") {
+      setaddProduct(false);
+      setDeleteProduct(false);
+      setTransfer(false);
+      setTransferHistory(false);
+      setStock(false);
+      setTransferHistoryDetails(true);
     } else if (a === "RequestStock") {
       setaddProduct(false);
       setDeleteProduct(false);
       setTransfer(false);
       setTransferHistory(false);
       setStock(true);
+      setTransferHistoryDetails(false);
     }
   };
 
@@ -549,7 +559,11 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
           ) : transfer ? (
             <Transfer />
           ) : transferHistory ? (
-            <TransferHistory />
+            <TransferHistory dashboardLinks={dashboardLinks} />
+          ) : transferHistoryDetails ? (
+            <HistoryDetails
+              setTransferHistoryDetails={setTransferHistoryDetails}
+            />
           ) : stock ? (
             <RequestStock />
           ) : null}

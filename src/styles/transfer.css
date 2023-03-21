@@ -117,12 +117,92 @@ button.view-more-all-dao {
   letter-spacing: 3px !important;
 }
 .transfer-history {
-  color: black;
-  font-family: "Carme-Regular";
-  background-color: white;
-  padding: 10px 30px;
+  color: white;
+  font-family: "HammersmithOne-Regular" !important;
+  /* background-color: white; */
+  padding: 10px 10px;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 14px;
   letter-spacing: 3px;
-  font-weight: 600;
+  font-weight: 500;
+}
+.css-10mzr36-MuiGrid-root {
+  width: 85% !important;
+  margin-left: 0px !important;
+  margin: 0 auto !important;
+}
+.css-10mzr36-MuiGrid-root {
+  justify-content: space-around !important;
+}
+.css-vok43g-MuiGrid-root {
+  max-width: 46.666667% !important;
+}
+.all-history-main-div {
+  width: 100%;
+  margin: 5% auto;
+  /* max-width: 1240px; */
+  display: flex;
+  /* padding: 30px; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.transfer-history-btn {
+  background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
+  color: #ffffff;
+  width: 30%;
+  margin: 20px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  font-family: "HammersmithOne-Regular" !important;
+  letter-spacing: 3px !important;
+}
+.css-1633um2-MuiPaper-root {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px !important;
+  background: #1a1156 !important;
+  border-radius: 20px !important;
+  /* padding: 50px 20px !important; */
+}
+.history-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.css-10mzr36-MuiGrid-root > .MuiGrid-item {
+  padding-top: 25px !important;
+}
+.css-1633um2-MuiPaper-root {
+  width: 80% !important;
+  margin: 0 auto;
+}
+.manufacture-details-quality-title {
+  color: white;
+  font-family: "HammersmithOne-Regular" !important;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+.all-history-details-main-div {
+  width: 100%;
+  margin: 20px auto;
+  /* max-width: 1240px; */
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.transferDeatils-main-div {
+  text-align: center;
+  margin: 5% auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px,
+    rgba(0, 0, 0, 0.23) 0px 0px 3px -2px, rgba(0, 0, 0, 0.17) 0px 0px 25px;
+  background: #1a1156;
+  border-radius: 20px;
+  padding: 50px 20px;
+  width: 60%;
+  height: 35vh;
 }

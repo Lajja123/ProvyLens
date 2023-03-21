@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-function DataDaoDetails() {
+function RequestStock() {
   return (
     <>
       <div className="datadao-details-main-div">
@@ -41,4 +41,4 @@ function DataDaoDetails() {
     </>
   );
 }
-export default DataDaoDetails;
+export default RequestStock;

@@ -17,7 +17,7 @@ button.connect-wallet {
   font-weight: 500;
   border-radius: 10px;
   letter-spacing: 1.5px;
-
+  text-transform: uppercase;
   // &:hover {
   //   background-color: #f14c2c;
   //   border: 1px solid #f14c2c;
@@ -50,7 +50,7 @@ button.address-balance {
   color: #0914d9;
   // border: 1px solid #0914d9;
   border: 1px solid #ffffff;
-  font-weight: 700;
+  font-weight: 500;
   border-radius: 10px;
   // letter-spacing: 1.5px;
 
@@ -86,7 +86,8 @@ button.wrong-network {
   padding: 10px 20px;
   background: linear-gradient(-45deg, #9982ed 0%, #f879b6 100%);
   color: white;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: 3px;
 }
 
 @media only screen and (max-width: 1200px) {
