@@ -27,8 +27,6 @@ function LandingPage() {
   return (
     <>
       <section className="header" id="header-06">
-        <Navbar />
-
         <div className="hero">
           <Particles />
           <div>
