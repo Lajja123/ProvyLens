@@ -12,10 +12,13 @@ import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
 
 function Register() {
+  const [userdata, setUserData] = useState([]);
+
+  const registerUser = async () => {
+    console.log("hello");
+  };
   return (
     <>
-      <Navbar />
-
       <div className="register-main-div">
         <div className="register-main">
           <h1 className="register-title">Register Here</h1>
@@ -25,7 +28,7 @@ function Register() {
             id="dropdown-formcontrol"
             className="select-parent"
           >
-            <InputLabel id="select-label-status">Status</InputLabel>
+            <InputLabel id="select-label-status">Select role</InputLabel>
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
@@ -33,7 +36,6 @@ function Register() {
               label="Status"
               // onChange={handleChange}
             >
-              <MenuItem value={10}>None </MenuItem>
               <MenuItem value={20}>Supplier </MenuItem>
               <MenuItem value={30}>Manufacturer </MenuItem>
               <MenuItem value={40}>Distributor</MenuItem>
