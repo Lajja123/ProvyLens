@@ -133,6 +133,8 @@
   color: #ffffff;
 }
 .conncet-btn-div {
+  position: relative;
+  z-index: 100000;
   display: flex;
   align-items: center;
   justify-content: center;
