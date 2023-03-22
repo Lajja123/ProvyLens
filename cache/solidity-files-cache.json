@@ -6,7 +6,7 @@
       "contentHash": "d72bd2a7ef5517c8e22a89423c65ccf1",
       "sourceName": "contracts/distributorProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -43,7 +43,7 @@
       "contentHash": "7f342d417bd2fcac89f8f67a7280d187",
       "sourceName": "contracts/Interfaces/IDistributorProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -78,7 +78,7 @@
       "contentHash": "4dff61c240cc312194cf45aa29393806",
       "sourceName": "contracts/Interfaces/IManufacturerDistributor.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -113,7 +113,7 @@
       "contentHash": "125c5584863a8bda0038a08841fb1a49",
       "sourceName": "contracts/manufacturerDistributor.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -150,7 +150,7 @@
       "contentHash": "f5a1c16715cf18aa605f39588e54aac1",
       "sourceName": "contracts/Interfaces/IManufacturerProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -185,7 +185,7 @@
       "contentHash": "f7ca7d5b362c3799a629a0cbf9f4cc27",
       "sourceName": "contracts/manufacturerProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -222,7 +222,7 @@
       "contentHash": "fa62b69d1d4badb0311594ed1284731c",
       "sourceName": "contracts/Interfaces/ISupplierManufacturer.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -257,7 +257,7 @@
       "contentHash": "e393ad802efe03efe04623e3a6ace6bf",
       "sourceName": "contracts/supplierManufacturer.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -294,7 +294,7 @@
       "contentHash": "bb4ddab494ce545321d61ec06928da18",
       "sourceName": "contracts/Interfaces/ISupplierProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -329,7 +329,7 @@
       "contentHash": "4d2310298932c8a8ab2dbb8de4ed6c5b",
       "sourceName": "contracts/supplierProduct.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -366,7 +366,7 @@
       "contentHash": "0e1f323dcecbed25ee6cee6725a3792e",
       "sourceName": "contracts/Interfaces/IUserDetails.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -401,7 +401,7 @@
       "contentHash": "62a72400a0e33b08b2453b0947bfb762",
       "sourceName": "contracts/userDetails.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.18",
         "settings": {
           "optimizer": {
             "enabled": false,
