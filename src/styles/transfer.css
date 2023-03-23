@@ -152,6 +152,7 @@ button.view-more-all-dao {
   background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
   /* width: 30%; */
+  z-index: 100 !important;
   margin: 20px !important;
   font-size: 13px !important;
   font-weight: 500 !important;
@@ -210,4 +211,7 @@ button.view-more-all-dao {
   padding: 50px 20px;
   width: 60%;
   height: 35vh;
+}
+.font-color {
+  color: black;
 }

@@ -30,25 +30,52 @@ function TransferHistory({ dashboardLinks }) {
   return (
     <>
       {modal && (
-        <div className="modal">
+        <div className=" modal ">
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
-            <h2>Hello Modal</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores? Illum pariatur possimus
-              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
-              placeat tempora vitae enim incidunt porro fuga ea.
-            </p>
+          <div className=" modal-content">
+            <div className="first-row">
+              <label className="manufacture-details-quality-title font-color">
+                Product Details
+              </label>
+              <div className="product-details font-color">
+                <label className="manufacture-details-quality">
+                  Total Quality : 500KG
+                </label>
+                <label className="manufacture-details-quality">
+                  Current Price : $24
+                </label>
+              </div>
+            </div>
+            <div className="second-row">
+              <label className="manufacture-details-quality-title font-color">
+                Manufacturer details
+              </label>
+              <div className="manufacture-details font-color">
+                <label className="manufacture-details-quality">Name</label>
+                <label className="manufacture-details-quality">Address</label>
+                <label className="manufacture-details-quality">
+                  Other details
+                </label>
+              </div>
+            </div>
+            <div className="third-row">
+              <label className="manufacture-details-quality-title font-color">
+                Quality
+              </label>{" "}
+              <div className="manufacture-details font-color">
+                <label className="manufacture-details-quality">25%</label>
+                <label className="manufacture-details-quality">50%</label>
+                <label className="manufacture-details-quality">75%</label>
+                <label className="manufacture-details-quality">100%</label>
+              </div>
+            </div>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
             </button>
           </div>
         </div>
       )}
-      <div className="modal-content">
+      <div className="all-history-main-div">
         <Box sx={{ width: "100%" }}>
           <Grid
             container
