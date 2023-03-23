@@ -16,9 +16,9 @@ contract manufacturerProduct is IManufacturerProduct{
     //   uint32 mp_expiryDate;
 
     function addManufacturerProduct(address[] memory _supplierAddress,uint[] memory _smId,bytes calldata _name,bytes calldata _description,uint128 _unit,uint128 _price,uint32 _date,uint32 _expiryDate)public override {
-        manufacturerProductsIdToStructMapping[mpId] = manufacturerProduct(_supplierAddress,_smId,_name,_description,_unit,_price,_date,_expiryDate);
+        manufacturerProductsIdToStructMapping[mpId] = manufacturerProduct(_supplierAddress,_smId,_name,_description,_unit,_price,_date,_expiryDate,true);
         manufacturerAddressToproductsIdMapping[msg.sender].push(mpId);
-        emit eventAddManufacturerProduct(mpId,_supplierAddress,_smId,_name,_description,_unit,_price,_date,_expiryDate);
+        emit eventAddManufacturerProduct(mpId,_supplierAddress,_smId,_name,_description,_unit,_price,_date,_expiryDate,true);
         mpId++;
     }
 
@@ -47,7 +47,7 @@ contract manufacturerProduct is IManufacturerProduct{
     }
 
     function deleteManufacturerProduct(uint _id)external override{
-        delete manufacturerProductsIdToStructMapping[_id];
+        manufacturerProductsIdToStructMapping[_id].status=false;
         emit eventDeleteManufacturerProduct(_id);
     }
 }

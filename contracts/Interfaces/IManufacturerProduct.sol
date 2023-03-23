@@ -11,9 +11,10 @@ interface IManufacturerProduct {
       uint128 mp_price;
       uint32 mp_date;
       uint32 mp_expiryDate;
+      bool status;
   }
   
-  event eventAddManufacturerProduct(uint indexed  _mpId,address[] indexed _supplierAddress, uint[] indexed  _smId, bytes _name,bytes _description,uint128 _unit,uint128 _price,uint32 _date,uint32 _expiryDate);
+  event eventAddManufacturerProduct(uint indexed  _mpId,address[] indexed _supplierAddress, uint[] indexed  _smId, bytes _name,bytes _description,uint128 _unit,uint128 _price,uint32 _date,uint32 _expiryDate,bool status);
   event eventDeleteManufacturerProduct(uint _Id);
   event eventUpdateDistributorProductUints(uint indexed _dpId,uint128 _quantity);
 
