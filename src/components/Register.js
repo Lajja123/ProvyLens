@@ -17,6 +17,7 @@ function Register() {
   const [userdata, setUserData] = useState([]);
   console.log(USERDETAILS_CONTRACT_ADDRESS_MUMBAI);
   console.log(userdetails.abi);
+
   const registerUser = async () => {
     console.log("hello");
   };
@@ -78,7 +79,9 @@ function Register() {
               variant="standard"
             />
           </Box>
-          <button className="register-btn">Register</button>
+          <button className="register-btn" onClick={() => registerUser()}>
+            Register
+          </button>
         </div>
         <span className="shape1 header-shape">
           <img src={feature1}></img>
