@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import "../styles/Modal.css";
+import history from "./TransferHistory.json";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function TransferHistory({ dashboardLinks }) {
   const [modal, setModal] = useState(false);
-
+  console.log(history);
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -35,38 +36,37 @@ function TransferHistory({ dashboardLinks }) {
           <div className=" modal-content">
             <div className="first-row">
               <label className="manufacture-details-quality-title font-color">
-                Product Details
+                {history.Product}
               </label>
               <div className="product-details font-color">
                 <label className="manufacture-details-quality">
-                  Total Quality : 500KG
+                  Total Quality : {history.totalQuality}
                 </label>
                 <label className="manufacture-details-quality">
-                  Current Price : $24
+                  Current Price : {history.price}
                 </label>
               </div>
             </div>
             <div className="second-row">
               <label className="manufacture-details-quality-title font-color">
-                Manufacturer details
+                {history.Manufacturer}
               </label>
               <div className="manufacture-details font-color">
-                <label className="manufacture-details-quality">Name</label>
-                <label className="manufacture-details-quality">Address</label>
                 <label className="manufacture-details-quality">
-                  Other details
+                  {history.name}
                 </label>
+                <label className="manufacture-details-quality">
+                  {history.address}
+                </label>
+                <label className="manufacture-details-quality"></label>
               </div>
             </div>
             <div className="third-row">
               <label className="manufacture-details-quality-title font-color">
-                Quality
+                {history.quality}
               </label>{" "}
               <div className="manufacture-details font-color">
                 <label className="manufacture-details-quality">25%</label>
-                <label className="manufacture-details-quality">50%</label>
-                <label className="manufacture-details-quality">75%</label>
-                <label className="manufacture-details-quality">100%</label>
               </div>
             </div>
             <button className="close-modal" onClick={toggleModal}>
@@ -76,138 +76,47 @@ function TransferHistory({ dashboardLinks }) {
         </div>
       )}
       <div className="all-history-main-div">
-        <Box sx={{ width: "100%" }}>
-          <Grid
-            container
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={8}>
-              <Item>
-                {" "}
-                <div className="history-flex">
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                </div>
-                <div>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    className="transfer-history-btn"
-                    // onClick={() => {
-                    //   dashboardLinks("HistoryDetails");
-                    // }}
-                    onClick={toggleModal}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </Item>
-            </Grid>
-            {/* <Grid item xs={8}>
-              <Item>
-                {" "}
-                <div className="history-flex">
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                </div>
-                <div>
-                  {" "}
-                  <Button
-                    variant="contained"
-                    size="large"
-                    className="transfer-history-btn"
-                    onClick={() => {
-                      dashboardLinks("HistoryDetails");
-                    }}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </Item>
-            </Grid>
-            <Grid item xs={8}>
-              <Item>
-                {" "}
-                <div className="history-flex">
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                </div>
-                <div>
-                  {" "}
-                  <Button
-                    variant="contained"
-                    size="large"
-                    className="transfer-history-btn"
-                    onClick={() => {
-                      dashboardLinks("HistoryDetails");
-                    }}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </Item>
-            </Grid>
-            <Grid item xs={8}>
-              <Item>
-                {" "}
-                <div className="history-flex">
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                  <label className="transfer-history">product Id:1</label>
-                </div>
-                <div>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    className="transfer-history-btn"
-                    onClick={() => {
-                      dashboardLinks("HistoryDetails");
-                    }}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </Item>
-            </Grid> */}
-          </Grid>
-        </Box>
-        {/* <div className="first-row">
-            <div className="product-details">
-              <label className="manufacture-details-quality">
-                Total Quality : KG
-              </label>
-              <label className="manufacture-details-quality">
-                Current Price : $
-              </label>
-            </div>
-          </div>
-          <div className="second-row">
-            <label className="transfer-history">Manufacturer Id:1</label>
-            <div className="manufacture-details">
-              <label className="manufacture-details-quality">
-                Manufacturer details
-              </label>
-              <label className="manufacture-details-quality">Name</label>
-              <label className="manufacture-details-quality">Address</label>
-              <label className="manufacture-details-quality">
-                Other details
-              </label>
-            </div>
-          </div>
-          <div className="third-row">
-            {" "}
-            <label className="transfer-history">Quality</label>
-            <div className="manufacture-details">
-              <label className="manufacture-details-quality">25%</label>
-              <label className="manufacture-details-quality">50%</label>
-              <label className="manufacture-details-quality">75%</label>
-              <label className="manufacture-details-quality">100%</label>
-            </div>
-          </div> */}
+        {history.historydata.map((data) => {
+          return (
+            <Box sx={{ width: "100%" }}>
+              <Grid
+                container
+                rowSpacing={1}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+                <Grid item xs={8}>
+                  <Item>
+                    {" "}
+                    <div className="history-flex">
+                      <label className="transfer-history">
+                        Transfer Id:{data.tid}
+                      </label>
+                      <label className="transfer-history">
+                        product Id:{data.pid}
+                      </label>
+                      <label className="transfer-history">
+                        Dispatch Id:{data.did}
+                      </label>
+                    </div>
+                    <div>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        className="transfer-history-btn"
+                        // onClick={() => {
+                        //   dashboardLinks("HistoryDetails");
+                        // }}
+                        onClick={toggleModal}
+                      >
+                        View Details
+                      </Button>
+                    </div>
+                  </Item>
+                </Grid>
+              </Grid>
+            </Box>
+          );
+        })}
       </div>
     </>
   );
