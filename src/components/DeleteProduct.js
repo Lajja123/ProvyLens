@@ -5,12 +5,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function DeleteProduct() {
   const [age, setAge] = useState("");
 
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+  const notify = () => {
+    alert("login success");
   };
 
   return (
@@ -39,7 +44,12 @@ function DeleteProduct() {
               <MenuItem value={30}>3</MenuItem>
             </Select>
           </FormControl>
-          <Button variant="contained" size="large" className="delete-btn">
+          <Button
+            onClick={notify}
+            variant="contained"
+            size="large"
+            className="delete-btn"
+          >
             Delete
           </Button>
         </div>
