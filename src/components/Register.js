@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -8,15 +8,25 @@ import { Button, CardActions } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import "../styles/register.scss";
 import Navbar from "./Navbar";
+import { Input } from "@mui/material";
+import { ethers } from "ethers";
+
 import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
 import { USERDETAILS_CONTRACT_ADDRESS_MUMBAI } from "../config";
 import userdetails from "../artifacts/contracts/userDetails.sol/userDetails.json";
 
 function Register() {
-  const [userdata, setUserData] = useState([]);
-  console.log(USERDETAILS_CONTRACT_ADDRESS_MUMBAI);
-  console.log(userdetails.abi);
+  const [userData, setUserData] = useState({
+    userType: "",
+    name: "",
+    physcialAddress: "",
+    profileImage: "",
+  });
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   const registerUser = async () => {
     console.log("hello");
@@ -39,10 +49,13 @@ function Register() {
               // value={age}
               label="Status"
               // onChange={handleChange}
+              onChange={(e) => {
+                setUserData({ ...userData, userType: e.target.value });
+              }}
             >
-              <MenuItem value={20}>Supplier </MenuItem>
-              <MenuItem value={30}>Manufacturer </MenuItem>
-              <MenuItem value={40}>Distributor</MenuItem>
+              <MenuItem value={0}>Supplier </MenuItem>
+              <MenuItem value={1}>Manufacturer </MenuItem>
+              <MenuItem value={2}>Distributor</MenuItem>
             </Select>
           </FormControl>
           <Box
@@ -53,17 +66,14 @@ function Register() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="standard-basic" label="Name" variant="standard" />
-          </Box>
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField id="standard-basic" label="Address" variant="standard" />
+            <TextField
+              id="standard-basic"
+              label="Name"
+              variant="standard"
+              onChange={(e) => {
+                setUserData({ ...userData, name: e.target.value });
+              }}
+            />
           </Box>
           <Box
             component="form"
@@ -75,9 +85,22 @@ function Register() {
           >
             <TextField
               id="standard-basic"
-              label="Raw Materials Available"
+              label="Address"
               variant="standard"
+              onChange={(e) => {
+                setUserData({ ...userData, address: e.target.value });
+              }}
             />
+          </Box>
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <Input type="file" />
           </Box>
           <button className="register-btn" onClick={() => registerUser()}>
             Register
