@@ -40,6 +40,7 @@ function App() {
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
         <div className="App">
           <Router>
+            <Navbar />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="register" element={<Register />} />

@@ -101,7 +101,7 @@ function Navbar() {
         backgroundColor: "transparent",
         padding: "10px 0px",
         position: "relative",
-        zIndex: "50",
+        zIndex: "50000000",
       }}
     >
       <Container maxWidth="100%">

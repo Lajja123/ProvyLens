@@ -72,7 +72,6 @@ function Dashboard() {
 
   return (
     <>
-      <Navbar />
       <div className="dashboard-main">
         <div className="left-db">
           <ul>
