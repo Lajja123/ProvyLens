@@ -10,10 +10,13 @@ import "../styles/register.scss";
 import Navbar from "./Navbar";
 import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
+import { USERDETAILS_CONTRACT_ADDRESS_MUMBAI } from "../config";
+import userdetails from "../artifacts/contracts/userDetails.sol/userDetails.json";
 
 function Register() {
   const [userdata, setUserData] = useState([]);
-
+  console.log(USERDETAILS_CONTRACT_ADDRESS_MUMBAI);
+  console.log(userdetails.abi);
   const registerUser = async () => {
     console.log("hello");
   };
