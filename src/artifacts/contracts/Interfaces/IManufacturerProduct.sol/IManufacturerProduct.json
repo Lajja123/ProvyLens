@@ -59,6 +59,12 @@
           "internalType": "uint32",
           "name": "_expiryDate",
           "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
         }
       ],
       "name": "eventAddManufacturerProduct",

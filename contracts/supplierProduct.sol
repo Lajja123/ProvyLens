@@ -16,9 +16,9 @@ contract supplierProduct is ISupplierProduct{
     //   uint32 sp_expiryDate;
     
     function addSupplierProduct(bytes calldata _name,bytes calldata _description,uint128 _unit,uint128 _price,uint32 _date,uint32 _expiryDate)public override  {
-        supplierProductsIdToStructMapping[spId] = supplierProduct(msg.sender,_name,_description,_unit,_price,_date,_expiryDate);
+        supplierProductsIdToStructMapping[spId] = supplierProduct(msg.sender,_name,_description,_unit,_price,_date,_expiryDate,true);
         supplierAddressToproductsIdMapping[msg.sender].push(spId);
-        emit eventAddSupplierProduct(spId,msg.sender,_name,_description,_unit,_price,_date,_expiryDate,block.timestamp);
+        emit eventAddSupplierProduct(spId,msg.sender,_name,_description,_unit,_price,_date,_expiryDate,block.timestamp,true);
         spId++;
     }
 
@@ -47,7 +47,7 @@ contract supplierProduct is ISupplierProduct{
     }
 
     function deleteSupplierProduct(uint _id)public override {
-        delete supplierProductsIdToStructMapping[_id];
+        supplierProductsIdToStructMapping[_id].status=false;
         emit eventDeleteSupplierProduct(_id);
     }
 }
