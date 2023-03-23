@@ -7,7 +7,7 @@ import {
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { filecoin, filecoinHyperspace } from "wagmi/chains";
+import { polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import LandingPage from "./pages/LandingPage";
@@ -19,7 +19,7 @@ import Particles from "./components/Particles";
 
 function App() {
   const { chains, provider } = configureChains(
-    [filecoinHyperspace, filecoin],
+    [polygonMumbai],
     [
       alchemyProvider({ apiKey: "O5NYvtwLMNG0LjAXPQEk0YJT2l3UxTAY" }),
       publicProvider(),

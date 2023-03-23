@@ -144,7 +144,7 @@ button.view-more-all-dao {
   /* max-width: 1240px; */
   display: flex;
   /* padding: 30px; */
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }

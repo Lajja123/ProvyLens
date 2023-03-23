@@ -88,7 +88,7 @@ function ConnectButtonCustom() {
                     >
                       <img
                         alt={chain.name ?? "Chain icon"}
-                        // src={filecoin}
+                        src={chain.iconUrl}
                         style={{ width: "20px", height: "20px" }}
                       />
                     </div>
