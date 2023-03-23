@@ -5,7 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function DeleteProduct() {
@@ -14,9 +14,17 @@ function DeleteProduct() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-  const notify = () => {
-    alert("login success");
-  };
+  const toastInfo = () =>
+    toast.success("Product Deleted", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <>
@@ -45,13 +53,25 @@ function DeleteProduct() {
             </Select>
           </FormControl>
           <Button
-            onClick={notify}
+            onClick={toastInfo}
             variant="contained"
             size="large"
             className="delete-btn"
           >
             Delete
           </Button>
+
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
       </div>
     </>

@@ -7,6 +7,8 @@ import Transfer from "../components/Transfer";
 import DeleteProduct from "../components/DeleteProduct";
 import TransferHistory from "../components/TransferHistory";
 import RequestStock from "../components/RequestStock";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // ..............
 import Box from "@mui/material/Box";
@@ -69,6 +71,17 @@ function Dashboard() {
       setTransferHistoryDetails(false);
     }
   };
+  const toastInfo = () =>
+    toast.success("Product Added", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <>
@@ -546,9 +559,21 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
                       variant="contained"
                       size="large"
                       className="product-btn"
+                      onClick={toastInfo}
                     >
                       Add
                     </Button>
+                    <ToastContainer
+                      position="bottom-right"
+                      autoClose={5000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                    />
                   </Box>
                 </div>
               </div>

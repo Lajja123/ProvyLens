@@ -6,9 +6,22 @@ import Button from "@mui/material/Button";
 import "react-toastify/dist/ReactToastify.css";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Transfer() {
   const [allDataDaos, setDataDaos] = useState([]);
+  const toastInfo = () =>
+    toast.success("Tranfer Successfully", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <>
@@ -92,9 +105,25 @@ function Transfer() {
             </div>
           </div>
         </div>
-        <Button variant="contained" size="large" className="transfer-btn">
+        <Button
+          variant="contained"
+          size="large"
+          className="transfer-btn"
+          onClick={toastInfo}
+        >
           Transfer
         </Button>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </>
   );

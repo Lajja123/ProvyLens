@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import "../styles/Modal.css";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -15,9 +16,39 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function TransferHistory({ dashboardLinks }) {
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   return (
     <>
-      <div className="all-history-main-div">
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <h2>Hello Modal</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+              perferendis suscipit officia recusandae, eveniet quaerat assumenda
+              id fugit, dignissimos maxime non natus placeat illo iusto!
+              Sapiente dolorum id maiores dolores? Illum pariatur possimus
+              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
+              placeat tempora vitae enim incidunt porro fuga ea.
+            </p>
+            <button className="close-modal" onClick={toggleModal}>
+              CLOSE
+            </button>
+          </div>
+        </div>
+      )}
+      <div className="modal-content">
         <Box sx={{ width: "100%" }}>
           <Grid
             container
@@ -37,16 +68,17 @@ function TransferHistory({ dashboardLinks }) {
                     variant="contained"
                     size="large"
                     className="transfer-history-btn"
-                    onClick={() => {
-                      dashboardLinks("HistoryDetails");
-                    }}
+                    // onClick={() => {
+                    //   dashboardLinks("HistoryDetails");
+                    // }}
+                    onClick={toggleModal}
                   >
                     View Details
                   </Button>
                 </div>
               </Item>
             </Grid>
-            <Grid item xs={8}>
+            {/* <Grid item xs={8}>
               <Item>
                 {" "}
                 <div className="history-flex">
@@ -113,7 +145,7 @@ function TransferHistory({ dashboardLinks }) {
                   </Button>
                 </div>
               </Item>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
         {/* <div className="first-row">

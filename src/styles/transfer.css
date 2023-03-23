@@ -135,7 +135,8 @@ button.view-more-all-dao {
   justify-content: space-around !important;
 }
 .css-vok43g-MuiGrid-root {
-  max-width: 46.666667% !important;
+  max-width: 55.666667% !important;
+  width: 100% !important;
 }
 .all-history-main-div {
   width: 100%;
@@ -150,11 +151,11 @@ button.view-more-all-dao {
 .transfer-history-btn {
   background: linear-gradient(to bottom, #9982ed 0%, #f879b6 100%);
   color: #ffffff;
-  width: 30%;
+  /* width: 30%; */
   margin: 20px !important;
-  font-size: 15px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
-  padding: 10px !important;
+  padding: 10px 15px !important;
   border-radius: 10px !important;
   font-family: "HammersmithOne-Regular" !important;
   letter-spacing: 3px !important;
@@ -175,8 +176,12 @@ button.view-more-all-dao {
   padding-top: 25px !important;
 }
 .css-1633um2-MuiPaper-root {
-  width: 80% !important;
+  width: 100% !important;
   margin: 0 auto;
+}
+.css-10mzr36-MuiGrid-root {
+  flex-direction: column !important;
+  align-items: center !important;
 }
 .manufacture-details-quality-title {
   color: white;
