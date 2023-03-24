@@ -115,7 +115,8 @@ dataSources:
         - name: distributorProduct
           file: ./abis/distributorProduct.json
       eventHandlers:
-        - event: eventAddDistributorProduct(indexed uint256,indexed address[],indexed
+        - event:
+            eventAddDistributorProduct(indexed uint256,indexed address[],indexed
             uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool)
           handler: handleeventAddDistributorProduct
         - event: eventDeleteDistributorProduct(indexed uint256)
@@ -141,7 +142,8 @@ dataSources:
         - name: manufacturerProduct
           file: ./abis/manufacturerProduct.json
       eventHandlers:
-        - event: eventAddManufacturerProduct(indexed uint256,indexed address[],indexed
+        - event:
+            eventAddManufacturerProduct(indexed uint256,indexed address[],indexed
             uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool)
           handler: handleeventAddManufacturerProduct
         - event: eventDeleteManufacturerProduct(uint256)

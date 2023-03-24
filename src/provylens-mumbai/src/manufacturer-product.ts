@@ -1,4 +1,4 @@
-import { Bytes } from "@graphprotocol/graph-ts";
+import { Bytes, BigInt } from "@graphprotocol/graph-ts";
 import {
   eventAddManufacturerProduct as eventAddManufacturerProductEvent,
   eventDeleteManufacturerProduct as eventDeleteManufacturerProductEvent,
@@ -17,10 +17,10 @@ export function handleeventAddManufacturerProduct(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._mpId = event.params._mpId;
-  entity._supplierAddress = event.params._supplierAddress.map<Bytes>(
-    (e: Bytes) => e
-  );
-  entity._smId = event.params._smId.map<Bytes>((e: Bytes) => e);
+  // entity._supplierAddress = event.params._supplierAddress
+  // entity._smId = event.params._smId
+  entity._supplierAddress = changetype<Bytes[]>(event.params._supplierAddress);
+  entity._smId = changetype<BigInt[]>(event.params._smId);
   entity._name = event.params._name;
   entity._description = event.params._description;
   entity._unit = event.params._unit;

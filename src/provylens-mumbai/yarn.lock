@@ -217,10 +217,10 @@
     graphql-import-node "^0.0.5"
     js-yaml "^4.1.0"
 
-"@graphprotocol/graph-cli@^0.42.4":
-  version "0.42.4"
-  resolved "https://registry.npmjs.org/@graphprotocol/graph-cli/-/graph-cli-0.42.4.tgz"
-  integrity sha512-h6/OkmLSPqP8cji6AMXtq7AWHtgl4nC8wjunHhDBlQiLzdClky3jFe50/xAM9VBs2QV+oXhCflRq26qqO3XBXA==
+"@graphprotocol/graph-cli@^0.43.0":
+  version "0.43.0"
+  resolved "https://registry.npmjs.org/@graphprotocol/graph-cli/-/graph-cli-0.43.0.tgz"
+  integrity sha512-YvaObHoIB7nBzm9aGGpW+eOmecy7DbH+tjxdldWPq0kBklSCdaU4gSsbLtnbFgUN4cZSn6JoqueWQfCbcjWqgQ==
   dependencies:
     "@float-capital/float-subgraph-uncrashable" "^0.0.0-alpha.4"
     "@oclif/core" "2.0.7"
