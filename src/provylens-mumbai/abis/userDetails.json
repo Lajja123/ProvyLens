@@ -3,7 +3,7 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "_address",
         "type": "address"
@@ -16,7 +16,7 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "_address",
         "type": "address"
@@ -72,9 +72,7 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "_address", "type": "address" }
-    ],
+    "inputs": [],
     "name": "deleteUser",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -127,7 +125,8 @@
             "name": "userPhysicalAddress",
             "type": "bytes"
           },
-          { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+          { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+          { "internalType": "bool", "name": "userStatus", "type": "bool" }
         ],
         "internalType": "struct IUserDetails.userDetails[]",
         "name": "",
@@ -154,7 +153,8 @@
             "name": "userPhysicalAddress",
             "type": "bytes"
           },
-          { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+          { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+          { "internalType": "bool", "name": "userStatus", "type": "bool" }
         ],
         "internalType": "struct IUserDetails.userDetails[]",
         "name": "",
@@ -181,7 +181,8 @@
             "name": "userPhysicalAddress",
             "type": "bytes"
           },
-          { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+          { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+          { "internalType": "bool", "name": "userStatus", "type": "bool" }
         ],
         "internalType": "struct IUserDetails.userDetails[]",
         "name": "",
@@ -208,7 +209,8 @@
             "name": "userPhysicalAddress",
             "type": "bytes"
           },
-          { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+          { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+          { "internalType": "bool", "name": "userStatus", "type": "bool" }
         ],
         "internalType": "struct IUserDetails.userDetails[]",
         "name": "",
@@ -237,7 +239,8 @@
             "name": "userPhysicalAddress",
             "type": "bytes"
           },
-          { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+          { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+          { "internalType": "bool", "name": "userStatus", "type": "bool" }
         ],
         "internalType": "struct IUserDetails.userDetails",
         "name": "",
@@ -276,7 +279,8 @@
         "name": "userPhysicalAddress",
         "type": "bytes"
       },
-      { "internalType": "bytes", "name": "userImage", "type": "bytes" }
+      { "internalType": "bytes", "name": "userImage", "type": "bytes" },
+      { "internalType": "bool", "name": "userStatus", "type": "bool" }
     ],
     "stateMutability": "view",
     "type": "function"

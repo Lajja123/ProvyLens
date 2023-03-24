@@ -58,10 +58,6 @@ export class eventAddDistributorProduct__Params {
   get _expiryDate(): BigInt {
     return this._event.parameters[8].value.toBigInt();
   }
-
-  get status(): boolean {
-    return this._event.parameters[9].value.toBoolean();
-  }
 }
 
 export class eventDeleteDistributorProduct extends ethereum.Event {
@@ -77,7 +73,7 @@ export class eventDeleteDistributorProduct__Params {
     this._event = event;
   }
 
-  get _id(): BigInt {
+  get _dpId(): BigInt {
     return this._event.parameters[0].value.toBigInt();
   }
 }
@@ -167,7 +163,7 @@ export class distributorProduct__distributorProductsIdToStructMappingResult {
     return this.value5;
   }
 
-  getStatus(): boolean {
+  getDp_status(): boolean {
     return this.value6;
   }
 }
@@ -205,7 +201,7 @@ export class distributorProduct__getAllProductsOfDistributorResultValue0Struct e
     return this[7].toBigInt();
   }
 
-  get status(): boolean {
+  get dp_status(): boolean {
     return this[8].toBoolean();
   }
 }
@@ -243,7 +239,7 @@ export class distributorProduct__getSingleDistributorProductResultValue0Struct e
     return this[7].toBigInt();
   }
 
-  get status(): boolean {
+  get dp_status(): boolean {
     return this[8].toBoolean();
   }
 }
@@ -394,12 +390,12 @@ export class distributorProduct extends ethereum.SmartContract {
   }
 
   getSingleDistributorProduct(
-    _id: BigInt
+    _dpId: BigInt
   ): distributorProduct__getSingleDistributorProductResultValue0Struct {
     let result = super.call(
       "getSingleDistributorProduct",
       "getSingleDistributorProduct(uint256):((address[],uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      [ethereum.Value.fromUnsignedBigInt(_dpId)]
     );
 
     return changetype<
@@ -408,14 +404,14 @@ export class distributorProduct extends ethereum.SmartContract {
   }
 
   try_getSingleDistributorProduct(
-    _id: BigInt
+    _dpId: BigInt
   ): ethereum.CallResult<
     distributorProduct__getSingleDistributorProductResultValue0Struct
   > {
     let result = super.tryCall(
       "getSingleDistributorProduct",
       "getSingleDistributorProduct(uint256):((address[],uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      [ethereum.Value.fromUnsignedBigInt(_dpId)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -504,7 +500,7 @@ export class DeleteDistributorProductCall__Inputs {
     this._call = call;
   }
 
-  get _id(): BigInt {
+  get _dpId(): BigInt {
     return this._call.inputValues[0].value.toBigInt();
   }
 }

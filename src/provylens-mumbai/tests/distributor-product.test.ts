@@ -28,7 +28,6 @@ describe("Describe entity assertions", () => {
     let _price = BigInt.fromI32(234)
     let _date = BigInt.fromI32(234)
     let _expiryDate = BigInt.fromI32(234)
-    let status = "boolean Not implemented"
     let neweventAddDistributorProductEvent = createeventAddDistributorProductEvent(
       _dpId,
       _manufacturerAddress,
@@ -38,8 +37,7 @@ describe("Describe entity assertions", () => {
       _unit,
       _price,
       _date,
-      _expiryDate,
-      status
+      _expiryDate
     )
     handleeventAddDistributorProduct(neweventAddDistributorProductEvent)
   })
@@ -108,12 +106,6 @@ describe("Describe entity assertions", () => {
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
       "_expiryDate",
       "234"
-    )
-    assert.fieldEquals(
-      "eventAddDistributorProduct",
-      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "status",
-      "boolean Not implemented"
     )
 
     // More assert options:

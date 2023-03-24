@@ -106,7 +106,7 @@ export class supplierManufacturer__getProductResultValue0Struct extends ethereum
   }
 }
 
-export class supplierManufacturer__smidToStructMappingResult {
+export class supplierManufacturer__smIdToStructMappingResult {
   value0: BigInt;
   value1: Address;
   value2: Address;
@@ -231,10 +231,10 @@ export class supplierManufacturer extends ethereum.SmartContract {
     );
   }
 
-  manufacturerTosmIDMapping(param0: Address, param1: BigInt): BigInt {
+  manufacturerTosmIdMapping(param0: Address, param1: BigInt): BigInt {
     let result = super.call(
-      "manufacturerTosmIDMapping",
-      "manufacturerTosmIDMapping(address,uint256):(uint256)",
+      "manufacturerTosmIdMapping",
+      "manufacturerTosmIdMapping(address,uint256):(uint256)",
       [
         ethereum.Value.fromAddress(param0),
         ethereum.Value.fromUnsignedBigInt(param1)
@@ -244,13 +244,13 @@ export class supplierManufacturer extends ethereum.SmartContract {
     return result[0].toBigInt();
   }
 
-  try_manufacturerTosmIDMapping(
+  try_manufacturerTosmIdMapping(
     param0: Address,
     param1: BigInt
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
-      "manufacturerTosmIDMapping",
-      "manufacturerTosmIDMapping(address,uint256):(uint256)",
+      "manufacturerTosmIdMapping",
+      "manufacturerTosmIdMapping(address,uint256):(uint256)",
       [
         ethereum.Value.fromAddress(param0),
         ethereum.Value.fromUnsignedBigInt(param1)
@@ -278,16 +278,16 @@ export class supplierManufacturer extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  smidToStructMapping(
+  smIdToStructMapping(
     param0: BigInt
-  ): supplierManufacturer__smidToStructMappingResult {
+  ): supplierManufacturer__smIdToStructMappingResult {
     let result = super.call(
-      "smidToStructMapping",
-      "smidToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
+      "smIdToStructMapping",
+      "smIdToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
       [ethereum.Value.fromUnsignedBigInt(param0)]
     );
 
-    return new supplierManufacturer__smidToStructMappingResult(
+    return new supplierManufacturer__smIdToStructMappingResult(
       result[0].toBigInt(),
       result[1].toAddress(),
       result[2].toAddress(),
@@ -296,12 +296,12 @@ export class supplierManufacturer extends ethereum.SmartContract {
     );
   }
 
-  try_smidToStructMapping(
+  try_smIdToStructMapping(
     param0: BigInt
-  ): ethereum.CallResult<supplierManufacturer__smidToStructMappingResult> {
+  ): ethereum.CallResult<supplierManufacturer__smIdToStructMappingResult> {
     let result = super.tryCall(
-      "smidToStructMapping",
-      "smidToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
+      "smIdToStructMapping",
+      "smIdToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
       [ethereum.Value.fromUnsignedBigInt(param0)]
     );
     if (result.reverted) {
@@ -309,7 +309,7 @@ export class supplierManufacturer extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new supplierManufacturer__smidToStructMappingResult(
+      new supplierManufacturer__smIdToStructMappingResult(
         value[0].toBigInt(),
         value[1].toAddress(),
         value[2].toAddress(),
@@ -381,10 +381,6 @@ export class TransferProductCall__Inputs {
 
   get _dispatchTime(): BigInt {
     return this._call.inputValues[3].value.toBigInt();
-  }
-
-  get _arrivalTime(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
   }
 }
 

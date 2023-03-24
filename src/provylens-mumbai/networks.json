@@ -1,26 +1,23 @@
 {
   "mumbai": {
     "userDetails": {
-      "address": "0x929012A302e322c0a414467176b3914A546c8362",
-      "startBlock": 33457692
+      "address": "0x345a54479E50ef9A0cAB015AF27A48142D40629f",
+      "startBlock": 33520682
     },
     "supplierProduct": {
-      "address": "0x8900c2D17F3d2529527f76a27a035B8d64151a20"
-    },
-    "supplierManufacturer": {
-      "address": "0xdDdf27b3a3E691f7FEB376000aA837b48d01C0A7"
-    },
-    "manufacturerDistributor": {
-      "address": "0xC497E56E307BD4a9684f343DE9212b82f736A144"
-    },
-    "distributorProduct": {
-      "address": "0x2B21aFe3B9c4Fe8A2b891022ACD64F39A24ebaC5"
-    },
-    "Contract": {
-      "address": "0x2B21aFe3B9c4Fe8A2b891022ACD64F39A24ebaC5"
+      "address": "0x3175bCC44B162941d38325005EBF867769Dec1A3"
     },
     "manufacturerProduct": {
-      "address": "0xfa1f36cC23A82baA7b47f2589311De283BBA3a9b"
+      "address": "0x8d0E34868684f8bc8244E7f4f5B2784dce342309"
+    },
+    "distributorProduct": {
+      "address": "0xb3169F83fdBDFf9b7affc76A3981B8e0049e5Bd9"
+    },
+    "supplierManufacturer": {
+      "address": "0xbc04AF6F9DC7D40fC63CF12c5e6Ed6dC0fE6eE4c"
+    },
+    "manufacturerDistributor": {
+      "address": "0x829D5780E6a31f2B7A9a7B44Cc45bd980baDB081"
     }
   }
 }

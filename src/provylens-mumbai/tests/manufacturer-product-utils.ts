@@ -3,7 +3,7 @@ import { ethereum, BigInt, Address, Bytes } from "@graphprotocol/graph-ts"
 import {
   eventAddManufacturerProduct,
   eventDeleteManufacturerProduct,
-  manufacturerProducteventUpdateDistributorProductUints
+  eventUpdateManufacturerProductUints
 } from "../generated/manufacturerProduct/manufacturerProduct"
 
 export function createeventAddManufacturerProductEvent(
@@ -15,8 +15,7 @@ export function createeventAddManufacturerProductEvent(
   _unit: BigInt,
   _price: BigInt,
   _date: BigInt,
-  _expiryDate: BigInt,
-  status: boolean
+  _expiryDate: BigInt
 ): eventAddManufacturerProduct {
   let eventAddManufacturerProductEvent = changetype<
     eventAddManufacturerProduct
@@ -63,15 +62,12 @@ export function createeventAddManufacturerProductEvent(
       ethereum.Value.fromUnsignedBigInt(_expiryDate)
     )
   )
-  eventAddManufacturerProductEvent.parameters.push(
-    new ethereum.EventParam("status", ethereum.Value.fromBoolean(status))
-  )
 
   return eventAddManufacturerProductEvent
 }
 
 export function createeventDeleteManufacturerProductEvent(
-  _Id: BigInt
+  _mpId: BigInt
 ): eventDeleteManufacturerProduct {
   let eventDeleteManufacturerProductEvent = changetype<
     eventDeleteManufacturerProduct
@@ -80,31 +76,31 @@ export function createeventDeleteManufacturerProductEvent(
   eventDeleteManufacturerProductEvent.parameters = new Array()
 
   eventDeleteManufacturerProductEvent.parameters.push(
-    new ethereum.EventParam("_Id", ethereum.Value.fromUnsignedBigInt(_Id))
+    new ethereum.EventParam("_mpId", ethereum.Value.fromUnsignedBigInt(_mpId))
   )
 
   return eventDeleteManufacturerProductEvent
 }
 
-export function createmanufacturerProducteventUpdateDistributorProductUintsEvent(
+export function createeventUpdateManufacturerProductUintsEvent(
   _dpId: BigInt,
   _quantity: BigInt
-): manufacturerProducteventUpdateDistributorProductUints {
-  let manufacturerProducteventUpdateDistributorProductUintsEvent = changetype<
-    manufacturerProducteventUpdateDistributorProductUints
+): eventUpdateManufacturerProductUints {
+  let eventUpdateManufacturerProductUintsEvent = changetype<
+    eventUpdateManufacturerProductUints
   >(newMockEvent())
 
-  manufacturerProducteventUpdateDistributorProductUintsEvent.parameters = new Array()
+  eventUpdateManufacturerProductUintsEvent.parameters = new Array()
 
-  manufacturerProducteventUpdateDistributorProductUintsEvent.parameters.push(
+  eventUpdateManufacturerProductUintsEvent.parameters.push(
     new ethereum.EventParam("_dpId", ethereum.Value.fromUnsignedBigInt(_dpId))
   )
-  manufacturerProducteventUpdateDistributorProductUintsEvent.parameters.push(
+  eventUpdateManufacturerProductUintsEvent.parameters.push(
     new ethereum.EventParam(
       "_quantity",
       ethereum.Value.fromUnsignedBigInt(_quantity)
     )
   )
 
-  return manufacturerProducteventUpdateDistributorProductUintsEvent
+  return eventUpdateManufacturerProductUintsEvent
 }

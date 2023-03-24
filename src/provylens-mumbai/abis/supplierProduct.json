@@ -55,12 +55,6 @@
         "internalType": "uint256",
         "name": "_timeAdded",
         "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "_status",
-        "type": "bool"
       }
     ],
     "name": "eventAddSupplierProduct",
@@ -72,7 +66,7 @@
       {
         "indexed": true,
         "internalType": "uint256",
-        "name": "_id",
+        "name": "_spId",
         "type": "uint256"
       }
     ],
@@ -113,7 +107,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "_spId", "type": "uint256" }
+    ],
     "name": "deleteSupplierProduct",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -150,7 +146,7 @@
             "name": "sp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "sp_status", "type": "bool" }
         ],
         "internalType": "struct ISupplierProduct.supplierProduct[]",
         "name": "",
@@ -161,8 +157,10 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
-    "name": "getSingleProduct",
+    "inputs": [
+      { "internalType": "uint256", "name": "_spId", "type": "uint256" }
+    ],
+    "name": "getSingleSupplierProduct",
     "outputs": [
       {
         "components": [
@@ -185,7 +183,7 @@
             "name": "sp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "sp_status", "type": "bool" }
         ],
         "internalType": "struct ISupplierProduct.supplierProduct",
         "name": "",
@@ -229,7 +227,7 @@
       { "internalType": "uint128", "name": "sp_price", "type": "uint128" },
       { "internalType": "uint32", "name": "sp_date", "type": "uint32" },
       { "internalType": "uint32", "name": "sp_expiryDate", "type": "uint32" },
-      { "internalType": "bool", "name": "status", "type": "bool" }
+      { "internalType": "bool", "name": "sp_status", "type": "bool" }
     ],
     "stateMutability": "view",
     "type": "function"

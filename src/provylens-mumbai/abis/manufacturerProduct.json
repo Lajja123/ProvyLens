@@ -9,13 +9,13 @@
         "type": "uint256"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "address[]",
         "name": "_supplierAddress",
         "type": "address[]"
       },
       {
-        "indexed": true,
+        "indexed": false,
         "internalType": "uint256[]",
         "name": "_smId",
         "type": "uint256[]"
@@ -55,12 +55,6 @@
         "internalType": "uint32",
         "name": "_expiryDate",
         "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "status",
-        "type": "bool"
       }
     ],
     "name": "eventAddManufacturerProduct",
@@ -72,7 +66,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "_Id",
+        "name": "_mpId",
         "type": "uint256"
       }
     ],
@@ -95,7 +89,7 @@
         "type": "uint128"
       }
     ],
-    "name": "manufacturerProducteventUpdateDistributorProductUints",
+    "name": "eventUpdateManufacturerProductUints",
     "type": "event"
   },
   {
@@ -119,7 +113,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "_mpId", "type": "uint256" }
+    ],
     "name": "deleteManufacturerProduct",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -157,7 +153,7 @@
             "name": "mp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "mp_status", "type": "bool" }
         ],
         "internalType": "struct IManufacturerProduct.manufacturerProduct[]",
         "name": "",
@@ -177,7 +173,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "_mpId", "type": "uint256" }
+    ],
     "name": "getSingleManufacturerProduct",
     "outputs": [
       {
@@ -202,7 +200,7 @@
             "name": "mp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "mp_status", "type": "bool" }
         ],
         "internalType": "struct IManufacturerProduct.manufacturerProduct",
         "name": "",
@@ -232,7 +230,7 @@
       { "internalType": "uint128", "name": "mp_price", "type": "uint128" },
       { "internalType": "uint32", "name": "mp_date", "type": "uint32" },
       { "internalType": "uint32", "name": "mp_expiryDate", "type": "uint32" },
-      { "internalType": "bool", "name": "status", "type": "bool" }
+      { "internalType": "bool", "name": "mp_status", "type": "bool" }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -242,7 +240,7 @@
       { "internalType": "uint256", "name": "_mpId", "type": "uint256" },
       { "internalType": "uint128", "name": "_quantity", "type": "uint128" }
     ],
-    "name": "updateDistributorProductUints",
+    "name": "updateManufacturerProductUints",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

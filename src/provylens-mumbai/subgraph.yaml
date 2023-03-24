@@ -6,9 +6,9 @@ dataSources:
     name: userDetails
     network: mumbai
     source:
-      address: "0x929012A302e322c0a414467176b3914A546c8362"
+      address: "0x345a54479E50ef9A0cAB015AF27A48142D40629f"
       abi: userDetails
-      startBlock: 33457692
+      startBlock: 33520682
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -20,16 +20,16 @@ dataSources:
         - name: userDetails
           file: ./abis/userDetails.json
       eventHandlers:
-        - event: eventDeleteUser(address)
+        - event: eventDeleteUser(indexed address)
           handler: handleeventDeleteUser
-        - event: eventUserData(address,uint8,bytes,bytes,bytes,uint256)
+        - event: eventUserData(indexed address,uint8,bytes,bytes,bytes,uint256)
           handler: handleeventUserData
       file: ./src/user-details.ts
   - kind: ethereum
     name: supplierProduct
     network: mumbai
     source:
-      address: "0x8900c2D17F3d2529527f76a27a035B8d64151a20"
+      address: "0x3175bCC44B162941d38325005EBF867769Dec1A3"
       abi: supplierProduct
     mapping:
       kind: ethereum/events
@@ -44,7 +44,7 @@ dataSources:
           file: ./abis/supplierProduct.json
       eventHandlers:
         - event: eventAddSupplierProduct(indexed uint256,indexed
-            address,bytes,bytes,uint128,uint128,uint32,uint32,uint256,bool)
+            address,bytes,bytes,uint128,uint128,uint32,uint32,uint256)
           handler: handleeventAddSupplierProduct
         - event: eventDeleteSupplierProduct(indexed uint256)
           handler: handleeventDeleteSupplierProduct
@@ -52,10 +52,62 @@ dataSources:
           handler: handleeventUpdateSupplierProductUints
       file: ./src/supplier-product.ts
   - kind: ethereum
+    name: manufacturerProduct
+    network: mumbai
+    source:
+      address: "0x8d0E34868684f8bc8244E7f4f5B2784dce342309"
+      abi: manufacturerProduct
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - eventAddManufacturerProduct
+        - eventDeleteManufacturerProduct
+        - eventUpdateManufacturerProductUints
+      abis:
+        - name: manufacturerProduct
+          file: ./abis/manufacturerProduct.json
+      eventHandlers:
+        - event: eventAddManufacturerProduct(indexed
+            uint256,address[],uint256[],bytes,bytes,uint128,uint128,uint32,uint32)
+          handler: handleeventAddManufacturerProduct
+        - event: eventDeleteManufacturerProduct(uint256)
+          handler: handleeventDeleteManufacturerProduct
+        - event: eventUpdateManufacturerProductUints(indexed uint256,uint128)
+          handler: handleeventUpdateManufacturerProductUints
+      file: ./src/manufacturer-product.ts
+  - kind: ethereum
+    name: distributorProduct
+    network: mumbai
+    source:
+      address: "0xb3169F83fdBDFf9b7affc76A3981B8e0049e5Bd9"
+      abi: distributorProduct
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - eventAddDistributorProduct
+        - eventDeleteDistributorProduct
+        - eventUpdateDistributorProductUints
+      abis:
+        - name: distributorProduct
+          file: ./abis/distributorProduct.json
+      eventHandlers:
+        - event: eventAddDistributorProduct(indexed uint256,indexed address[],indexed
+            uint256[],bytes,bytes,uint128,uint128,uint32,uint32)
+          handler: handleeventAddDistributorProduct
+        - event: eventDeleteDistributorProduct(indexed uint256)
+          handler: handleeventDeleteDistributorProduct
+        - event: eventUpdateDistributorProductUints(indexed uint256,uint128)
+          handler: handleeventUpdateDistributorProductUints
+      file: ./src/distributor-product.ts
+  - kind: ethereum
     name: supplierManufacturer
     network: mumbai
     source:
-      address: "0xdDdf27b3a3E691f7FEB376000aA837b48d01C0A7"
+      address: "0xbc04AF6F9DC7D40fC63CF12c5e6Ed6dC0fE6eE4c"
       abi: supplierManufacturer
     mapping:
       kind: ethereum/events
@@ -78,7 +130,7 @@ dataSources:
     name: manufacturerDistributor
     network: mumbai
     source:
-      address: "0xC497E56E307BD4a9684f343DE9212b82f736A144"
+      address: "0x829D5780E6a31f2B7A9a7B44Cc45bd980baDB081"
       abi: manufacturerDistributor
     mapping:
       kind: ethereum/events
@@ -97,57 +149,3 @@ dataSources:
             uint256,address,address,uint32)
           handler: handleeventManufacturerDistributorTransfer
       file: ./src/manufacturer-distributor.ts
-  - kind: ethereum
-    name: distributorProduct
-    network: mumbai
-    source:
-      address: "0x2B21aFe3B9c4Fe8A2b891022ACD64F39A24ebaC5"
-      abi: distributorProduct
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      entities:
-        - eventAddDistributorProduct
-        - eventDeleteDistributorProduct
-        - eventUpdateDistributorProductUints
-      abis:
-        - name: distributorProduct
-          file: ./abis/distributorProduct.json
-      eventHandlers:
-        - event:
-            eventAddDistributorProduct(indexed uint256,indexed address[],indexed
-            uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool)
-          handler: handleeventAddDistributorProduct
-        - event: eventDeleteDistributorProduct(indexed uint256)
-          handler: handleeventDeleteDistributorProduct
-        - event: eventUpdateDistributorProductUints(indexed uint256,uint128)
-          handler: handleeventUpdateDistributorProductUints
-      file: ./src/distributor-product.ts
-  - kind: ethereum
-    name: manufacturerProduct
-    network: mumbai
-    source:
-      address: "0xfa1f36cC23A82baA7b47f2589311De283BBA3a9b"
-      abi: manufacturerProduct
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      entities:
-        - eventAddManufacturerProduct
-        - eventDeleteManufacturerProduct
-        - manufacturerProducteventUpdateDistributorProductUints
-      abis:
-        - name: manufacturerProduct
-          file: ./abis/manufacturerProduct.json
-      eventHandlers:
-        - event:
-            eventAddManufacturerProduct(indexed uint256,indexed address[],indexed
-            uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool)
-          handler: handleeventAddManufacturerProduct
-        - event: eventDeleteManufacturerProduct(uint256)
-          handler: handleeventDeleteManufacturerProduct
-        - event: manufacturerProducteventUpdateDistributorProductUints(indexed uint256,uint128)
-          handler: handlemanufacturerProducteventUpdateDistributorProductUints
-      file: ./src/manufacturer-product.ts

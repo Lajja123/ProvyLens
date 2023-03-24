@@ -27,12 +27,12 @@ export class eventAddManufacturerProduct__Params {
     return this._event.parameters[0].value.toBigInt();
   }
 
-  get _supplierAddress(): Bytes {
-    return this._event.parameters[1].value.toBytes();
+  get _supplierAddress(): Array<Address> {
+    return this._event.parameters[1].value.toAddressArray();
   }
 
-  get _smId(): Bytes {
-    return this._event.parameters[2].value.toBytes();
+  get _smId(): Array<BigInt> {
+    return this._event.parameters[2].value.toBigIntArray();
   }
 
   get _name(): Bytes {
@@ -58,10 +58,6 @@ export class eventAddManufacturerProduct__Params {
   get _expiryDate(): BigInt {
     return this._event.parameters[8].value.toBigInt();
   }
-
-  get status(): boolean {
-    return this._event.parameters[9].value.toBoolean();
-  }
 }
 
 export class eventDeleteManufacturerProduct extends ethereum.Event {
@@ -77,23 +73,21 @@ export class eventDeleteManufacturerProduct__Params {
     this._event = event;
   }
 
-  get _Id(): BigInt {
+  get _mpId(): BigInt {
     return this._event.parameters[0].value.toBigInt();
   }
 }
 
-export class manufacturerProducteventUpdateDistributorProductUints extends ethereum.Event {
-  get params(): manufacturerProducteventUpdateDistributorProductUints__Params {
-    return new manufacturerProducteventUpdateDistributorProductUints__Params(
-      this
-    );
+export class eventUpdateManufacturerProductUints extends ethereum.Event {
+  get params(): eventUpdateManufacturerProductUints__Params {
+    return new eventUpdateManufacturerProductUints__Params(this);
   }
 }
 
-export class manufacturerProducteventUpdateDistributorProductUints__Params {
-  _event: manufacturerProducteventUpdateDistributorProductUints;
+export class eventUpdateManufacturerProductUints__Params {
+  _event: eventUpdateManufacturerProductUints;
 
-  constructor(event: manufacturerProducteventUpdateDistributorProductUints) {
+  constructor(event: eventUpdateManufacturerProductUints) {
     this._event = event;
   }
 
@@ -139,7 +133,7 @@ export class manufacturerProduct__getAllProductsOfManufacturerResultValue0Struct
     return this[7].toBigInt();
   }
 
-  get status(): boolean {
+  get mp_status(): boolean {
     return this[8].toBoolean();
   }
 }
@@ -177,7 +171,7 @@ export class manufacturerProduct__getSingleManufacturerProductResultValue0Struct
     return this[7].toBigInt();
   }
 
-  get status(): boolean {
+  get mp_status(): boolean {
     return this[8].toBoolean();
   }
 }
@@ -245,7 +239,7 @@ export class manufacturerProduct__manufacturerProductsIdToStructMappingResult {
     return this.value5;
   }
 
-  getStatus(): boolean {
+  getMp_status(): boolean {
     return this.value6;
   }
 }
@@ -316,12 +310,12 @@ export class manufacturerProduct extends ethereum.SmartContract {
   }
 
   getSingleManufacturerProduct(
-    _id: BigInt
+    _mpId: BigInt
   ): manufacturerProduct__getSingleManufacturerProductResultValue0Struct {
     let result = super.call(
       "getSingleManufacturerProduct",
       "getSingleManufacturerProduct(uint256):((address[],uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      [ethereum.Value.fromUnsignedBigInt(_mpId)]
     );
 
     return changetype<
@@ -330,14 +324,14 @@ export class manufacturerProduct extends ethereum.SmartContract {
   }
 
   try_getSingleManufacturerProduct(
-    _id: BigInt
+    _mpId: BigInt
   ): ethereum.CallResult<
     manufacturerProduct__getSingleManufacturerProductResultValue0Struct
   > {
     let result = super.tryCall(
       "getSingleManufacturerProduct",
       "getSingleManufacturerProduct(uint256):((address[],uint256[],bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      [ethereum.Value.fromUnsignedBigInt(_mpId)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -508,7 +502,7 @@ export class DeleteManufacturerProductCall__Inputs {
     this._call = call;
   }
 
-  get _id(): BigInt {
+  get _mpId(): BigInt {
     return this._call.inputValues[0].value.toBigInt();
   }
 }
@@ -521,20 +515,20 @@ export class DeleteManufacturerProductCall__Outputs {
   }
 }
 
-export class UpdateDistributorProductUintsCall extends ethereum.Call {
-  get inputs(): UpdateDistributorProductUintsCall__Inputs {
-    return new UpdateDistributorProductUintsCall__Inputs(this);
+export class UpdateManufacturerProductUintsCall extends ethereum.Call {
+  get inputs(): UpdateManufacturerProductUintsCall__Inputs {
+    return new UpdateManufacturerProductUintsCall__Inputs(this);
   }
 
-  get outputs(): UpdateDistributorProductUintsCall__Outputs {
-    return new UpdateDistributorProductUintsCall__Outputs(this);
+  get outputs(): UpdateManufacturerProductUintsCall__Outputs {
+    return new UpdateManufacturerProductUintsCall__Outputs(this);
   }
 }
 
-export class UpdateDistributorProductUintsCall__Inputs {
-  _call: UpdateDistributorProductUintsCall;
+export class UpdateManufacturerProductUintsCall__Inputs {
+  _call: UpdateManufacturerProductUintsCall;
 
-  constructor(call: UpdateDistributorProductUintsCall) {
+  constructor(call: UpdateManufacturerProductUintsCall) {
     this._call = call;
   }
 
@@ -547,10 +541,10 @@ export class UpdateDistributorProductUintsCall__Inputs {
   }
 }
 
-export class UpdateDistributorProductUintsCall__Outputs {
-  _call: UpdateDistributorProductUintsCall;
+export class UpdateManufacturerProductUintsCall__Outputs {
+  _call: UpdateManufacturerProductUintsCall;
 
-  constructor(call: UpdateDistributorProductUintsCall) {
+  constructor(call: UpdateManufacturerProductUintsCall) {
     this._call = call;
   }
 }

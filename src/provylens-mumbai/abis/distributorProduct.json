@@ -55,12 +55,6 @@
         "internalType": "uint32",
         "name": "_expiryDate",
         "type": "uint32"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "status",
-        "type": "bool"
       }
     ],
     "name": "eventAddDistributorProduct",
@@ -72,7 +66,7 @@
       {
         "indexed": true,
         "internalType": "uint256",
-        "name": "_id",
+        "name": "_dpId",
         "type": "uint256"
       }
     ],
@@ -119,7 +113,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "_dpId", "type": "uint256" }
+    ],
     "name": "deleteDistributorProduct",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -145,7 +141,7 @@
       { "internalType": "uint128", "name": "dp_price", "type": "uint128" },
       { "internalType": "uint32", "name": "dp_date", "type": "uint32" },
       { "internalType": "uint32", "name": "dp_expiryDate", "type": "uint32" },
-      { "internalType": "bool", "name": "status", "type": "bool" }
+      { "internalType": "bool", "name": "dp_status", "type": "bool" }
     ],
     "stateMutability": "view",
     "type": "function"
@@ -182,7 +178,7 @@
             "name": "dp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "dp_status", "type": "bool" }
         ],
         "internalType": "struct IDistributorProduct.distributorProduct[]",
         "name": "",
@@ -202,7 +198,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }],
+    "inputs": [
+      { "internalType": "uint256", "name": "_dpId", "type": "uint256" }
+    ],
     "name": "getSingleDistributorProduct",
     "outputs": [
       {
@@ -227,7 +225,7 @@
             "name": "dp_expiryDate",
             "type": "uint32"
           },
-          { "internalType": "bool", "name": "status", "type": "bool" }
+          { "internalType": "bool", "name": "dp_status", "type": "bool" }
         ],
         "internalType": "struct IDistributorProduct.distributorProduct",
         "name": "",

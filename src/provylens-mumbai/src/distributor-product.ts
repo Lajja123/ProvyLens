@@ -17,12 +17,8 @@ export function handleeventAddDistributorProduct(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._dpId = event.params._dpId;
-  // entity._manufacturerAddress = event.params._manufacturerAddress;
-  // // .map<Bytes>(
-  // //   (e: Bytes) => e
-  // // );
-  // entity._mdId = event.params._mdId;
-  // // .map<Bytes>((e: Bytes) => e);
+  // entity._manufacturerAddress = event.params._manufacturerAddress
+  // entity._mdId = event.params._mdId
   entity._manufacturerAddress = changetype<Bytes[]>(
     event.params._manufacturerAddress
   );
@@ -33,7 +29,6 @@ export function handleeventAddDistributorProduct(
   entity._price = event.params._price;
   entity._date = event.params._date;
   entity._expiryDate = event.params._expiryDate;
-  entity.status = event.params.status;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -48,7 +43,7 @@ export function handleeventDeleteDistributorProduct(
   let entity = new eventDeleteDistributorProduct(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._id = event.params._id;
+  entity._dpId = event.params._dpId;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;

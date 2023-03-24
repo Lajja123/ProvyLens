@@ -24,7 +24,6 @@ export function handleeventAddSupplierProduct(
   entity._date = event.params._date
   entity._expiryDate = event.params._expiryDate
   entity._timeAdded = event.params._timeAdded
-  entity._status = event.params._status
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
@@ -39,7 +38,7 @@ export function handleeventDeleteSupplierProduct(
   let entity = new eventDeleteSupplierProduct(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity._id = event.params._id
+  entity._spId = event.params._spId
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

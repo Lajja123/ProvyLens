@@ -313,15 +313,6 @@ export class eventAddSupplierProduct extends Entity {
     this.set("_timeAdded", Value.fromBigInt(value));
   }
 
-  get _status(): boolean {
-    let value = this.get("_status");
-    return value!.toBoolean();
-  }
-
-  set _status(value: boolean) {
-    this.set("_status", Value.fromBoolean(value));
-  }
-
   get blockNumber(): BigInt {
     let value = this.get("blockNumber");
     return value!.toBigInt();
@@ -386,13 +377,13 @@ export class eventDeleteSupplierProduct extends Entity {
     this.set("id", Value.fromBytes(value));
   }
 
-  get _id(): BigInt {
-    let value = this.get("_id");
+  get _spId(): BigInt {
+    let value = this.get("_spId");
     return value!.toBigInt();
   }
 
-  set _id(value: BigInt) {
-    this.set("_id", Value.fromBigInt(value));
+  set _spId(value: BigInt) {
+    this.set("_spId", Value.fromBigInt(value));
   }
 
   get blockNumber(): BigInt {
@@ -470,6 +461,626 @@ export class eventUpdateSupplierProductUints extends Entity {
 
   set _spId(value: BigInt) {
     this.set("_spId", Value.fromBigInt(value));
+  }
+
+  get _quantity(): BigInt {
+    let value = this.get("_quantity");
+    return value!.toBigInt();
+  }
+
+  set _quantity(value: BigInt) {
+    this.set("_quantity", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventAddManufacturerProduct extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventAddManufacturerProduct entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventAddManufacturerProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set(
+        "eventAddManufacturerProduct",
+        id.toBytes().toHexString(),
+        this
+      );
+    }
+  }
+
+  static load(id: Bytes): eventAddManufacturerProduct | null {
+    return changetype<eventAddManufacturerProduct | null>(
+      store.get("eventAddManufacturerProduct", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _mpId(): BigInt {
+    let value = this.get("_mpId");
+    return value!.toBigInt();
+  }
+
+  set _mpId(value: BigInt) {
+    this.set("_mpId", Value.fromBigInt(value));
+  }
+
+  get _supplierAddress(): Array<Bytes> {
+    let value = this.get("_supplierAddress");
+    return value!.toBytesArray();
+  }
+
+  set _supplierAddress(value: Array<Bytes>) {
+    this.set("_supplierAddress", Value.fromBytesArray(value));
+  }
+
+  get _smId(): Array<BigInt> {
+    let value = this.get("_smId");
+    return value!.toBigIntArray();
+  }
+
+  set _smId(value: Array<BigInt>) {
+    this.set("_smId", Value.fromBigIntArray(value));
+  }
+
+  get _name(): Bytes {
+    let value = this.get("_name");
+    return value!.toBytes();
+  }
+
+  set _name(value: Bytes) {
+    this.set("_name", Value.fromBytes(value));
+  }
+
+  get _description(): Bytes {
+    let value = this.get("_description");
+    return value!.toBytes();
+  }
+
+  set _description(value: Bytes) {
+    this.set("_description", Value.fromBytes(value));
+  }
+
+  get _unit(): BigInt {
+    let value = this.get("_unit");
+    return value!.toBigInt();
+  }
+
+  set _unit(value: BigInt) {
+    this.set("_unit", Value.fromBigInt(value));
+  }
+
+  get _price(): BigInt {
+    let value = this.get("_price");
+    return value!.toBigInt();
+  }
+
+  set _price(value: BigInt) {
+    this.set("_price", Value.fromBigInt(value));
+  }
+
+  get _date(): BigInt {
+    let value = this.get("_date");
+    return value!.toBigInt();
+  }
+
+  set _date(value: BigInt) {
+    this.set("_date", Value.fromBigInt(value));
+  }
+
+  get _expiryDate(): BigInt {
+    let value = this.get("_expiryDate");
+    return value!.toBigInt();
+  }
+
+  set _expiryDate(value: BigInt) {
+    this.set("_expiryDate", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventDeleteManufacturerProduct extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventDeleteManufacturerProduct entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventDeleteManufacturerProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set(
+        "eventDeleteManufacturerProduct",
+        id.toBytes().toHexString(),
+        this
+      );
+    }
+  }
+
+  static load(id: Bytes): eventDeleteManufacturerProduct | null {
+    return changetype<eventDeleteManufacturerProduct | null>(
+      store.get("eventDeleteManufacturerProduct", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _mpId(): BigInt {
+    let value = this.get("_mpId");
+    return value!.toBigInt();
+  }
+
+  set _mpId(value: BigInt) {
+    this.set("_mpId", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventUpdateManufacturerProductUints extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventUpdateManufacturerProductUints entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventUpdateManufacturerProductUints must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set(
+        "eventUpdateManufacturerProductUints",
+        id.toBytes().toHexString(),
+        this
+      );
+    }
+  }
+
+  static load(id: Bytes): eventUpdateManufacturerProductUints | null {
+    return changetype<eventUpdateManufacturerProductUints | null>(
+      store.get("eventUpdateManufacturerProductUints", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _dpId(): BigInt {
+    let value = this.get("_dpId");
+    return value!.toBigInt();
+  }
+
+  set _dpId(value: BigInt) {
+    this.set("_dpId", Value.fromBigInt(value));
+  }
+
+  get _quantity(): BigInt {
+    let value = this.get("_quantity");
+    return value!.toBigInt();
+  }
+
+  set _quantity(value: BigInt) {
+    this.set("_quantity", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventAddDistributorProduct extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventAddDistributorProduct entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventAddDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("eventAddDistributorProduct", id.toBytes().toHexString(), this);
+    }
+  }
+
+  static load(id: Bytes): eventAddDistributorProduct | null {
+    return changetype<eventAddDistributorProduct | null>(
+      store.get("eventAddDistributorProduct", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _dpId(): BigInt {
+    let value = this.get("_dpId");
+    return value!.toBigInt();
+  }
+
+  set _dpId(value: BigInt) {
+    this.set("_dpId", Value.fromBigInt(value));
+  }
+
+  get _manufacturerAddress(): Array<Bytes> {
+    let value = this.get("_manufacturerAddress");
+    return value!.toBytesArray();
+  }
+
+  set _manufacturerAddress(value: Array<Bytes>) {
+    this.set("_manufacturerAddress", Value.fromBytesArray(value));
+  }
+
+  get _mdId(): Array<BigInt> {
+    let value = this.get("_mdId");
+    return value!.toBigIntArray();
+  }
+
+  set _mdId(value: Array<BigInt>) {
+    this.set("_mdId", Value.fromBigIntArray(value));
+  }
+
+  get _name(): Bytes {
+    let value = this.get("_name");
+    return value!.toBytes();
+  }
+
+  set _name(value: Bytes) {
+    this.set("_name", Value.fromBytes(value));
+  }
+
+  get _description(): Bytes {
+    let value = this.get("_description");
+    return value!.toBytes();
+  }
+
+  set _description(value: Bytes) {
+    this.set("_description", Value.fromBytes(value));
+  }
+
+  get _unit(): BigInt {
+    let value = this.get("_unit");
+    return value!.toBigInt();
+  }
+
+  set _unit(value: BigInt) {
+    this.set("_unit", Value.fromBigInt(value));
+  }
+
+  get _price(): BigInt {
+    let value = this.get("_price");
+    return value!.toBigInt();
+  }
+
+  set _price(value: BigInt) {
+    this.set("_price", Value.fromBigInt(value));
+  }
+
+  get _date(): BigInt {
+    let value = this.get("_date");
+    return value!.toBigInt();
+  }
+
+  set _date(value: BigInt) {
+    this.set("_date", Value.fromBigInt(value));
+  }
+
+  get _expiryDate(): BigInt {
+    let value = this.get("_expiryDate");
+    return value!.toBigInt();
+  }
+
+  set _expiryDate(value: BigInt) {
+    this.set("_expiryDate", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventDeleteDistributorProduct extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventDeleteDistributorProduct entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventDeleteDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set(
+        "eventDeleteDistributorProduct",
+        id.toBytes().toHexString(),
+        this
+      );
+    }
+  }
+
+  static load(id: Bytes): eventDeleteDistributorProduct | null {
+    return changetype<eventDeleteDistributorProduct | null>(
+      store.get("eventDeleteDistributorProduct", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _dpId(): BigInt {
+    let value = this.get("_dpId");
+    return value!.toBigInt();
+  }
+
+  set _dpId(value: BigInt) {
+    this.set("_dpId", Value.fromBigInt(value));
+  }
+
+  get blockNumber(): BigInt {
+    let value = this.get("blockNumber");
+    return value!.toBigInt();
+  }
+
+  set blockNumber(value: BigInt) {
+    this.set("blockNumber", Value.fromBigInt(value));
+  }
+
+  get blockTimestamp(): BigInt {
+    let value = this.get("blockTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockTimestamp(value: BigInt) {
+    this.set("blockTimestamp", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
+  }
+}
+
+export class eventUpdateDistributorProductUints extends Entity {
+  constructor(id: Bytes) {
+    super();
+    this.set("id", Value.fromBytes(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save eventUpdateDistributorProductUints entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.BYTES,
+        `Entities of type eventUpdateDistributorProductUints must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set(
+        "eventUpdateDistributorProductUints",
+        id.toBytes().toHexString(),
+        this
+      );
+    }
+  }
+
+  static load(id: Bytes): eventUpdateDistributorProductUints | null {
+    return changetype<eventUpdateDistributorProductUints | null>(
+      store.get("eventUpdateDistributorProductUints", id.toHexString())
+    );
+  }
+
+  get id(): Bytes {
+    let value = this.get("id");
+    return value!.toBytes();
+  }
+
+  set id(value: Bytes) {
+    this.set("id", Value.fromBytes(value));
+  }
+
+  get _dpId(): BigInt {
+    let value = this.get("_dpId");
+    return value!.toBigInt();
+  }
+
+  set _dpId(value: BigInt) {
+    this.set("_dpId", Value.fromBigInt(value));
   }
 
   get _quantity(): BigInt {
@@ -852,970 +1463,6 @@ export class eventManufacturerDistributorTransfer extends Entity {
 
   set _dispatchTime(value: BigInt) {
     this.set("_dispatchTime", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class eventAddDistributorProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save eventAddDistributorProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type eventAddDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set("eventAddDistributorProduct", id.toBytes().toHexString(), this);
-    }
-  }
-
-  static load(id: Bytes): eventAddDistributorProduct | null {
-    return changetype<eventAddDistributorProduct | null>(
-      store.get("eventAddDistributorProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _dpId(): BigInt {
-    let value = this.get("_dpId");
-    return value!.toBigInt();
-  }
-
-  set _dpId(value: BigInt) {
-    this.set("_dpId", Value.fromBigInt(value));
-  }
-
-  get _manufacturerAddress(): Array<Bytes> {
-    let value = this.get("_manufacturerAddress");
-    return value!.toBytesArray();
-  }
-
-  set _manufacturerAddress(value: Array<Bytes>) {
-    this.set("_manufacturerAddress", Value.fromBytesArray(value));
-  }
-
-  get _mdId(): Array<BigInt> {
-    let value = this.get("_mdId");
-    return value!.toBigIntArray();
-  }
-
-  set _mdId(value: Array<BigInt>) {
-    this.set("_mdId", Value.fromBigIntArray(value));
-  }
-
-  get _name(): Bytes {
-    let value = this.get("_name");
-    return value!.toBytes();
-  }
-
-  set _name(value: Bytes) {
-    this.set("_name", Value.fromBytes(value));
-  }
-
-  get _description(): Bytes {
-    let value = this.get("_description");
-    return value!.toBytes();
-  }
-
-  set _description(value: Bytes) {
-    this.set("_description", Value.fromBytes(value));
-  }
-
-  get _unit(): BigInt {
-    let value = this.get("_unit");
-    return value!.toBigInt();
-  }
-
-  set _unit(value: BigInt) {
-    this.set("_unit", Value.fromBigInt(value));
-  }
-
-  get _price(): BigInt {
-    let value = this.get("_price");
-    return value!.toBigInt();
-  }
-
-  set _price(value: BigInt) {
-    this.set("_price", Value.fromBigInt(value));
-  }
-
-  get _date(): BigInt {
-    let value = this.get("_date");
-    return value!.toBigInt();
-  }
-
-  set _date(value: BigInt) {
-    this.set("_date", Value.fromBigInt(value));
-  }
-
-  get _expiryDate(): BigInt {
-    let value = this.get("_expiryDate");
-    return value!.toBigInt();
-  }
-
-  set _expiryDate(value: BigInt) {
-    this.set("_expiryDate", Value.fromBigInt(value));
-  }
-
-  get status(): boolean {
-    let value = this.get("status");
-    return value!.toBoolean();
-  }
-
-  set status(value: boolean) {
-    this.set("status", Value.fromBoolean(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class eventDeleteDistributorProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save eventDeleteDistributorProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type eventDeleteDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "eventDeleteDistributorProduct",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): eventDeleteDistributorProduct | null {
-    return changetype<eventDeleteDistributorProduct | null>(
-      store.get("eventDeleteDistributorProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _id(): BigInt {
-    let value = this.get("_id");
-    return value!.toBigInt();
-  }
-
-  set _id(value: BigInt) {
-    this.set("_id", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class eventUpdateDistributorProductUints extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save eventUpdateDistributorProductUints entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type eventUpdateDistributorProductUints must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "eventUpdateDistributorProductUints",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): eventUpdateDistributorProductUints | null {
-    return changetype<eventUpdateDistributorProductUints | null>(
-      store.get("eventUpdateDistributorProductUints", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _dpId(): BigInt {
-    let value = this.get("_dpId");
-    return value!.toBigInt();
-  }
-
-  set _dpId(value: BigInt) {
-    this.set("_dpId", Value.fromBigInt(value));
-  }
-
-  get _quantity(): BigInt {
-    let value = this.get("_quantity");
-    return value!.toBigInt();
-  }
-
-  set _quantity(value: BigInt) {
-    this.set("_quantity", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class ContracteventAddDistributorProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save ContracteventAddDistributorProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type ContracteventAddDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "ContracteventAddDistributorProduct",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): ContracteventAddDistributorProduct | null {
-    return changetype<ContracteventAddDistributorProduct | null>(
-      store.get("ContracteventAddDistributorProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _dpId(): BigInt {
-    let value = this.get("_dpId");
-    return value!.toBigInt();
-  }
-
-  set _dpId(value: BigInt) {
-    this.set("_dpId", Value.fromBigInt(value));
-  }
-
-  get _manufacturerAddress(): Array<Bytes> {
-    let value = this.get("_manufacturerAddress");
-    return value!.toBytesArray();
-  }
-
-  set _manufacturerAddress(value: Array<Bytes>) {
-    this.set("_manufacturerAddress", Value.fromBytesArray(value));
-  }
-
-  get _mdId(): Array<BigInt> {
-    let value = this.get("_mdId");
-    return value!.toBigIntArray();
-  }
-
-  set _mdId(value: Array<BigInt>) {
-    this.set("_mdId", Value.fromBigIntArray(value));
-  }
-
-  get _name(): Bytes {
-    let value = this.get("_name");
-    return value!.toBytes();
-  }
-
-  set _name(value: Bytes) {
-    this.set("_name", Value.fromBytes(value));
-  }
-
-  get _description(): Bytes {
-    let value = this.get("_description");
-    return value!.toBytes();
-  }
-
-  set _description(value: Bytes) {
-    this.set("_description", Value.fromBytes(value));
-  }
-
-  get _unit(): BigInt {
-    let value = this.get("_unit");
-    return value!.toBigInt();
-  }
-
-  set _unit(value: BigInt) {
-    this.set("_unit", Value.fromBigInt(value));
-  }
-
-  get _price(): BigInt {
-    let value = this.get("_price");
-    return value!.toBigInt();
-  }
-
-  set _price(value: BigInt) {
-    this.set("_price", Value.fromBigInt(value));
-  }
-
-  get _date(): BigInt {
-    let value = this.get("_date");
-    return value!.toBigInt();
-  }
-
-  set _date(value: BigInt) {
-    this.set("_date", Value.fromBigInt(value));
-  }
-
-  get _expiryDate(): BigInt {
-    let value = this.get("_expiryDate");
-    return value!.toBigInt();
-  }
-
-  set _expiryDate(value: BigInt) {
-    this.set("_expiryDate", Value.fromBigInt(value));
-  }
-
-  get status(): boolean {
-    let value = this.get("status");
-    return value!.toBoolean();
-  }
-
-  set status(value: boolean) {
-    this.set("status", Value.fromBoolean(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class ContracteventDeleteDistributorProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save ContracteventDeleteDistributorProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type ContracteventDeleteDistributorProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "ContracteventDeleteDistributorProduct",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): ContracteventDeleteDistributorProduct | null {
-    return changetype<ContracteventDeleteDistributorProduct | null>(
-      store.get("ContracteventDeleteDistributorProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _id(): BigInt {
-    let value = this.get("_id");
-    return value!.toBigInt();
-  }
-
-  set _id(value: BigInt) {
-    this.set("_id", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class ContracteventUpdateDistributorProductUints extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save ContracteventUpdateDistributorProductUints entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type ContracteventUpdateDistributorProductUints must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "ContracteventUpdateDistributorProductUints",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): ContracteventUpdateDistributorProductUints | null {
-    return changetype<ContracteventUpdateDistributorProductUints | null>(
-      store.get("ContracteventUpdateDistributorProductUints", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _dpId(): BigInt {
-    let value = this.get("_dpId");
-    return value!.toBigInt();
-  }
-
-  set _dpId(value: BigInt) {
-    this.set("_dpId", Value.fromBigInt(value));
-  }
-
-  get _quantity(): BigInt {
-    let value = this.get("_quantity");
-    return value!.toBigInt();
-  }
-
-  set _quantity(value: BigInt) {
-    this.set("_quantity", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class eventAddManufacturerProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save eventAddManufacturerProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type eventAddManufacturerProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "eventAddManufacturerProduct",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): eventAddManufacturerProduct | null {
-    return changetype<eventAddManufacturerProduct | null>(
-      store.get("eventAddManufacturerProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _mpId(): BigInt {
-    let value = this.get("_mpId");
-    return value!.toBigInt();
-  }
-
-  set _mpId(value: BigInt) {
-    this.set("_mpId", Value.fromBigInt(value));
-  }
-
-  get _supplierAddress(): Array<Bytes> {
-    let value = this.get("_supplierAddress");
-    return value!.toBytesArray();
-  }
-
-  set _supplierAddress(value: Array<Bytes>) {
-    this.set("_supplierAddress", Value.fromBytesArray(value));
-  }
-
-  get _smId(): Array<BigInt> {
-    let value = this.get("_smId");
-    return value!.toBigIntArray();
-  }
-
-  set _smId(value: Array<BigInt>) {
-    this.set("_smId", Value.fromBigIntArray(value));
-  }
-
-  get _name(): Bytes {
-    let value = this.get("_name");
-    return value!.toBytes();
-  }
-
-  set _name(value: Bytes) {
-    this.set("_name", Value.fromBytes(value));
-  }
-
-  get _description(): Bytes {
-    let value = this.get("_description");
-    return value!.toBytes();
-  }
-
-  set _description(value: Bytes) {
-    this.set("_description", Value.fromBytes(value));
-  }
-
-  get _unit(): BigInt {
-    let value = this.get("_unit");
-    return value!.toBigInt();
-  }
-
-  set _unit(value: BigInt) {
-    this.set("_unit", Value.fromBigInt(value));
-  }
-
-  get _price(): BigInt {
-    let value = this.get("_price");
-    return value!.toBigInt();
-  }
-
-  set _price(value: BigInt) {
-    this.set("_price", Value.fromBigInt(value));
-  }
-
-  get _date(): BigInt {
-    let value = this.get("_date");
-    return value!.toBigInt();
-  }
-
-  set _date(value: BigInt) {
-    this.set("_date", Value.fromBigInt(value));
-  }
-
-  get _expiryDate(): BigInt {
-    let value = this.get("_expiryDate");
-    return value!.toBigInt();
-  }
-
-  set _expiryDate(value: BigInt) {
-    this.set("_expiryDate", Value.fromBigInt(value));
-  }
-
-  get status(): boolean {
-    let value = this.get("status");
-    return value!.toBoolean();
-  }
-
-  set status(value: boolean) {
-    this.set("status", Value.fromBoolean(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class eventDeleteManufacturerProduct extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save eventDeleteManufacturerProduct entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type eventDeleteManufacturerProduct must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "eventDeleteManufacturerProduct",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(id: Bytes): eventDeleteManufacturerProduct | null {
-    return changetype<eventDeleteManufacturerProduct | null>(
-      store.get("eventDeleteManufacturerProduct", id.toHexString())
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _Id(): BigInt {
-    let value = this.get("_Id");
-    return value!.toBigInt();
-  }
-
-  set _Id(value: BigInt) {
-    this.set("_Id", Value.fromBigInt(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    return value!.toBigInt();
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get blockTimestamp(): BigInt {
-    let value = this.get("blockTimestamp");
-    return value!.toBigInt();
-  }
-
-  set blockTimestamp(value: BigInt) {
-    this.set("blockTimestamp", Value.fromBigInt(value));
-  }
-
-  get transactionHash(): Bytes {
-    let value = this.get("transactionHash");
-    return value!.toBytes();
-  }
-
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
-  }
-}
-
-export class manufacturerProducteventUpdateDistributorProductUints extends Entity {
-  constructor(id: Bytes) {
-    super();
-    this.set("id", Value.fromBytes(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save manufacturerProducteventUpdateDistributorProductUints entity without an ID"
-    );
-    if (id) {
-      assert(
-        id.kind == ValueKind.BYTES,
-        `Entities of type manufacturerProducteventUpdateDistributorProductUints must have an ID of type Bytes but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set(
-        "manufacturerProducteventUpdateDistributorProductUints",
-        id.toBytes().toHexString(),
-        this
-      );
-    }
-  }
-
-  static load(
-    id: Bytes
-  ): manufacturerProducteventUpdateDistributorProductUints | null {
-    return changetype<manufacturerProducteventUpdateDistributorProductUints | null>(
-      store.get(
-        "manufacturerProducteventUpdateDistributorProductUints",
-        id.toHexString()
-      )
-    );
-  }
-
-  get id(): Bytes {
-    let value = this.get("id");
-    return value!.toBytes();
-  }
-
-  set id(value: Bytes) {
-    this.set("id", Value.fromBytes(value));
-  }
-
-  get _dpId(): BigInt {
-    let value = this.get("_dpId");
-    return value!.toBigInt();
-  }
-
-  set _dpId(value: BigInt) {
-    this.set("_dpId", Value.fromBigInt(value));
-  }
-
-  get _quantity(): BigInt {
-    let value = this.get("_quantity");
-    return value!.toBigInt();
-  }
-
-  set _quantity(value: BigInt) {
-    this.set("_quantity", Value.fromBigInt(value));
   }
 
   get blockNumber(): BigInt {

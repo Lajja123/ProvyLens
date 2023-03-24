@@ -82,6 +82,10 @@ export class userDetails__getAllDistributorsResultValue0Struct extends ethereum.
   get userImage(): Bytes {
     return this[3].toBytes();
   }
+
+  get userStatus(): boolean {
+    return this[4].toBoolean();
+  }
 }
 
 export class userDetails__getAllManufacturersResultValue0Struct extends ethereum.Tuple {
@@ -99,6 +103,10 @@ export class userDetails__getAllManufacturersResultValue0Struct extends ethereum
 
   get userImage(): Bytes {
     return this[3].toBytes();
+  }
+
+  get userStatus(): boolean {
+    return this[4].toBoolean();
   }
 }
 
@@ -118,6 +126,10 @@ export class userDetails__getAllSuppliersResultValue0Struct extends ethereum.Tup
   get userImage(): Bytes {
     return this[3].toBytes();
   }
+
+  get userStatus(): boolean {
+    return this[4].toBoolean();
+  }
 }
 
 export class userDetails__getAllUsersResultValue0Struct extends ethereum.Tuple {
@@ -135,6 +147,10 @@ export class userDetails__getAllUsersResultValue0Struct extends ethereum.Tuple {
 
   get userImage(): Bytes {
     return this[3].toBytes();
+  }
+
+  get userStatus(): boolean {
+    return this[4].toBoolean();
   }
 }
 
@@ -154,6 +170,10 @@ export class userDetails__getSingleUserResultValue0Struct extends ethereum.Tuple
   get userImage(): Bytes {
     return this[3].toBytes();
   }
+
+  get userStatus(): boolean {
+    return this[4].toBoolean();
+  }
 }
 
 export class userDetails__userDetailsMappingResult {
@@ -161,12 +181,20 @@ export class userDetails__userDetailsMappingResult {
   value1: Bytes;
   value2: Bytes;
   value3: Bytes;
+  value4: boolean;
 
-  constructor(value0: i32, value1: Bytes, value2: Bytes, value3: Bytes) {
+  constructor(
+    value0: i32,
+    value1: Bytes,
+    value2: Bytes,
+    value3: Bytes,
+    value4: boolean
+  ) {
     this.value0 = value0;
     this.value1 = value1;
     this.value2 = value2;
     this.value3 = value3;
+    this.value4 = value4;
   }
 
   toMap(): TypedMap<string, ethereum.Value> {
@@ -178,6 +206,7 @@ export class userDetails__userDetailsMappingResult {
     map.set("value1", ethereum.Value.fromBytes(this.value1));
     map.set("value2", ethereum.Value.fromBytes(this.value2));
     map.set("value3", ethereum.Value.fromBytes(this.value3));
+    map.set("value4", ethereum.Value.fromBoolean(this.value4));
     return map;
   }
 
@@ -195,6 +224,10 @@ export class userDetails__userDetailsMappingResult {
 
   getUserImage(): Bytes {
     return this.value3;
+  }
+
+  getUserStatus(): boolean {
+    return this.value4;
   }
 }
 
@@ -229,7 +262,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.call(
       "getAllDistributors",
-      "getAllDistributors():((uint8,bytes,bytes,bytes)[])",
+      "getAllDistributors():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
 
@@ -243,7 +276,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.tryCall(
       "getAllDistributors",
-      "getAllDistributors():((uint8,bytes,bytes,bytes)[])",
+      "getAllDistributors():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
     if (result.reverted) {
@@ -260,7 +293,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.call(
       "getAllManufacturers",
-      "getAllManufacturers():((uint8,bytes,bytes,bytes)[])",
+      "getAllManufacturers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
 
@@ -274,7 +307,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.tryCall(
       "getAllManufacturers",
-      "getAllManufacturers():((uint8,bytes,bytes,bytes)[])",
+      "getAllManufacturers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
     if (result.reverted) {
@@ -291,7 +324,7 @@ export class userDetails extends ethereum.SmartContract {
   getAllSuppliers(): Array<userDetails__getAllSuppliersResultValue0Struct> {
     let result = super.call(
       "getAllSuppliers",
-      "getAllSuppliers():((uint8,bytes,bytes,bytes)[])",
+      "getAllSuppliers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
 
@@ -305,7 +338,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.tryCall(
       "getAllSuppliers",
-      "getAllSuppliers():((uint8,bytes,bytes,bytes)[])",
+      "getAllSuppliers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
     if (result.reverted) {
@@ -320,7 +353,7 @@ export class userDetails extends ethereum.SmartContract {
   getAllUsers(): Array<userDetails__getAllUsersResultValue0Struct> {
     let result = super.call(
       "getAllUsers",
-      "getAllUsers():((uint8,bytes,bytes,bytes)[])",
+      "getAllUsers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
 
@@ -332,7 +365,7 @@ export class userDetails extends ethereum.SmartContract {
   > {
     let result = super.tryCall(
       "getAllUsers",
-      "getAllUsers():((uint8,bytes,bytes,bytes)[])",
+      "getAllUsers():((uint8,bytes,bytes,bytes,bool)[])",
       []
     );
     if (result.reverted) {
@@ -349,7 +382,7 @@ export class userDetails extends ethereum.SmartContract {
   ): userDetails__getSingleUserResultValue0Struct {
     let result = super.call(
       "getSingleUser",
-      "getSingleUser(address):((uint8,bytes,bytes,bytes))",
+      "getSingleUser(address):((uint8,bytes,bytes,bytes,bool))",
       [ethereum.Value.fromAddress(_address)]
     );
 
@@ -363,7 +396,7 @@ export class userDetails extends ethereum.SmartContract {
   ): ethereum.CallResult<userDetails__getSingleUserResultValue0Struct> {
     let result = super.tryCall(
       "getSingleUser",
-      "getSingleUser(address):((uint8,bytes,bytes,bytes))",
+      "getSingleUser(address):((uint8,bytes,bytes,bytes,bool))",
       [ethereum.Value.fromAddress(_address)]
     );
     if (result.reverted) {
@@ -422,7 +455,7 @@ export class userDetails extends ethereum.SmartContract {
   userDetailsMapping(param0: Address): userDetails__userDetailsMappingResult {
     let result = super.call(
       "userDetailsMapping",
-      "userDetailsMapping(address):(uint8,bytes,bytes,bytes)",
+      "userDetailsMapping(address):(uint8,bytes,bytes,bytes,bool)",
       [ethereum.Value.fromAddress(param0)]
     );
 
@@ -430,7 +463,8 @@ export class userDetails extends ethereum.SmartContract {
       result[0].toI32(),
       result[1].toBytes(),
       result[2].toBytes(),
-      result[3].toBytes()
+      result[3].toBytes(),
+      result[4].toBoolean()
     );
   }
 
@@ -439,7 +473,7 @@ export class userDetails extends ethereum.SmartContract {
   ): ethereum.CallResult<userDetails__userDetailsMappingResult> {
     let result = super.tryCall(
       "userDetailsMapping",
-      "userDetailsMapping(address):(uint8,bytes,bytes,bytes)",
+      "userDetailsMapping(address):(uint8,bytes,bytes,bytes,bool)",
       [ethereum.Value.fromAddress(param0)]
     );
     if (result.reverted) {
@@ -451,7 +485,8 @@ export class userDetails extends ethereum.SmartContract {
         value[0].toI32(),
         value[1].toBytes(),
         value[2].toBytes(),
-        value[3].toBytes()
+        value[3].toBytes(),
+        value[4].toBoolean()
       )
     );
   }
@@ -533,10 +568,6 @@ export class DeleteUserCall__Inputs {
 
   constructor(call: DeleteUserCall) {
     this._call = call;
-  }
-
-  get _address(): Address {
-    return this._call.inputValues[0].value.toAddress();
   }
 }
 

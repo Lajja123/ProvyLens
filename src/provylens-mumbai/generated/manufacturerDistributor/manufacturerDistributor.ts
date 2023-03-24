@@ -62,7 +62,7 @@ export class eventManufacturerDistributorTransfer__Params {
   }
 }
 
-export class manufacturerDistributor__getAllmdIdForManufacturerResultValue0Struct extends ethereum.Tuple {
+export class manufacturerDistributor__getAllmdIdForDistributorResultValue0Struct extends ethereum.Tuple {
   get mpId(): BigInt {
     return this[0].toBigInt();
   }
@@ -106,7 +106,7 @@ export class manufacturerDistributor__getProductResultValue0Struct extends ether
   }
 }
 
-export class manufacturerDistributor__mdidToStructMappingResult {
+export class manufacturerDistributor__mdIdToStructMappingResult {
   value0: BigInt;
   value1: Address;
   value2: Address;
@@ -163,10 +163,10 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     return new manufacturerDistributor("manufacturerDistributor", address);
   }
 
-  distributorTosmIDMapping(param0: Address, param1: BigInt): BigInt {
+  distributorTosmIdMapping(param0: Address, param1: BigInt): BigInt {
     let result = super.call(
-      "distributorTosmIDMapping",
-      "distributorTosmIDMapping(address,uint256):(uint256)",
+      "distributorTosmIdMapping",
+      "distributorTosmIdMapping(address,uint256):(uint256)",
       [
         ethereum.Value.fromAddress(param0),
         ethereum.Value.fromUnsignedBigInt(param1)
@@ -176,13 +176,13 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     return result[0].toBigInt();
   }
 
-  try_distributorTosmIDMapping(
+  try_distributorTosmIdMapping(
     param0: Address,
     param1: BigInt
   ): ethereum.CallResult<BigInt> {
     let result = super.tryCall(
-      "distributorTosmIDMapping",
-      "distributorTosmIDMapping(address,uint256):(uint256)",
+      "distributorTosmIdMapping",
+      "distributorTosmIdMapping(address,uint256):(uint256)",
       [
         ethereum.Value.fromAddress(param0),
         ethereum.Value.fromUnsignedBigInt(param1)
@@ -195,30 +195,30 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  getAllmdIdForManufacturer(
+  getAllmdIdForDistributor(
     _distributorAddress: Address
   ): Array<
-    manufacturerDistributor__getAllmdIdForManufacturerResultValue0Struct
+    manufacturerDistributor__getAllmdIdForDistributorResultValue0Struct
   > {
     let result = super.call(
-      "getAllmdIdForManufacturer",
-      "getAllmdIdForManufacturer(address):((uint256,address,address,uint32,uint32)[])",
+      "getAllmdIdForDistributor",
+      "getAllmdIdForDistributor(address):((uint256,address,address,uint32,uint32)[])",
       [ethereum.Value.fromAddress(_distributorAddress)]
     );
 
     return result[0].toTupleArray<
-      manufacturerDistributor__getAllmdIdForManufacturerResultValue0Struct
+      manufacturerDistributor__getAllmdIdForDistributorResultValue0Struct
     >();
   }
 
-  try_getAllmdIdForManufacturer(
+  try_getAllmdIdForDistributor(
     _distributorAddress: Address
   ): ethereum.CallResult<
-    Array<manufacturerDistributor__getAllmdIdForManufacturerResultValue0Struct>
+    Array<manufacturerDistributor__getAllmdIdForDistributorResultValue0Struct>
   > {
     let result = super.tryCall(
-      "getAllmdIdForManufacturer",
-      "getAllmdIdForManufacturer(address):((uint256,address,address,uint32,uint32)[])",
+      "getAllmdIdForDistributor",
+      "getAllmdIdForDistributor(address):((uint256,address,address,uint32,uint32)[])",
       [ethereum.Value.fromAddress(_distributorAddress)]
     );
     if (result.reverted) {
@@ -227,7 +227,7 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     let value = result.value;
     return ethereum.CallResult.fromValue(
       value[0].toTupleArray<
-        manufacturerDistributor__getAllmdIdForManufacturerResultValue0Struct
+        manufacturerDistributor__getAllmdIdForDistributorResultValue0Struct
       >()
     );
   }
@@ -282,16 +282,16 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  mdidToStructMapping(
+  mdIdToStructMapping(
     param0: BigInt
-  ): manufacturerDistributor__mdidToStructMappingResult {
+  ): manufacturerDistributor__mdIdToStructMappingResult {
     let result = super.call(
-      "mdidToStructMapping",
-      "mdidToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
+      "mdIdToStructMapping",
+      "mdIdToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
       [ethereum.Value.fromUnsignedBigInt(param0)]
     );
 
-    return new manufacturerDistributor__mdidToStructMappingResult(
+    return new manufacturerDistributor__mdIdToStructMappingResult(
       result[0].toBigInt(),
       result[1].toAddress(),
       result[2].toAddress(),
@@ -300,12 +300,12 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     );
   }
 
-  try_mdidToStructMapping(
+  try_mdIdToStructMapping(
     param0: BigInt
-  ): ethereum.CallResult<manufacturerDistributor__mdidToStructMappingResult> {
+  ): ethereum.CallResult<manufacturerDistributor__mdIdToStructMappingResult> {
     let result = super.tryCall(
-      "mdidToStructMapping",
-      "mdidToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
+      "mdIdToStructMapping",
+      "mdIdToStructMapping(uint256):(uint256,address,address,uint32,uint32)",
       [ethereum.Value.fromUnsignedBigInt(param0)]
     );
     if (result.reverted) {
@@ -313,7 +313,7 @@ export class manufacturerDistributor extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new manufacturerDistributor__mdidToStructMappingResult(
+      new manufacturerDistributor__mdIdToStructMappingResult(
         value[0].toBigInt(),
         value[1].toAddress(),
         value[2].toAddress(),
@@ -385,10 +385,6 @@ export class TransferproductCall__Inputs {
 
   get _dispatchTime(): BigInt {
     return this._call.inputValues[3].value.toBigInt();
-  }
-
-  get _arrivalTime(): BigInt {
-    return this._call.inputValues[4].value.toBigInt();
   }
 }
 

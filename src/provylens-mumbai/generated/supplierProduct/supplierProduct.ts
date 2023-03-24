@@ -58,10 +58,6 @@ export class eventAddSupplierProduct__Params {
   get _timeAdded(): BigInt {
     return this._event.parameters[8].value.toBigInt();
   }
-
-  get _status(): boolean {
-    return this._event.parameters[9].value.toBoolean();
-  }
 }
 
 export class eventDeleteSupplierProduct extends ethereum.Event {
@@ -77,7 +73,7 @@ export class eventDeleteSupplierProduct__Params {
     this._event = event;
   }
 
-  get _id(): BigInt {
+  get _spId(): BigInt {
     return this._event.parameters[0].value.toBigInt();
   }
 }
@@ -133,12 +129,12 @@ export class supplierProduct__getAllProductsOfSupplierResultValue0Struct extends
     return this[6].toBigInt();
   }
 
-  get status(): boolean {
+  get sp_status(): boolean {
     return this[7].toBoolean();
   }
 }
 
-export class supplierProduct__getSingleProductResultValue0Struct extends ethereum.Tuple {
+export class supplierProduct__getSingleSupplierProductResultValue0Struct extends ethereum.Tuple {
   get supplierAddress(): Address {
     return this[0].toAddress();
   }
@@ -167,7 +163,7 @@ export class supplierProduct__getSingleProductResultValue0Struct extends ethereu
     return this[6].toBigInt();
   }
 
-  get status(): boolean {
+  get sp_status(): boolean {
     return this[7].toBoolean();
   }
 }
@@ -243,7 +239,7 @@ export class supplierProduct__supplierProductsIdToStructMappingResult {
     return this.value6;
   }
 
-  getStatus(): boolean {
+  getSp_status(): boolean {
     return this.value7;
   }
 }
@@ -288,34 +284,36 @@ export class supplierProduct extends ethereum.SmartContract {
     );
   }
 
-  getSingleProduct(
-    _id: BigInt
-  ): supplierProduct__getSingleProductResultValue0Struct {
+  getSingleSupplierProduct(
+    _spId: BigInt
+  ): supplierProduct__getSingleSupplierProductResultValue0Struct {
     let result = super.call(
-      "getSingleProduct",
-      "getSingleProduct(uint256):((address,bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      "getSingleSupplierProduct",
+      "getSingleSupplierProduct(uint256):((address,bytes,bytes,uint128,uint128,uint32,uint32,bool))",
+      [ethereum.Value.fromUnsignedBigInt(_spId)]
     );
 
-    return changetype<supplierProduct__getSingleProductResultValue0Struct>(
-      result[0].toTuple()
-    );
+    return changetype<
+      supplierProduct__getSingleSupplierProductResultValue0Struct
+    >(result[0].toTuple());
   }
 
-  try_getSingleProduct(
-    _id: BigInt
-  ): ethereum.CallResult<supplierProduct__getSingleProductResultValue0Struct> {
+  try_getSingleSupplierProduct(
+    _spId: BigInt
+  ): ethereum.CallResult<
+    supplierProduct__getSingleSupplierProductResultValue0Struct
+  > {
     let result = super.tryCall(
-      "getSingleProduct",
-      "getSingleProduct(uint256):((address,bytes,bytes,uint128,uint128,uint32,uint32,bool))",
-      [ethereum.Value.fromUnsignedBigInt(_id)]
+      "getSingleSupplierProduct",
+      "getSingleSupplierProduct(uint256):((address,bytes,bytes,uint128,uint128,uint32,uint32,bool))",
+      [ethereum.Value.fromUnsignedBigInt(_spId)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      changetype<supplierProduct__getSingleProductResultValue0Struct>(
+      changetype<supplierProduct__getSingleSupplierProductResultValue0Struct>(
         value[0].toTuple()
       )
     );
@@ -493,7 +491,7 @@ export class DeleteSupplierProductCall__Inputs {
     this._call = call;
   }
 
-  get _id(): BigInt {
+  get _spId(): BigInt {
     return this._call.inputValues[0].value.toBigInt();
   }
 }

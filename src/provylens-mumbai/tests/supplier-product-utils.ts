@@ -15,8 +15,7 @@ export function createeventAddSupplierProductEvent(
   _price: BigInt,
   _date: BigInt,
   _expiryDate: BigInt,
-  _timeAdded: BigInt,
-  _status: boolean
+  _timeAdded: BigInt
 ): eventAddSupplierProduct {
   let eventAddSupplierProductEvent = changetype<eventAddSupplierProduct>(
     newMockEvent()
@@ -60,15 +59,12 @@ export function createeventAddSupplierProductEvent(
       ethereum.Value.fromUnsignedBigInt(_timeAdded)
     )
   )
-  eventAddSupplierProductEvent.parameters.push(
-    new ethereum.EventParam("_status", ethereum.Value.fromBoolean(_status))
-  )
 
   return eventAddSupplierProductEvent
 }
 
 export function createeventDeleteSupplierProductEvent(
-  _id: BigInt
+  _spId: BigInt
 ): eventDeleteSupplierProduct {
   let eventDeleteSupplierProductEvent = changetype<eventDeleteSupplierProduct>(
     newMockEvent()
@@ -77,7 +73,7 @@ export function createeventDeleteSupplierProductEvent(
   eventDeleteSupplierProductEvent.parameters = new Array()
 
   eventDeleteSupplierProductEvent.parameters.push(
-    new ethereum.EventParam("_id", ethereum.Value.fromUnsignedBigInt(_id))
+    new ethereum.EventParam("_spId", ethereum.Value.fromUnsignedBigInt(_spId))
   )
 
   return eventDeleteSupplierProductEvent

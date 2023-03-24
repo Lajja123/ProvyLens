@@ -2,12 +2,12 @@ import { Bytes, BigInt } from "@graphprotocol/graph-ts";
 import {
   eventAddManufacturerProduct as eventAddManufacturerProductEvent,
   eventDeleteManufacturerProduct as eventDeleteManufacturerProductEvent,
-  manufacturerProducteventUpdateDistributorProductUints as manufacturerProducteventUpdateDistributorProductUintsEvent,
+  eventUpdateManufacturerProductUints as eventUpdateManufacturerProductUintsEvent,
 } from "../generated/manufacturerProduct/manufacturerProduct";
 import {
   eventAddManufacturerProduct,
   eventDeleteManufacturerProduct,
-  manufacturerProducteventUpdateDistributorProductUints,
+  eventUpdateManufacturerProductUints,
 } from "../generated/schema";
 
 export function handleeventAddManufacturerProduct(
@@ -27,7 +27,6 @@ export function handleeventAddManufacturerProduct(
   entity._price = event.params._price;
   entity._date = event.params._date;
   entity._expiryDate = event.params._expiryDate;
-  entity.status = event.params.status;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -42,7 +41,7 @@ export function handleeventDeleteManufacturerProduct(
   let entity = new eventDeleteManufacturerProduct(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity._Id = event.params._Id;
+  entity._mpId = event.params._mpId;
 
   entity.blockNumber = event.block.number;
   entity.blockTimestamp = event.block.timestamp;
@@ -51,10 +50,10 @@ export function handleeventDeleteManufacturerProduct(
   entity.save();
 }
 
-export function handlemanufacturerProducteventUpdateDistributorProductUints(
-  event: manufacturerProducteventUpdateDistributorProductUintsEvent
+export function handleeventUpdateManufacturerProductUints(
+  event: eventUpdateManufacturerProductUintsEvent
 ): void {
-  let entity = new manufacturerProducteventUpdateDistributorProductUints(
+  let entity = new eventUpdateManufacturerProductUints(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
   entity._dpId = event.params._dpId;

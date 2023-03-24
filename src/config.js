@@ -12,4 +12,35 @@ export const MANUFACTURERDISTRIBUTOR_CONTRACT_ADDRESS_MUMBAI =
 export const DISTRIBUTORPRODUCT_CONTRACT_ADDRESS_MUMBAI =
   "0x2B21aFe3B9c4Fe8A2b891022ACD64F39A24ebaC5"; // verified done
 
-// npx hardhat verify 0xC497E56E307BD4a9684f343DE9212b82f736A144 --network mumbai
+// npx hardhat verify 0x829D5780E6a31f2B7A9a7B44Cc45bd980baDB081 --network mumbai
+
+//after changes
+// Contract userDetails deployed to: 0x345a54479E50ef9A0cAB015AF27A48142D40629f  //verified
+// Contract supplierProduct deployed to: 0x3175bCC44B162941d38325005EBF867769Dec1A3   //verified
+// Contract manufacturerProduct deployed to: 0x8d0E34868684f8bc8244E7f4f5B2784dce342309   //verified
+// Contract distributorProduct deployed to: 0xb3169F83fdBDFf9b7affc76A3981B8e0049e5Bd9    //verified
+// Contract supplierManufacturer deployed to: 0xbc04AF6F9DC7D40fC63CF12c5e6Ed6dC0fE6eE4c    //verified
+// Contract manufacturerDistributor deployed to: 0x829D5780E6a31f2B7A9a7B44Cc45bd980baDB081   //verified
+
+// ------------------------All events
+
+// 1 eventUserData
+// 2 eventDeleteUser
+
+// 3 eventAddSupplierProduct
+// 4 eventDeleteSupplierProduct
+// 5 eventUpdateSupplierProductUints
+
+// 6 eventAddManufacturerProduct
+// 7 eventDeleteManufacturerProduct
+// 8 eventUpdateManufacturerProductUints
+
+// 9 eventAddDistributorProduct
+// 10 eventDeleteDistributorProduct
+// 11 eventUpdateDistributorProductUints
+
+// 12 eventSupplierManufacturerTransfer
+// 13 eventArrivalTime
+
+// 14 eventManufacturerDistributorTransfer
+// 15 eventArrivalTime
