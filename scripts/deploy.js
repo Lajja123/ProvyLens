@@ -7,9 +7,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  const userDetailsFactory = await hre.ethers.getContractFactory(
-    "distributorProduct"
-  );
+  const userDetailsFactory = await hre.ethers.getContractFactory("userDetails");
   const userDetails = await userDetailsFactory.deploy();
 
   await userDetails.deployed();

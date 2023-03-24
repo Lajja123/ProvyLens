@@ -59,7 +59,7 @@ contract userDetails is IUserDetails{
 
     function getAllSuppliers() public view returns(userDetails[] memory){
         userDetails[] memory suppD = new userDetails[](suppliers.length);
-        for(uint i=0;i<users.length;i++)
+        for(uint i=0;i<suppliers.length;i++)
         {
             suppD[i] = userDetailsMapping[suppliers[i]];
         }
@@ -69,7 +69,7 @@ contract userDetails is IUserDetails{
 
       function getAllManufacturers() public view returns(userDetails[] memory){
         userDetails[] memory manuD = new userDetails[](manufacturers.length);
-        for(uint i=0;i<users.length;i++)
+        for(uint i=0;i<manufacturers.length;i++)
         {
             manuD[i] = userDetailsMapping[manufacturers[i]];
         }
@@ -79,7 +79,7 @@ contract userDetails is IUserDetails{
 
       function getAllDistributors() public view returns(userDetails[] memory){
         userDetails[] memory distD = new userDetails[](distributors.length);
-        for(uint i=0;i<users.length;i++)
+        for(uint i=0;i<distributors.length;i++)
         {
             distD[i] = userDetailsMapping[distributors[i]];
         }
