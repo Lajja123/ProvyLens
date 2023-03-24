@@ -13,13 +13,13 @@
           "type": "uint256"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "internalType": "address[]",
           "name": "_supplierAddress",
           "type": "address[]"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "internalType": "uint256[]",
           "name": "_smId",
           "type": "uint256[]"
@@ -59,12 +59,6 @@
           "internalType": "uint32",
           "name": "_expiryDate",
           "type": "uint32"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "status",
-          "type": "bool"
         }
       ],
       "name": "eventAddManufacturerProduct",
@@ -76,7 +70,7 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "_Id",
+          "name": "_mpId",
           "type": "uint256"
         }
       ],
@@ -99,7 +93,7 @@
           "type": "uint128"
         }
       ],
-      "name": "eventUpdateDistributorProductUints",
+      "name": "eventUpdateManufacturerProductUints",
       "type": "event"
     },
     {
@@ -154,7 +148,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_id",
+          "name": "_mpId",
           "type": "uint256"
         }
       ],
@@ -167,7 +161,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_dpId",
+          "name": "_mpId",
           "type": "uint256"
         },
         {
@@ -176,7 +170,7 @@
           "type": "uint128"
         }
       ],
-      "name": "updateDistributorProductUints",
+      "name": "updateManufacturerProductUints",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

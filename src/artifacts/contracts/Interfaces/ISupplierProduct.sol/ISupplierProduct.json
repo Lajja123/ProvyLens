@@ -59,12 +59,6 @@
           "internalType": "uint256",
           "name": "_timeAdded",
           "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "_status",
-          "type": "bool"
         }
       ],
       "name": "eventAddSupplierProduct",
@@ -76,7 +70,7 @@
         {
           "indexed": true,
           "internalType": "uint256",
-          "name": "_id",
+          "name": "_spId",
           "type": "uint256"
         }
       ],
@@ -144,7 +138,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_id",
+          "name": "_spId",
           "type": "uint256"
         }
       ],

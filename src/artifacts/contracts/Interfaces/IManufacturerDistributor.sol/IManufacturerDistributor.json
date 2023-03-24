@@ -87,11 +87,6 @@
           "internalType": "uint32",
           "name": "_dispatchTime",
           "type": "uint32"
-        },
-        {
-          "internalType": "uint32",
-          "name": "_arrivalTime",
-          "type": "uint32"
         }
       ],
       "name": "transferproduct",

@@ -59,12 +59,6 @@
           "internalType": "uint32",
           "name": "_expiryDate",
           "type": "uint32"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "status",
-          "type": "bool"
         }
       ],
       "name": "eventAddDistributorProduct",
@@ -76,7 +70,7 @@
         {
           "indexed": true,
           "internalType": "uint256",
-          "name": "_id",
+          "name": "_dpId",
           "type": "uint256"
         }
       ],
@@ -154,7 +148,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_id",
+          "name": "_dpId",
           "type": "uint256"
         }
       ],
