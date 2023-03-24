@@ -1,0 +1,437 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\distributorProduct.sol": {
+      "lastModificationDate": 1679555874030,
+      "contentHash": "3967a29f65e212a3344155361b674ab9",
+      "sourceName": "contracts/distributorProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/IDistributorProduct.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "distributorProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\IDistributorProduct.sol": {
+      "lastModificationDate": 1679555876873,
+      "contentHash": "1834fbda5cf53855baebc0d4350e1291",
+      "sourceName": "contracts/Interfaces/IDistributorProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "IDistributorProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\IManufacturerDistributor.sol": {
+      "lastModificationDate": 1679511614372,
+      "contentHash": "4dff61c240cc312194cf45aa29393806",
+      "sourceName": "contracts/Interfaces/IManufacturerDistributor.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "IManufacturerDistributor"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\manufacturerDistributor.sol": {
+      "lastModificationDate": 1679511614373,
+      "contentHash": "125c5584863a8bda0038a08841fb1a49",
+      "sourceName": "contracts/manufacturerDistributor.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/IManufacturerDistributor.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "manufacturerDistributor"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\IManufacturerProduct.sol": {
+      "lastModificationDate": 1679555887752,
+      "contentHash": "1ea2942fb8b025714aba18d0397aa982",
+      "sourceName": "contracts/Interfaces/IManufacturerProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "IManufacturerProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\manufacturerProduct.sol": {
+      "lastModificationDate": 1679555714330,
+      "contentHash": "a41ee62c152d5a4d1b42aab802aa047c",
+      "sourceName": "contracts/manufacturerProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/IManufacturerProduct.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "manufacturerProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\ISupplierManufacturer.sol": {
+      "lastModificationDate": 1679511614372,
+      "contentHash": "fa62b69d1d4badb0311594ed1284731c",
+      "sourceName": "contracts/Interfaces/ISupplierManufacturer.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "ISupplierManufacturer"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\supplierManufacturer.sol": {
+      "lastModificationDate": 1679511614373,
+      "contentHash": "e393ad802efe03efe04623e3a6ace6bf",
+      "sourceName": "contracts/supplierManufacturer.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/ISupplierManufacturer.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "supplierManufacturer"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\ISupplierProduct.sol": {
+      "lastModificationDate": 1679555553026,
+      "contentHash": "3e2386e127c1c00d2dd2cff8cff3e431",
+      "sourceName": "contracts/Interfaces/ISupplierProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "ISupplierProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\supplierProduct.sol": {
+      "lastModificationDate": 1679555581214,
+      "contentHash": "1a3ce5f1a1848d5cdbeb99447dc5369a",
+      "sourceName": "contracts/supplierProduct.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/ISupplierProduct.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "supplierProduct"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\Interfaces\\IUserDetails.sol": {
+      "lastModificationDate": 1679511614372,
+      "contentHash": "0e1f323dcecbed25ee6cee6725a3792e",
+      "sourceName": "contracts/Interfaces/IUserDetails.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "IUserDetails"
+      ]
+    },
+    "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\userDetails.sol": {
+      "lastModificationDate": 1679650925985,
+      "contentHash": "86f45e2242329708e34773333a9c8f06",
+      "sourceName": "contracts/userDetails.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Interfaces/IUserDetails.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0 <=0.8.19"
+      ],
+      "artifacts": [
+        "userDetails"
+      ]
+    }
+  }
+}
