@@ -397,8 +397,8 @@
       ]
     },
     "W:\\SCM\\Final-Project\\ProvyLens\\contracts\\userDetails.sol": {
-      "lastModificationDate": 1679511614374,
-      "contentHash": "62a72400a0e33b08b2453b0947bfb762",
+      "lastModificationDate": 1679650925985,
+      "contentHash": "86f45e2242329708e34773333a9c8f06",
       "sourceName": "contracts/userDetails.sol",
       "solcConfig": {
         "version": "0.8.18",
