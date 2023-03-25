@@ -44,3 +44,14 @@ export const DISTRIBUTORPRODUCT_CONTRACT_ADDRESS_MUMBAI =
 
 // 14 eventManufacturerDistributorTransfer
 // 15 eventArrivalTime
+
+// scroll deployed address
+// 0xe8880650d8C20472CF594Ba91c720886dFd07cA3 userDetails
+// 0xF6fd87A08054Ea4c01B06DcFE6F1464a9a708DF3 supplierProduct
+// 0xc74799946f5aedFd6A0DaFb1B475606542A5A497  manufacturerProduct
+// 0xca31f2E4A6595586A617Ae6bf194EfcB243C187e  distributorProduct
+// 0xd53aBA0deA01B924B38808C9e6eACF14C3FD8F86  supplierManufacturer
+// 0xcFbF41Eab7401D3475825e6D3BEe4887b26b8Bbe manufacturerDistributor
+
+// graphQL URL
+// https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1

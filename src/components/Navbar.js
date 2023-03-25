@@ -7,7 +7,7 @@ import ConnectButtonCustom from "./ConnectButtonCustom";
 import { Link, useNavigate } from "react-router-dom";
 import { useAccount, useSigner } from "wagmi";
 import * as PushAPI from "@pushprotocol/restapi";
-
+import profile from "../assets/profile.png";
 import logo from "../assets/logo.png";
 
 function Navbar() {
@@ -137,8 +137,8 @@ function Navbar() {
           <div className="user-img">
             <Link to="/profile">
               <img
-                class="p-user"
-                src=""
+                className="p-user"
+                src={profile}
                 alt="Rounded avatar"
                 onClick={() => {
                   takeToProfile();
