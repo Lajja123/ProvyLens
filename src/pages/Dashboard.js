@@ -26,7 +26,7 @@ function Dashboard() {
   const navigate = useNavigate();
   const { isConnected } = useAccount();
   const [addProduct, setAddProduct] = useState(true);
-  const [viewProduct, setViewProduct] = useState(true);
+  const [viewProduct, setViewProduct] = useState(false);
   const [deleteProduct, setDeleteProduct] = useState(false);
   const [transfer, setTransfer] = useState(true);
   const [transferHistory, setTransferHistory] = useState(false);
@@ -615,6 +615,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
                 setProduct(true);
                 setAddProduct(true);
                 setChain(false);
+                setViewProduct(false);
                 setDeleteProduct(false);
                 setTransfer(false);
                 setTransferHistory(false);
@@ -631,6 +632,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
               onClick={() => {
                 setChain(true);
                 setProduct(false);
+                setViewProduct(false);
                 setAddProduct(false);
                 setDeleteProduct(false);
                 setTransfer(true);

@@ -40,7 +40,10 @@ function createData(id, name, unit, price) {
   return { id, name, unit, price };
 }
 
-const rows = [createData("1", "Apollo", 500, 1000)];
+const rows = [
+  createData("1", "Apollo", 500, 1000),
+  createData("1", "Apollo", 500, 1000),
+];
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -68,8 +71,8 @@ function ViewProduct() {
         <div className=" modal ">
           <div onClick={toggleModal} className="overlay"></div>
           <div className=" modal-content">
-            <div className="first-row">
-              <p>
+            <div className="first-row-product">
+              <p className="product-des">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -106,7 +109,7 @@ function ViewProduct() {
                   <StyledTableCell align="right">{row.name}</StyledTableCell>
                   <StyledTableCell align="right">{row.unit}</StyledTableCell>
                   <StyledTableCell align="right">{row.price}</StyledTableCell>
-                  <div>
+                  <div className="view-more-btn">
                     <Button
                       variant="contained"
                       size="large"

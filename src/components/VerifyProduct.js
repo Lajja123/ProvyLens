@@ -6,6 +6,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
+import feature1 from "../assets/feature-1.png";
+import bubble4 from "../assets/fixed4.png";
+import "../styles/viewproduct.css";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,8 +43,8 @@ function DeleteProduct() {
           >
             <TextField
               id="standard-basic"
-              label="Product ID"
               variant="standard"
+              label="Product Id"
               onChange={(e) => {}}
             />
           </FormControl>
@@ -49,7 +52,7 @@ function DeleteProduct() {
             onClick={toastInfo}
             variant="contained"
             size="large"
-            className="delete-btn"
+            className="verify-btn"
           >
             Verify Product
           </Button>
@@ -66,6 +69,16 @@ function DeleteProduct() {
             pauseOnHover
           />
         </div>
+        <span className="shape1 header-shape">
+          <img src={feature1}></img>
+        </span>
+
+        <span className="bubble3 header-shape">
+          <img src={bubble4}></img>
+        </span>
+        <span className="bubble4 header-shape">
+          <img src={bubble4}></img>
+        </span>
       </div>
     </>
   );
