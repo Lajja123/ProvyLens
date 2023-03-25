@@ -8,9 +8,52 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createClient } from "urql";
+import hexToString from "./HexToStringConverter";
+import { useAccount, useSigner } from "wagmi";
 
 function Transfer() {
   const [allDataDaos, setDataDaos] = useState([]);
+  const [ManufacturerDetails, setManufacturerDetails] = useState();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const data_ = `query MyQuery {
+      {
+        eventUserDatas(where: {_type: 1}) {
+          _address
+          _image
+          _name
+          _physicalAddress
+          _timeUpdated
+          _type
+        }
+      }`;
+
+    const c = createClient({
+      url: "https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1",
+    });
+
+    const result1 = await c.query(data_).toPromise();
+    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    const filteredData = result1.data.eventAddSupplierProducts.map(
+      (product) => {
+        return {
+          address: product["_address"],
+          name: hexToString(product["_name"]),
+          physicalAddress: hexToString(product["_physicalAddress"]),
+        };
+      }
+    );
+
+    setManufacturerDetails(filteredData);
+    console.log(filteredData);
+  };
+
   const toastInfo = () =>
     toast.success("Tranfer Successfully", {
       position: "bottom-right",
