@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import "../styles/Modal.css";
 import history from "./TransferHistory.json";
+import { createClient } from "urql";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,9 +19,51 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function TransferHistory({ dashboardLinks }) {
   const [modal, setModal] = useState(false);
+  const [transferDetails, setTransferDetails] = useState();
+
   console.log(history);
   const toggleModal = () => {
     setModal(!modal);
+  };
+
+  useEffect(() => {
+    getTransferData();
+  }, []);
+  const getTransferData = async () => {
+    const data_ = `query MyQuery {
+      eventSupplierManufacturerTransfers(
+        where: {_supplierAddress: "0xe57f4c84539a6414c4cf48f135210e01c477efe0"}
+      ) {
+        _dispatchTime
+        _manufacturerAddress
+        _smId
+        _spId
+        _supplierAddress
+      }
+    }`;
+
+    const c = createClient({
+      url: "https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1",
+    });
+
+    const result1 = await c.query(data_).toPromise();
+    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    const filteredData = result1.data.eventSupplierManufacturerTransfers.map(
+      (product) => {
+        return {
+          dispatchTime: new Date(
+            product["_dispatchTime"] * 1000
+          ).toDateString(),
+          manufacturerAddress: product["_manufacturerAddress"],
+          smId: product["_smId"],
+          spId: product["_spId"],
+          supplierAddress: product["supplierAddress"],
+        };
+      }
+    );
+
+    setTransferDetails(filteredData);
+    console.log(filteredData);
   };
 
   if (modal) {
