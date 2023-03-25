@@ -32,9 +32,14 @@ function Profile() {
 
     const result1 = await c.query(data_).toPromise();
     // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    var role = "";
+    if (result1.data.eventUserDatas[0]["_type"] === 0) role = "Supplier";
+    if (result1.data.eventUserDatas[0]["_type"] === 1) role = "Manufacturer";
+    if (result1.data.eventUserDatas[0]["_type"] === 2) role = "Distributor";
+
     setProfileData({
       name: hexToString(result1.data.eventUserDatas[0]["_name"]),
-      type: result1.data.eventUserDatas[0]["_type"] === 0 ? "supplier" : "",
+      type: role,
       phy_add: hexToString(result1.data.eventUserDatas[0]["_physicalAddress"]),
       image: hexToString(result1.data.eventUserDatas[0]["_image"]),
       id: hexToString(result1.data.eventUserDatas[0]["id"]),

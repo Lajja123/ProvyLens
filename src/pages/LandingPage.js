@@ -46,7 +46,7 @@ function LandingPage() {
         if (ans[0] === 1) {
           navigate("/open-existing-dashboard");
         }
-        if (ans[0] === 1) {
+        if (ans[0] === 2) {
           navigate("/open-existing-dashboard");
         }
       }
@@ -71,7 +71,7 @@ function LandingPage() {
           </div>
           <div className="hero-img-overlay"></div>
           <h1>Welcome to the ProvyLens</h1>
-          <p>A supply chain management app on web3.</p>
+          <p>A supply chain management Dapp on web3.</p>
           <div className="hero-btns">
             <button className="create-dao-btn" onClick={() => checkReg()}>
               Get Started

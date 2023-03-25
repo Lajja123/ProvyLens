@@ -14,16 +14,67 @@ import { useAccount, useSigner } from "wagmi";
 
 function Transfer() {
   const [allDataDaos, setDataDaos] = useState([]);
-  const [ManufacturerDetails, setManufacturerDetails] = useState();
+  const [manufacturerDetails, setManufacturerDetails] = useState();
+  const [productDetails, setProductDetails] = useState();
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { address, isConnected } = useAccount();
 
   useEffect(() => {
-    getData();
+    getManufacturerData();
+    getProductData();
   }, []);
 
-  const getData = async () => {
+  useEffect(() => {
+    console.log(selectedProduct);
+  }, [selectedProduct]);
+
+  const getProductData = async () => {
     const data_ = `query MyQuery {
-      {
+      eventAddSupplierProducts(
+        where: {_address: "${address.toLowerCase()}"}
+      ) {
+        _address
+        _date
+        _description
+        _expiryDate
+        _name
+        _price
+        _spid
+        _timeAdded
+        _unit
+        blockNumber
+        blockTimestamp
+        id
+        transactionHash
+      }
+    }`;
+
+    const c = createClient({
+      url: "https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1",
+    });
+
+    const result1 = await c.query(data_).toPromise();
+    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    const filteredData = result1.data.eventAddSupplierProducts.map(
+      (product) => {
+        return {
+          spId: product["_spid"],
+          name: hexToString(product["_name"]),
+          unit: product["_unit"],
+          price: product["_price"],
+          date: new Date(product["_date"] * 1000).toDateString(),
+          expiryDate: new Date(product["_expiryDate"] * 1000).toDateString(),
+          description: hexToString(product["_description"]),
+        };
+      }
+    );
+
+    setProductDetails(filteredData);
+    console.log(filteredData);
+  };
+
+  const getManufacturerData = async () => {
+    const data_ = `query MyQuery {
         eventUserDatas(where: {_type: 1}) {
           _address
           _image
@@ -40,19 +91,19 @@ function Transfer() {
 
     const result1 = await c.query(data_).toPromise();
     // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
-    const filteredData = result1.data.eventAddSupplierProducts.map(
-      (product) => {
-        return {
-          address: product["_address"],
-          name: hexToString(product["_name"]),
-          physicalAddress: hexToString(product["_physicalAddress"]),
-        };
-      }
-    );
+    const filteredData = result1.data.eventUserDatas.map((product) => {
+      return {
+        address: product["_address"],
+        name: hexToString(product["_name"]),
+        physicalAddress: hexToString(product["_physicalAddress"]),
+      };
+    });
 
     setManufacturerDetails(filteredData);
     console.log(filteredData);
   };
+
+  const handleChangeProduct = () => {};
 
   const toastInfo = () =>
     toast.success("Tranfer Successfully", {
@@ -83,19 +134,31 @@ function Transfer() {
                 id="demo-select-small"
                 // value={age}
                 label="Status"
-                // onChange={handleChange}
+                onChange={(e) =>
+                  setSelectedProduct({
+                    ...selectedProduct,
+                    product: e.target.value,
+                  })
+                }
               >
-                <MenuItem value={10}>1 </MenuItem>
-                <MenuItem value={20}>2 </MenuItem>
-                <MenuItem value={30}>3</MenuItem>
+                {productDetails &&
+                  productDetails.map((product) => (
+                    <MenuItem value={product}>{product.name} </MenuItem>
+                  ))}
               </Select>
             </FormControl>
             <div className="product-details">
               <label className="manufacture-details-quality">
-                Total Quality : 500KG
+                Name : {selectedProduct?.product?.name}
               </label>
               <label className="manufacture-details-quality">
-                Current Price : $24
+                Price : {selectedProduct?.product?.price}
+              </label>
+              <label className="manufacture-details-quality">
+                Unit : {selectedProduct?.product?.unit}
+              </label>
+              <label className="manufacture-details-quality">
+                Description : {selectedProduct?.product?.description}
               </label>
             </div>
           </div>
