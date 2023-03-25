@@ -18,8 +18,10 @@ import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
 import { USERDETAILS_CONTRACT_ADDRESS_MUMBAI } from "../config";
 import userdetails from "../artifacts/contracts/userDetails.sol/userDetails.json";
+import { useAccount } from "wagmi";
 
 function Register() {
+  const { address, isConnected } = useAccount();
   const [userData, setUserData] = useState({
     userType: "",
     name: "",
@@ -95,7 +97,10 @@ function Register() {
         encoder.encode(userData.profileImage)
       );
       await tx.wait();
-      navigate("/");
+      toastInfo();
+      setTimeout(() => {
+        navigate("/");
+      }, [5000]);
     } catch (err) {
       console.log(err);
     }
@@ -112,6 +117,11 @@ function Register() {
       profileImage: selectedFile,
     });
   };
+  useEffect(() => {
+    if (!isConnected) {
+      navigate("/");
+    }
+  }, [address]);
 
   useEffect(() => {
     // console.log(userData);
@@ -225,7 +235,6 @@ function Register() {
             className="register-btn"
             onClick={() => {
               registerUser();
-              toastInfo();
             }}
           >
             Register

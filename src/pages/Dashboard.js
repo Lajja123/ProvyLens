@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/register.scss";
 import { Button, CardActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -18,9 +18,12 @@ import addProduct from "../assets/add.png";
 // import Particles from "react-particles";
 import Particles from "../components/Particles";
 import HistoryDetails from "../components/HistoryDetails";
+import { useAccount } from "wagmi";
 // ...........
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const { isConnected } = useAccount();
   const [addProduct, setaddProduct] = useState(true);
   const [deleteProduct, setDeleteProduct] = useState(false);
   const [transfer, setTransfer] = useState(true);
@@ -83,6 +86,11 @@ function Dashboard() {
       theme: "light",
     });
 
+  useEffect(() => {
+    if (!isConnected) {
+      navigate("/");
+    }
+  }, [isConnected]);
   return (
     <>
       <div className="dashboard-main">
