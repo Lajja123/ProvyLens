@@ -9,12 +9,49 @@ import TextField from "@mui/material/TextField";
 import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
 import "../styles/viewproduct.css";
+import { createClient } from "urql";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function DeleteProduct() {
+function VerifyProduct() {
   const [age, setAge] = useState("");
+  const [smId, setSmId] = useState("");
+
+  const verifyData = async (smId) => {
+    const data_ = `query MyQuery {
+      eventSupplierManufacturerTransfers(where: {_smId: "${smId}"}) {
+        _dispatchTime
+        _manufacturerAddress
+        _smId
+        _spId
+        _supplierAddress
+      }
+    }`;
+
+    const c = createClient({
+      url: "https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1",
+    });
+
+    const result1 = await c.query(data_).toPromise();
+    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    console.log(result1);
+    const filteredData = result1.data.eventSupplierManufacturerTransfers.map(
+      (product) => {
+        return {
+          dispatchTime: new Date(
+            product["_dispatchTime"] * 1000
+          ).toDateString(),
+          manufacturerAddress: product["_manufacturerAddress"],
+          smId: product["_smId"],
+          spId: product["_spId"],
+          supplierAddress: product["supplierAddress"],
+        };
+      }
+    );
+
+    console.log(filteredData);
+  };
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -39,11 +76,15 @@ function DeleteProduct() {
             helperText=" "
             id="demo-helper-text-aligned-no-helper"
             label="Product Id"
-            onChange={(e) => {}}
+            onChange={(e) => {
+              setSmId(e.target.value);
+            }}
           />
 
           <Button
-            onClick={toastInfo}
+            onClick={() => {
+              verifyData(smId);
+            }}
             variant="contained"
             size="large"
             className="verify-btn"
@@ -78,4 +119,4 @@ function DeleteProduct() {
   );
 }
 
-export default DeleteProduct;
+export default VerifyProduct;

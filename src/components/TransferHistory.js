@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import "../styles/Modal.css";
 import history from "./TransferHistory.json";
 import { createClient } from "urql";
+import { useAccount, useSigner } from "wagmi";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,6 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function TransferHistory({ dashboardLinks }) {
+  const { address, isConnected } = useAccount();
   const [modal, setModal] = useState(false);
   const [transferDetails, setTransferDetails] = useState();
 
@@ -32,7 +34,7 @@ function TransferHistory({ dashboardLinks }) {
   const getTransferData = async () => {
     const data_ = `query MyQuery {
       eventSupplierManufacturerTransfers(
-        where: {_supplierAddress: "0xe57f4c84539a6414c4cf48f135210e01c477efe0"}
+        where: {_supplierAddress: "${address.toLowerCase()}"}
       ) {
         _dispatchTime
         _manufacturerAddress
@@ -119,47 +121,48 @@ function TransferHistory({ dashboardLinks }) {
         </div>
       )}
       <div className="all-history-main-div">
-        {history.historydata.map((data) => {
-          return (
-            <Box sx={{ width: "100%" }}>
-              <Grid
-                container
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-              >
-                <Grid item xs={8}>
-                  <Item>
-                    {" "}
-                    <div className="history-flex">
-                      <label className="transfer-history">
-                        Transfer Id:{data.tid}
-                      </label>
-                      <label className="transfer-history">
-                        product Id:{data.pid}
-                      </label>
-                      <label className="transfer-history">
-                        Dispatch Id:{data.did}
-                      </label>
-                    </div>
-                    <div>
-                      <Button
-                        variant="contained"
-                        size="large"
-                        className="transfer-history-btn"
-                        // onClick={() => {
-                        //   dashboardLinks("HistoryDetails");
-                        // }}
-                        onClick={toggleModal}
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  </Item>
+        {transferDetails &&
+          transferDetails.map((data) => {
+            return (
+              <Box sx={{ width: "100%" }}>
+                <Grid
+                  container
+                  rowSpacing={1}
+                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                >
+                  <Grid item xs={8}>
+                    <Item>
+                      {" "}
+                      <div className="history-flex">
+                        <label className="transfer-history">
+                          Transfer Id:{data?.smId}
+                        </label>
+                        <label className="transfer-history">
+                          product Id:{data?.spId}
+                        </label>
+                        <label className="transfer-history">
+                          Dispatch Time:{data?.dispatchTime}
+                        </label>
+                      </div>
+                      <div>
+                        <Button
+                          variant="contained"
+                          size="large"
+                          className="transfer-history-btn"
+                          // onClick={() => {
+                          //   dashboardLinks("HistoryDetails");
+                          // }}
+                          onClick={toggleModal}
+                        >
+                          View Details
+                        </Button>
+                      </div>
+                    </Item>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Box>
-          );
-        })}
+              </Box>
+            );
+          })}
       </div>
     </>
   );
