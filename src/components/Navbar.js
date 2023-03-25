@@ -42,7 +42,9 @@ function Navbar() {
       env: "staging",
     });
   };
-
+  const takeToProfile = () => {
+    setTimeout(navigate("/profile"), 3000);
+  };
   // const optOut = async () => {
   //   await PushAPI.channels.unsubscribe({
   //     signer: signer,
@@ -131,6 +133,18 @@ function Navbar() {
               ""
             )}
             <ConnectButtonCustom />
+          </div>
+          <div className="user-img">
+            <Link to="/profile">
+              <img
+                class="p-user"
+                src=""
+                alt="Rounded avatar"
+                onClick={() => {
+                  takeToProfile();
+                }}
+              />{" "}
+            </Link>
           </div>
         </Toolbar>
       </Container>
