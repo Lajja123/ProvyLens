@@ -12,14 +12,14 @@ import ViewProduct from "../components/ViewProduct";
 import "react-toastify/dist/ReactToastify.css";
 
 // ..............
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+
 import Navbar from "../components/Navbar";
 import addProduct from "../assets/add.png";
 // import Particles from "react-particles";
 import Particles from "../components/Particles";
 import HistoryDetails from "../components/HistoryDetails";
 import { useAccount } from "wagmi";
+import AddProduct from "../components/AddProduct";
 // ...........
 
 function Dashboard() {
@@ -89,17 +89,6 @@ function Dashboard() {
       setTransferHistoryDetails(false);
     }
   };
-  const toastInfo = () =>
-    toast.success("Product Added", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
 
   useEffect(() => {
     if (!isConnected) {
@@ -649,59 +638,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
 
           {addProduct ? (
             <>
-              <div className="select-main" id="right-db-inside">
-                <div className="product-details-main">
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      "& > :not(style)": { m: 1 },
-                    }}
-                  >
-                    <TextField
-                      helperText=" "
-                      id="demo-helper-text-aligned-no-helper"
-                      label="Product name"
-                    />
-                    <TextField
-                      helperText=" "
-                      id="demo-helper-text-aligned-no-helper product-dec"
-                      className="product-dec"
-                      label="Product description"
-                    />
-                    <TextField
-                      helperText=" "
-                      id="demo-helper-text-aligned-no-helper"
-                      label="Product price"
-                    />
-                    <TextField
-                      helperText=" "
-                      id="demo-helper-text-aligned-no-helper"
-                      label="Product unit"
-                    />
-                    <Button
-                      variant="contained"
-                      size="large"
-                      className="product-btn"
-                      onClick={toastInfo}
-                    >
-                      Add
-                    </Button>
-                    <ToastContainer
-                      position="bottom-right"
-                      autoClose={5000}
-                      hideProgressBar={false}
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                    />
-                  </Box>
-                </div>
-              </div>
+              <AddProduct></AddProduct>
             </>
           ) : viewProduct ? (
             <ViewProduct />
