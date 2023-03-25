@@ -11,12 +11,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { createClient } from "urql";
 import hexToString from "./HexToStringConverter";
 import { useAccount, useSigner } from "wagmi";
+import { TextField } from "@mui/material";
+import { ethers } from "ethers";
+import { SUPPLIERMANUFACTURER_CONTRACT_ADDRESS_MUMBAI } from "../config";
+import supplierManufacturer from "../artifacts/contracts/supplierManufacturer.sol/supplierManufacturer.json";
+import { SUPPLIERPRODUCT_CONTRACT_ADDRESS_MUMBAI } from "../config";
+import addproduct from "../artifacts/contracts/supplierProduct.sol/supplierProduct.json";
 
 function Transfer() {
   const [allDataDaos, setDataDaos] = useState([]);
   const [manufacturerDetails, setManufacturerDetails] = useState();
   const [productDetails, setProductDetails] = useState();
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [amount, setAmount] = useState();
+  const [quantity, setQuantity] = useState();
+  const [selectedManufacturer, setSelectedManufacturer] = useState(null);
   const { address, isConnected } = useAccount();
 
   useEffect(() => {
@@ -102,8 +111,49 @@ function Transfer() {
     setManufacturerDetails(filteredData);
     console.log(filteredData);
   };
+  const encoder = new TextEncoder();
+  const addTransferData = async () => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
 
-  const handleChangeProduct = () => {};
+      const transfer = new ethers.Contract(
+        SUPPLIERMANUFACTURER_CONTRACT_ADDRESS_MUMBAI,
+        supplierManufacturer.abi,
+        signer
+      );
+
+      // console.log(
+      //   selectedProduct.product.spId,
+      //   address,
+      //   selectedManufacturer.manufacturer.address,
+      //   Math.trunc(new Date().getTime() / 1000)
+      // );
+      const tx = await transfer.transferProduct(
+        selectedProduct.product.spId,
+        address,
+        selectedManufacturer.manufacturer.address,
+        Math.trunc(new Date().getTime() / 1000)
+      );
+      await tx.wait();
+
+      const updateSupplierProductUints = new ethers.Contract(
+        SUPPLIERPRODUCT_CONTRACT_ADDRESS_MUMBAI,
+        addproduct.abi,
+        signer
+      );
+      // console.log(quantity);
+      const tx1 = await updateSupplierProductUints.updateSupplierProductUints(
+        selectedProduct.product.spId,
+        quantity
+      );
+      await tx1.wait();
+
+      toastInfo();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const toastInfo = () =>
     toast.success("Tranfer Successfully", {
@@ -128,7 +178,7 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Product Id</InputLabel>
+              <InputLabel id="select-label-status">Product Name</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -149,16 +199,16 @@ function Transfer() {
             </FormControl>
             <div className="product-details">
               <label className="manufacture-details-quality">
-                Name : {selectedProduct?.product?.name}
+                Name : {selectedProduct?.product.name}
               </label>
               <label className="manufacture-details-quality">
-                Price : {selectedProduct?.product?.price}
+                Price : {selectedProduct?.product.price} Matic
               </label>
               <label className="manufacture-details-quality">
-                Unit : {selectedProduct?.product?.unit}
+                Unit : {selectedProduct?.product.unit}
               </label>
               <label className="manufacture-details-quality">
-                Description : {selectedProduct?.product?.description}
+                Description : {selectedProduct?.product.description}
               </label>
             </div>
           </div>
@@ -169,27 +219,38 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Manufacturer Id</InputLabel>
+              <InputLabel id="select-label-status">
+                Manufacturer Name
+              </InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
                 // value={age}
+                onChange={(e) =>
+                  setSelectedManufacturer({
+                    ...selectedManufacturer,
+                    manufacturer: e.target.value,
+                  })
+                }
                 label="Status"
-                // onChange={handleChange}
               >
-                <MenuItem value={10}>1 </MenuItem>
-                <MenuItem value={20}>2 </MenuItem>
-                <MenuItem value={30}>3</MenuItem>
+                {manufacturerDetails &&
+                  manufacturerDetails.map((manufacturer) => (
+                    <MenuItem value={manufacturer}>
+                      {manufacturer.name}{" "}
+                    </MenuItem>
+                  ))}
               </Select>
             </FormControl>
             <div className="manufacture-details">
               <label className="manufacture-details-quality">
                 Manufacturer details
               </label>
-              <label className="manufacture-details-quality">Name</label>
-              <label className="manufacture-details-quality">Address</label>
               <label className="manufacture-details-quality">
-                Other details
+                Name :{selectedManufacturer?.manufacturer.name}
+              </label>
+              <label className="manufacture-details-quality">
+                {selectedManufacturer?.manufacturer.physicalAddress}
               </label>
             </div>
           </div>
@@ -201,13 +262,21 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <label className="manufacture-details-quality">Quality</label>
+              <label className="manufacture-details-quality">Unit</label>
             </FormControl>
             <div className="manufacture-details">
-              <label className="manufacture-details-quality">25%</label>
-              <label className="manufacture-details-quality">50%</label>
-              <label className="manufacture-details-quality">75%</label>
-              <label className="manufacture-details-quality">100%</label>
+              <TextField
+                id="standard-basic"
+                label="Unit"
+                variant="standard"
+                onChange={(e) => {
+                  setAmount(e.target.value * selectedProduct?.product.price);
+                  setQuantity(e.target.value);
+                }}
+              />
+              <label className="manufacture-details-quality">
+                Total Amount : {amount ? amount + " Matic" : "--"}
+              </label>
             </div>
           </div>
         </div>
@@ -215,7 +284,7 @@ function Transfer() {
           variant="contained"
           size="large"
           className="transfer-btn"
-          onClick={toastInfo}
+          onClick={() => addTransferData()}
         >
           Transfer
         </Button>
