@@ -13,9 +13,13 @@ import { publicProvider } from "wagmi/providers/public";
 import LandingPage from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
-
 import Dashboard from "./pages/Dashboard";
 import Particles from "./components/Particles";
+
+import { useNavigate } from "react-router-dom";
+import { useAccount, useSigner } from "wagmi";
+import { ethers } from "ethers";
+import { useEffect } from "react";
 
 function App() {
   const { chains, provider } = configureChains(
