@@ -97,7 +97,10 @@ function Register() {
         encoder.encode(userData.profileImage)
       );
       await tx.wait();
-      navigate("/");
+      toastInfo();
+      setTimeout(() => {
+        navigate("/");
+      }, [5000]);
     } catch (err) {
       console.log(err);
     }
@@ -232,7 +235,6 @@ function Register() {
             className="register-btn"
             onClick={() => {
               registerUser();
-              toastInfo();
             }}
           >
             Register
