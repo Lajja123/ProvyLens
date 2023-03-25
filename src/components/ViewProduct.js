@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/deleteproduct.css";
 import productData from "./ViewProduct.json";
 import Grid from "@mui/material/Grid";
@@ -6,6 +6,10 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import "../styles/viewproduct.css";
+import { createClient } from "urql";
+import hexToString from "./HexToStringConverter";
+import { useAccount, useSigner } from "wagmi";
+
 // ................
 import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
@@ -54,17 +58,71 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function ViewProduct() {
+  const { address, isConnected } = useAccount();
+  const [productData, setProductData] = useState();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
+  const getData = async () => {
+    const data_ = `query MyQuery {
+      eventAddSupplierProducts(
+        where: {_address: "${address.toLowerCase()}"}
+      ) {
+        _address
+        _date
+        _description
+        _expiryDate
+        _name
+        _price
+        _spid
+        _timeAdded
+        _unit
+        blockNumber
+        blockTimestamp
+        id
+        transactionHash
+      }
+    }`;
+
+    const c = createClient({
+      url: "https://api.studio.thegraph.com/query/40703/provylens-mumbai/v0.0.1",
+    });
+
+    const result1 = await c.query(data_).toPromise();
+    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
+    const filteredData = result1.data.eventAddSupplierProducts.map(
+      (product) => {
+        return {
+          spId: product["_spid"],
+          name: hexToString(product["_name"]),
+          unit: product["_unit"],
+          price: product["_price"],
+          date: new Date(product["_date"] * 1000).toDateString(),
+          expiryDate: new Date(product["_expiryDate"] * 1000).toDateString(),
+          description: hexToString(product["_description"]),
+        };
+      }
+    );
+
+    setProductData(filteredData);
+    console.log(filteredData);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   if (modal) {
     document.body.classList.add("active-modal");
   } else {
     document.body.classList.remove("active-modal");
   }
+
   return (
     <>
       {modal && (
@@ -72,15 +130,7 @@ function ViewProduct() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className=" modal-content">
             <div className="first-row-product">
-              <p className="product-des">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
+              <p className="product-des">{selectedProduct.description}</p>
               <button className="close-modal" onClick={toggleModal}>
                 CLOSE
               </button>
@@ -94,36 +144,43 @@ function ViewProduct() {
             <TableHead>
               <TableRow>
                 <StyledTableCell>Product Id</StyledTableCell>
-                <StyledTableCell align="right">Product Id</StyledTableCell>
-                <StyledTableCell align="right">Product name</StyledTableCell>
+                <StyledTableCell align="right">Product Name</StyledTableCell>
                 <StyledTableCell align="right">Unit</StyledTableCell>
+                <StyledTableCell align="right">Price per unit</StyledTableCell>
                 <StyledTableCell align="right"></StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.id}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">{row.name}</StyledTableCell>
-                  <StyledTableCell align="right">{row.unit}</StyledTableCell>
-                  <StyledTableCell align="right">{row.price}</StyledTableCell>
-                  <div className="view-more-btn">
-                    <Button
-                      variant="contained"
-                      size="large"
-                      className="view-More"
-                      onClick={toggleModal}
-                      // onClick={() => {
-                      //   dashboardLinks("HistoryDetails");
-                      // }}
-                    >
-                      View More
-                    </Button>
-                  </div>
-                </StyledTableRow>
-              ))}
+              {productData &&
+                productData.map((product) => (
+                  <StyledTableRow key={product.spId}>
+                    <StyledTableCell component="th" scope="row">
+                      {product.spId}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {product.name}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {product.unit}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {product.price}
+                    </StyledTableCell>
+                    <div className="view-more-btn">
+                      <Button
+                        variant="contained"
+                        size="large"
+                        className="view-More"
+                        onClick={() => {
+                          setSelectedProduct(product);
+                          toggleModal();
+                        }}
+                      >
+                        View More
+                      </Button>
+                    </div>
+                  </StyledTableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
