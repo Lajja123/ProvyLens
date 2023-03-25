@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import Dashboard from "./pages/Dashboard";
 import Particles from "./components/Particles";
+import VerifyProduct from "./components/VerifyProduct";
 import Profile from "./components/Profile";
 import { useNavigate } from "react-router-dom";
 import { useAccount, useSigner } from "wagmi";
@@ -50,6 +51,7 @@ function App() {
               <Route path="register" element={<Register />} />
               <Route path="/open-existing-dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/verify-product" element={<VerifyProduct />} />
             </Routes>
           </Router>
         </div>

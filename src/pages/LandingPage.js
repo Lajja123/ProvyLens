@@ -27,6 +27,10 @@ function LandingPage() {
     navigate("register");
   };
 
+  const verifyProduct = () => {
+    navigate("verify-product");
+  };
+
   const checkReg = async () => {
     if (isConnected) {
       const ans = await checkRegistration(address);
@@ -72,12 +76,12 @@ function LandingPage() {
             <button className="create-dao-btn" onClick={() => checkReg()}>
               Get Started
             </button>
-            {/* <button
+            <button
               className="existing-dao-btn"
-              onClick={() => openExistingDaoPage()}
+              onClick={() => verifyProduct()}
             >
-              Open Existing Dashboard
-            </button> */}
+              Verify Product
+            </button>
           </div>
         </div>
         <span className="shape1 header-shape">
