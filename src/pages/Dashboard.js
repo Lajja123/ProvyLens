@@ -8,6 +8,7 @@ import DeleteProduct from "../components/DeleteProduct";
 import TransferHistory from "../components/TransferHistory";
 import RequestStock from "../components/RequestStock";
 import { ToastContainer, toast } from "react-toastify";
+import ViewProduct from "../components/ViewProduct";
 import "react-toastify/dist/ReactToastify.css";
 
 // ..............
@@ -24,7 +25,8 @@ import { useAccount } from "wagmi";
 function Dashboard() {
   const navigate = useNavigate();
   const { isConnected } = useAccount();
-  const [addProduct, setaddProduct] = useState(true);
+  const [addProduct, setAddProduct] = useState(true);
+  const [viewProduct, setViewProduct] = useState(true);
   const [deleteProduct, setDeleteProduct] = useState(false);
   const [transfer, setTransfer] = useState(true);
   const [transferHistory, setTransferHistory] = useState(false);
@@ -35,39 +37,52 @@ function Dashboard() {
 
   const dashboardLinks = (a) => {
     if (a === "AddProduct") {
-      setaddProduct(true);
+      setAddProduct(true);
       setDeleteProduct(false);
+      setViewProduct(false);
+      setTransfer(false);
+      setTransferHistory(false);
+    }
+    if (a === "ViewProduct") {
+      setAddProduct(false);
+      setDeleteProduct(false);
+      setViewProduct(true);
       setTransfer(false);
       setTransferHistory(false);
     }
     if (a === "DeleteProduct") {
-      setaddProduct(false);
+      setAddProduct(false);
       setDeleteProduct(true);
+      setViewProduct(false);
       setTransfer(false);
       setTransferHistory(false);
       setStock(false);
     } else if (a === "Transfer") {
-      setaddProduct(false);
+      setAddProduct(false);
       setDeleteProduct(false);
+      setViewProduct(false);
       setTransfer(true);
       setTransferHistory(false);
       setStock(false);
     } else if (a === "TransferHistory") {
-      setaddProduct(false);
+      setAddProduct(false);
       setDeleteProduct(false);
+      setViewProduct(false);
       setTransfer(false);
       setTransferHistory(true);
       setStock(false);
     } else if (a === "HistoryDetails") {
-      setaddProduct(false);
+      setAddProduct(false);
       setDeleteProduct(false);
+      setViewProduct(false);
       setTransfer(false);
       setTransferHistory(false);
       setStock(false);
       setTransferHistoryDetails(true);
     } else if (a === "RequestStock") {
-      setaddProduct(false);
+      setAddProduct(false);
       setDeleteProduct(false);
+      setViewProduct(false);
       setTransfer(false);
       setTransferHistory(false);
       setStock(true);
@@ -199,7 +214,107 @@ c2 -46 -2 -79 -9 -88 -9 -11 -67 -14 -320 -14 l-309 0 0 90 0 90 318 -2 317
                   </svg>
                   Add Product
                 </li>
-
+                <li
+                  className={viewProduct ? "active" : ""}
+                  onClick={() => {
+                    dashboardLinks("ViewProduct");
+                  }}
+                >
+                  <svg
+                    version="1.0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet"
+                    fill="#ffffff"
+                  >
+                    <g
+                      transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                      stroke="none"
+                    >
+                      <path
+                        d="M388 5094 c-184 -44 -329 -191 -373 -376 -13 -54 -15 -262 -15 -1450
+0 -980 3 -1403 11 -1440 42 -199 223 -369 424 -398 40 -5 306 -10 617 -10
+l546 0 -8 -32 c-5 -18 -27 -113 -50 -210 l-42 -178 -127 0 c-148 0 -219 -15
+-294 -63 -129 -83 -187 -207 -187 -398 0 -88 11 -122 47 -138 16 -7 146 -11
+400 -11 l376 0 -6 -42 c-3 -24 -11 -100 -18 -170 l-13 -128 24 -25 24 -25
+1554 2 1555 3 19 26 c19 25 19 29 -12 324 -17 164 -35 306 -40 315 -5 10 -24
+23 -41 29 -39 13 -86 -8 -95 -43 -5 -21 26 -378 42 -473 l5 -33 -561 0 c-390
+0 -560 3 -560 11 0 6 -38 371 -85 812 -72 667 -89 806 -104 827 l-18 25 -437
+3 -436 2 0 24 c0 13 13 151 30 306 16 155 30 291 30 301 0 18 11 19 165 19
+l165 0 0 -98 c0 -82 3 -102 18 -114 41 -37 100 -28 121 19 6 13 11 62 11 108
+l0 85 470 0 470 0 0 -85 c0 -46 5 -95 11 -108 21 -47 80 -56 121 -19 15 12 18
+32 18 114 l0 98 165 0 c150 0 165 -2 165 -17 0 -58 163 -1583 171 -1604 19
+-49 79 -59 122 -21 23 20 22 53 -8 334 -14 128 -25 240 -25 249 0 11 20 24 58
+37 160 59 277 193 317 366 22 93 22 2801 0 2894 -44 187 -190 333 -377 377
+-91 21 -4252 21 -4340 -1z m4372 -170 c82 -40 134 -92 174 -174 l31 -65 3
+-1312 2 -1313 -155 0 c-140 0 -155 2 -155 17 0 59 -53 502 -62 520 -18 36 -60
+43 -264 43 l-194 0 0 130 c0 158 -10 211 -61 318 -70 145 -197 260 -357 320
+-59 23 -83 26 -197 26 -111 1 -140 -2 -196 -22 -168 -58 -292 -168 -369 -327
+-50 -104 -60 -158 -60 -315 l0 -130 -195 0 c-207 0 -257 -9 -269 -47 -6 -19
+-56 -479 -56 -514 0 -19 -14 -19 -661 -19 -483 0 -666 -3 -682 -12 -50 -26
+-60 -69 -26 -112 l20 -26 665 0 664 0 0 -24 c0 -58 7 -56 -234 -56 -270 0
+-259 5 -276 -135 -5 -50 -10 -96 -10 -102 0 -10 -147 -13 -702 -13 l-703 0
+-56 23 c-74 31 -120 67 -163 130 -33 48 -69 152 -59 170 2 4 159 7 348 7 l344
+0 20 26 c24 30 26 43 10 77 -20 45 -41 47 -395 47 l-334 0 2 1313 3 1312 31
+65 c50 105 142 179 248 200 22 4 991 7 2151 6 l2110 -1 65 -31z m-1093 -1659
+c120 -36 245 -157 293 -282 19 -47 24 -85 28 -200 l5 -143 -472 0 -471 0 0
+118 c0 189 36 288 141 393 64 64 150 112 230 129 59 12 182 5 246 -15z m1296
+-1362 c11 -18 -26 -122 -61 -172 -37 -55 -106 -110 -160 -129 l-29 -10 -12
+106 c-6 59 -14 131 -17 160 l-6 52 140 0 c78 0 143 -3 145 -7z m-1683 -244 c0
+-25 148 -1418 156 -1471 l6 -38 -801 0 c-441 0 -801 3 -801 8 0 4 36 344 80
+755 44 412 80 753 80 758 0 5 256 9 640 9 640 0 640 0 640 -21z m-1463 -281
+c-3 -24 -13 -118 -23 -210 l-17 -168 -59 0 c-40 0 -58 4 -58 13 0 6 21 101 47
+210 l47 197 35 0 34 0 -6 -42z m-61 -570 c-3 -24 -10 -90 -16 -148 -6 -58 -15
+-108 -19 -113 -4 -4 -158 -6 -342 -5 l-334 3 2 59 c4 112 73 206 174 234 19 6
+148 11 288 11 l253 1 -6 -42z"
+                      />
+                      <path
+                        d="M1465 4629 c-48 -13 -115 -78 -141 -133 -21 -46 -24 -65 -24 -188 l0
+-137 -332 -3 c-367 -3 -367 -3 -422 -68 -36 -44 -49 -101 -44 -200 7 -112 29
+-153 111 -205 12 -8 27 -97 67 -405 28 -217 58 -417 66 -444 30 -95 100 -169
+191 -202 30 -10 155 -13 613 -14 l575 0 60 29 c75 35 135 100 159 173 10 29
+41 232 70 451 l51 399 40 27 c64 42 85 96 85 215 0 126 -19 173 -88 214 l-47
+27 -326 3 -326 3 -5 138 c-4 125 -7 143 -31 194 -43 87 -124 138 -219 136 -29
+0 -67 -5 -83 -10z m146 -168 l29 -29 0 -447 0 -447 -29 -29 c-48 -47 -116 -38
+-146 21 -21 40 -22 871 -1 909 31 56 102 67 147 22z m-311 -541 l0 -90 -304 0
+c-167 0 -311 3 -320 6 -13 5 -16 23 -16 90 l0 84 320 0 320 0 0 -90z m1138 12
+c2 -46 -2 -79 -9 -88 -9 -11 -67 -14 -320 -14 l-309 0 0 90 0 90 318 -2 317
+-3 3 -73z m-1138 -323 c0 -94 15 -141 64 -196 51 -58 104 -82 179 -83 150 0
+240 95 254 269 l6 81 253 0 c140 0 254 -4 254 -8 0 -35 -103 -777 -110 -795
+-14 -34 -42 -63 -77 -81 -28 -14 -97 -16 -581 -16 l-549 0 -42 31 c-24 16 -48
+45 -55 62 -7 18 -34 196 -60 397 -26 201 -49 375 -51 388 l-5 22 260 0 260 0
+0 -71z"
+                      />
+                      <path
+                        d="M2923 4330 c-45 -18 -57 -81 -23 -118 20 -21 28 -22 215 -22 182 0
+196 1 215 20 27 27 26 81 -1 106 -19 17 -40 19 -203 21 -99 1 -191 -2 -203 -7z"
+                      />
+                      <path
+                        d="M3583 4330 c-44 -18 -57 -86 -23 -120 20 -20 33 -20 580 -20 547 0
+560 0 580 20 27 27 26 81 -1 106 -20 18 -46 19 -568 21 -303 1 -556 -2 -568
+-7z"
+                      />
+                      <path
+                        d="M2902 3957 c-29 -31 -28 -72 3 -102 24 -25 26 -25 208 -25 171 0 186
+1 211 21 33 26 36 79 6 109 -19 19 -33 20 -213 20 -189 0 -194 -1 -215 -23z"
+                      />
+                      <path
+                        d="M3562 3957 c-29 -31 -28 -72 3 -102 l24 -25 549 0 c541 0 550 0 576
+21 34 27 36 79 4 109 -21 20 -32 20 -578 20 l-557 0 -21 -23z"
+                      />
+                      <path
+                        d="M2260 1500 c-19 -19 -20 -33 -20 -232 0 -229 6 -269 55 -352 59 -101
+187 -181 307 -193 168 -15 327 78 401 235 l32 67 3 225 c3 217 3 226 -18 248
+-27 29 -82 30 -109 1 -18 -20 -20 -39 -23 -233 -3 -193 -5 -214 -24 -251 -97
+-180 -340 -190 -441 -17 -28 47 -28 49 -33 263 -4 195 -7 219 -24 238 -25 27
+-79 28 -106 1z"
+                      />
+                    </g>
+                  </svg>
+                  View Product
+                </li>
                 <li
                   className={deleteProduct ? "active" : ""}
                   onClick={() => {
@@ -498,7 +613,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
               id="product-btn"
               onClick={() => {
                 setProduct(true);
-                setaddProduct(true);
+                setAddProduct(true);
                 setChain(false);
                 setDeleteProduct(false);
                 setTransfer(false);
@@ -516,7 +631,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
               onClick={() => {
                 setChain(true);
                 setProduct(false);
-                setaddProduct(false);
+                setAddProduct(false);
                 setDeleteProduct(false);
                 setTransfer(true);
                 setTransferHistory(false);
@@ -586,6 +701,8 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
                 </div>
               </div>
             </>
+          ) : viewProduct ? (
+            <ViewProduct />
           ) : deleteProduct ? (
             <DeleteProduct />
           ) : transfer ? (
