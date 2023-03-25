@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAccount, useSigner } from "wagmi";
+import { ethers } from "ethers";
+
 import "../styles/LandingPage.scss";
 import heroimg2 from "../assets/landingpage.png";
 import shape1 from "../assets/header6_shape_1.png";
@@ -15,15 +18,47 @@ import bubble4 from "../assets/fixed4.png";
 import Navbar from "../components/Navbar";
 import Particles from "../components/Particles";
 
+import { checkRegistration } from "../components/CheckRegistration";
+
 function LandingPage() {
+  const { address, isConnected } = useAccount();
   const navigate = useNavigate();
   const openCreateDaoPage = () => {
     navigate("register");
   };
-  const openExistingDaoPage = () => {
-    navigate("/open-existing-dashboard");
+
+  const verifyProduct = () => {
+    navigate("verify-product");
   };
 
+  const checkReg = async () => {
+    if (isConnected) {
+      const ans = await checkRegistration(address);
+      if (ans) {
+        console.log(ans[1]);
+        if (ans[0] === 0) {
+          if (ans[1] === "0x") {
+            navigate("register");
+          } else {
+            navigate("/open-existing-dashboard");
+          }
+        }
+        if (ans[0] === 1) {
+          navigate("/open-existing-dashboard");
+        }
+        if (ans[0] === 1) {
+          navigate("/open-existing-dashboard");
+        }
+      }
+    } else {
+      alert("Connect your wallet first");
+    }
+  };
+  useEffect(() => {
+    if (!isConnected) {
+      navigate("/");
+    }
+  }, [isConnected]);
   return (
     <>
       <section className="header" id="header-06">
@@ -38,17 +73,14 @@ function LandingPage() {
           <h1>Welcome to the ProvyLens</h1>
           <p>A supply chain management app on web3.</p>
           <div className="hero-btns">
-            <button
-              className="create-dao-btn"
-              onClick={() => openCreateDaoPage()}
-            >
-              Register
+            <button className="create-dao-btn" onClick={() => checkReg()}>
+              Get Started
             </button>
             <button
               className="existing-dao-btn"
-              onClick={() => openExistingDaoPage()}
+              onClick={() => verifyProduct()}
             >
-              Open Existing Dashboard
+              Verify Product
             </button>
           </div>
         </div>

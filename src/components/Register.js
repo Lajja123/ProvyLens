@@ -12,19 +12,33 @@ import { Input } from "@mui/material";
 import { ethers } from "ethers";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import feature1 from "../assets/feature-1.png";
 import bubble4 from "../assets/fixed4.png";
 import { USERDETAILS_CONTRACT_ADDRESS_MUMBAI } from "../config";
 import userdetails from "../artifacts/contracts/userDetails.sol/userDetails.json";
+import { useAccount } from "wagmi";
 
 function Register() {
+  const { address, isConnected } = useAccount();
   const [userData, setUserData] = useState({
     userType: "",
     name: "",
     physcialAddress: "",
     profileImage: "",
   });
+  const toastInfo = () =>
+    toast.success("Register Successfully", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const navigate = useNavigate();
@@ -83,7 +97,10 @@ function Register() {
         encoder.encode(userData.profileImage)
       );
       await tx.wait();
-      navigate("/");
+      toastInfo();
+      setTimeout(() => {
+        navigate("/");
+      }, [5000]);
     } catch (err) {
       console.log(err);
     }
@@ -100,6 +117,11 @@ function Register() {
       profileImage: selectedFile,
     });
   };
+  useEffect(() => {
+    if (!isConnected) {
+      navigate("/");
+    }
+  }, [address]);
 
   useEffect(() => {
     // console.log(userData);
@@ -139,21 +161,31 @@ function Register() {
             }}
             noValidate
             autoComplete="off"
+            className="register-file"
           >
-            <lable style={{ color: "white" }}>Set Profile Image</lable>
+            <lable
+              style={{ color: " rgba(255, 255, 255, 0.5)" }}
+              className="profile-lbl"
+            >
+              Set Profile Image
+            </lable>
             <TextField
               type="file"
               label=""
               onChange={handleFileChange}
               inputProps={{ accept: "image/*" }}
+              className="input-edit-profile"
             />
+
             {preview && (
               <img
                 src={preview}
                 alt="Preview"
+                className="upload-image"
                 style={{ width: "100px", height: "200px", marginTop: "1rem" }}
               />
             )}
+
             {/* <Input
               type="file"
               onChange={(e) => {
@@ -199,9 +231,25 @@ function Register() {
             />
           </Box>
 
-          <button className="register-btn" onClick={() => registerUser()}>
+          <button
+            className="register-btn"
+            onClick={() => {
+              registerUser();
+            }}
+          >
             Register
           </button>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
         <span className="shape1 header-shape">
           <img src={feature1}></img>

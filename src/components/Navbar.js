@@ -4,12 +4,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import ConnectButtonCustom from "./ConnectButtonCustom";
 // import logo from "../assets/datadaoverse_logo_1.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAccount, useSigner } from "wagmi";
 import * as PushAPI from "@pushprotocol/restapi";
+
 import logo from "../assets/logo.png";
 
 function Navbar() {
+  const navigate = useNavigate();
   const { address, isConnected } = useAccount();
   const { data: signer } = useSigner();
 
@@ -40,7 +42,9 @@ function Navbar() {
       env: "staging",
     });
   };
-
+  const takeToProfile = () => {
+    setTimeout(navigate("/profile"), 3000);
+  };
   // const optOut = async () => {
   //   await PushAPI.channels.unsubscribe({
   //     signer: signer,
@@ -129,6 +133,18 @@ function Navbar() {
               ""
             )}
             <ConnectButtonCustom />
+          </div>
+          <div className="user-img">
+            <Link to="/profile">
+              <img
+                class="p-user"
+                src=""
+                alt="Rounded avatar"
+                onClick={() => {
+                  takeToProfile();
+                }}
+              />{" "}
+            </Link>
           </div>
         </Toolbar>
       </Container>
