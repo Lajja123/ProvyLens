@@ -35,19 +35,13 @@ function DeleteProduct() {
     <>
       <div className="availabel-proposal-main-div">
         <div className="delete-product-main-div">
-          <FormControl
-            sx={{ m: 1, minWidth: 70 }}
-            size="small"
-            id="dropdown-formcontrol"
-            className="select-parent"
-          >
-            <TextField
-              id="standard-basic"
-              variant="standard"
-              label="Product Id"
-              onChange={(e) => {}}
-            />
-          </FormControl>
+          <TextField
+            helperText=" "
+            id="demo-helper-text-aligned-no-helper"
+            label="Product Id"
+            onChange={(e) => {}}
+          />
+
           <Button
             onClick={toastInfo}
             variant="contained"
