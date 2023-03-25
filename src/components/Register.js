@@ -138,7 +138,7 @@ function Register() {
             id="dropdown-formcontrol"
             className="select-parent"
           >
-            <InputLabel id="select-label-status">Select role</InputLabel>
+            {/* <InputLabel id="select-label-status">Select role</InputLabel> */}
             <Select
               labelId="demo-select-small"
               id="demo-select-small"

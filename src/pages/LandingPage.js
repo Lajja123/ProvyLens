@@ -26,37 +26,35 @@ function LandingPage() {
   const openCreateDaoPage = () => {
     navigate("register");
   };
-  const openExistingDaoPage = () => {
-    navigate("/open-existing-dashboard");
-  };
 
   const checkReg = async () => {
-    const ans = await checkRegistration(address);
-    if (ans) {
-      console.log(ans[1]);
-      if (ans[0] === 0) {
-        if (ans[1] === "0x") {
-          navigate("register");
-        } else {
+    if (isConnected) {
+      const ans = await checkRegistration(address);
+      if (ans) {
+        console.log(ans[1]);
+        if (ans[0] === 0) {
+          if (ans[1] === "0x") {
+            navigate("register");
+          } else {
+            navigate("/open-existing-dashboard");
+          }
+        }
+        if (ans[0] === 1) {
+          navigate("/open-existing-dashboard");
+        }
+        if (ans[0] === 1) {
           navigate("/open-existing-dashboard");
         }
       }
-      if (ans[0] === 1) {
-        navigate("/open-existing-dashboard");
-      }
-      if (ans[0] === 1) {
-        navigate("/open-existing-dashboard");
-      }
+    } else {
+      alert("Connect your wallet first");
     }
   };
   useEffect(() => {
-    if (address) {
-      checkReg();
-      // navigate("/");
-    } else {
+    if (!isConnected) {
       navigate("/");
     }
-  }, [address]);
+  }, [isConnected]);
   return (
     <>
       <section className="header" id="header-06">
@@ -71,18 +69,15 @@ function LandingPage() {
           <h1>Welcome to the ProvyLens</h1>
           <p>A supply chain management app on web3.</p>
           <div className="hero-btns">
-            <button
-              className="create-dao-btn"
-              onClick={() => openCreateDaoPage()}
-            >
-              Register
+            <button className="create-dao-btn" onClick={() => checkReg()}>
+              Get Started
             </button>
-            <button
+            {/* <button
               className="existing-dao-btn"
               onClick={() => openExistingDaoPage()}
             >
               Open Existing Dashboard
-            </button>
+            </button> */}
           </div>
         </div>
         <span className="shape1 header-shape">
