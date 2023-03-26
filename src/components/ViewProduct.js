@@ -94,7 +94,6 @@ function ViewProduct() {
     });
 
     const result1 = await c.query(data_).toPromise();
-    // console.log(hexToString(result1.data.eventUserDatas[0]["_name"]));
     const filteredData = result1.data.eventAddSupplierProducts.map(
       (product) => {
         return {
@@ -147,6 +146,7 @@ function ViewProduct() {
                 <StyledTableCell align="right">Product Name</StyledTableCell>
                 <StyledTableCell align="right">Unit</StyledTableCell>
                 <StyledTableCell align="right">Price per unit</StyledTableCell>
+                <StyledTableCell align="right">Expiry Date</StyledTableCell>
                 <StyledTableCell align="right"></StyledTableCell>
               </TableRow>
             </TableHead>
@@ -165,6 +165,9 @@ function ViewProduct() {
                     </StyledTableCell>
                     <StyledTableCell align="right">
                       {product.price}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {product.expiryDate}
                     </StyledTableCell>
                     <div className="view-more-btn">
                       <Button
