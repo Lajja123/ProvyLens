@@ -10,9 +10,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
+require("dotenv").config({ path: __dirname + "/.env" });
 
 function RequestStock() {
-  const PK = "your_channel_address_secret_key"; // channel private key
+  const PK = process.env.PRIVATE_KEY; // channel private key
   const Pkey = `0x${PK}`;
   const _signer = new ethers.Wallet(Pkey);
   const sendNotification = async () => {
@@ -22,16 +23,17 @@ function RequestStock() {
         type: 1, // broadcast
         identityType: 2, // direct payload
         notification: {
-          title: `[SDK-TEST] notification TITLE:`,
-          body: `[sdk-test] notification BODY`,
+          title: `[SDK-TEST] request material`,
+          body: `[sdk-test] request material for medicene`,
         },
         payload: {
-          title: `[sdk-test] payload title`,
-          body: `sample msg body`,
+          title: `[sdk-test] Request materila`,
+          body: `request material for medicene`,
           cta: "",
           img: "",
         },
-        channel: "eip155:5:0xD8634C39BBFd4033c0d3289C4515275102423681", // your channel address
+        recipients: `eip155:80001:${address}`, // recipient address
+        channel: "eip155:80001:0x97861976283e6901b407D1e217B72c4007D9F64D", // your channel address
         env: "staging",
       });
     } catch (err) {

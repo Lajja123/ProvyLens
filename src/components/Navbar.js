@@ -32,8 +32,8 @@ function Navbar() {
   const optIn = async () => {
     await PushAPI.channels.subscribe({
       signer: signer,
-      channelAddress: "eip155:3141:0x158a6720c0709F8B55dc9753B92DF1d555A9F577", // channel address in CAIP
-      userAddress: `eip155:3141:${address}`, // user address in CAIP
+      channelAddress: "eip155:80001:0x97861976283e6901b407D1e217B72c4007D9F64D", // channel address in CAIP
+      userAddress: `eip155:80001:${address}`, // user address in CAIP
       onSuccess: () => {
         console.log("opt in success");
       },
@@ -49,8 +49,8 @@ function Navbar() {
   const optOut = async () => {
     await PushAPI.channels.unsubscribe({
       signer: signer,
-      channelAddress: "eip155:5:0x158a6720c0709F8B55dc9753B92DF1d555A9F577", // channel address in CAIP
-      userAddress: "eip155:5:0xeB88DDaEdA2261298F1b740137B2ae35aA42A975", // user address in CAIP
+      channelAddress: "eip155:80001:0x97861976283e6901b407D1e217B72c4007D9F64D", // channel address in CAIP
+      userAddress: `eip155:80001:${address}`, // user address in CAIP
       onSuccess: () => {
         console.log("opt out success");
       },
@@ -60,10 +60,19 @@ function Navbar() {
       env: "staging",
     });
   };
+
+  const getNotifications = async () => {
+    const notifications = await PushAPI.user.getFeeds({
+      user: `eip155:8000:${address}`, // user address in CAIP
+      env: "staging",
+      limit: 100,
+    });
+    setPushNotifications(notifications);
+  };
   useEffect(() => {
     if (address) {
       const subscriptions = PushAPI.user.getSubscriptions({
-        user: `eip155:5:${address}`, // user address in CAIP
+        user: `eip155:80001:${address}`, // user address in CAIP
         env: "staging",
       });
       if (subscriptions.length === 0) {
@@ -72,12 +81,14 @@ function Navbar() {
       for (let i = 0; i < subscriptions.length; i++) {
         if (
           subscriptions[i].channel ===
-          "0x158a6720c0709F8B55dc9753B92DF1d555A9F577"
+          "0x97861976283e6901b407D1e217B72c4007D9F64D"
         ) {
           console.log("subscribed");
           setOpted(true);
         }
       }
+
+      getNotifications();
       console.log(subscriptions);
     }
   }, [address]);
@@ -214,7 +225,7 @@ function Navbar() {
               >
                 <h4>Opt In Provylens channel to get notification </h4>
                 <p>
-                  Channel address - 0x158a6720c0709F8B55dc9753B92DF1d555A9F577{" "}
+                  Channel address - 0x97861976283e6901b407D1e217B72c4007D9F64D{" "}
                 </p>
               </div>
             ) : null}
