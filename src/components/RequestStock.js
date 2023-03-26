@@ -8,8 +8,40 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as PushAPI from "@pushprotocol/restapi";
+import * as ethers from "ethers";
 
 function RequestStock() {
+  const PK = "your_channel_address_secret_key"; // channel private key
+  const Pkey = `0x${PK}`;
+  const _signer = new ethers.Wallet(Pkey);
+  const sendNotification = async () => {
+    try {
+      const apiResponse = await PushAPI.payloads.sendNotification({
+        signer: _signer,
+        type: 1, // broadcast
+        identityType: 2, // direct payload
+        notification: {
+          title: `[SDK-TEST] notification TITLE:`,
+          body: `[sdk-test] notification BODY`,
+        },
+        payload: {
+          title: `[sdk-test] payload title`,
+          body: `sample msg body`,
+          cta: "",
+          img: "",
+        },
+        channel: "eip155:5:0xD8634C39BBFd4033c0d3289C4515275102423681", // your channel address
+        env: "staging",
+      });
+    } catch (err) {
+      console.error("Error: ", err);
+    }
+  };
+  const requeststock = async () => {
+    await sendNotification();
+    toastInfo();
+  };
   const toastInfo = () =>
     toast.success("Request Successfully", {
       position: "bottom-right",
@@ -49,7 +81,9 @@ function RequestStock() {
           label="Quality"
         />
         <Button
-          onClick={toastInfo}
+          onClick={() => {
+            requeststock();
+          }}
           variant="contained"
           size="large"
           className="request-btn"

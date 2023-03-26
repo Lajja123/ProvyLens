@@ -9,6 +9,7 @@ import { useAccount, useSigner } from "wagmi";
 import * as PushAPI from "@pushprotocol/restapi";
 import profile from "../assets/profile.png";
 import logo from "../assets/logo.png";
+import { Box, Button, Modal, Skeleton, Typography } from "@mui/material";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -45,58 +46,58 @@ function Navbar() {
   const takeToProfile = () => {
     setTimeout(navigate("/profile"), 3000);
   };
-  // const optOut = async () => {
-  //   await PushAPI.channels.unsubscribe({
-  //     signer: signer,
-  //     channelAddress: "eip155:5:0x158a6720c0709F8B55dc9753B92DF1d555A9F577", // channel address in CAIP
-  //     userAddress: "eip155:5:0xeB88DDaEdA2261298F1b740137B2ae35aA42A975", // user address in CAIP
-  //     onSuccess: () => {
-  //       console.log("opt out success");
-  //     },
-  //     onError: () => {
-  //       console.error("opt out error");
-  //     },
-  //     env: "staging",
-  //   });
-  // };
-  // useEffect(() => {
-  //   if (address) {
-  //     const subscriptions = PushAPI.user.getSubscriptions({
-  //       user: `eip155:5:${address}`, // user address in CAIP
-  //       env: "staging",
-  //     });
-  //     if (subscriptions.length === 0) {
-  //       setOpted(false);
-  //     }
-  //     for (let i = 0; i < subscriptions.length; i++) {
-  //       if (
-  //         subscriptions[i].channel ===
-  //         "0x158a6720c0709F8B55dc9753B92DF1d555A9F577"
-  //       ) {
-  //         console.log("subscribed");
-  //         setOpted(true);
-  //       }
-  //     }
-  //     console.log(subscriptions);
-  //   }
-  // }, [address]);
+  const optOut = async () => {
+    await PushAPI.channels.unsubscribe({
+      signer: signer,
+      channelAddress: "eip155:5:0x158a6720c0709F8B55dc9753B92DF1d555A9F577", // channel address in CAIP
+      userAddress: "eip155:5:0xeB88DDaEdA2261298F1b740137B2ae35aA42A975", // user address in CAIP
+      onSuccess: () => {
+        console.log("opt out success");
+      },
+      onError: () => {
+        console.error("opt out error");
+      },
+      env: "staging",
+    });
+  };
+  useEffect(() => {
+    if (address) {
+      const subscriptions = PushAPI.user.getSubscriptions({
+        user: `eip155:5:${address}`, // user address in CAIP
+        env: "staging",
+      });
+      if (subscriptions.length === 0) {
+        setOpted(false);
+      }
+      for (let i = 0; i < subscriptions.length; i++) {
+        if (
+          subscriptions[i].channel ===
+          "0x158a6720c0709F8B55dc9753B92DF1d555A9F577"
+        ) {
+          console.log("subscribed");
+          setOpted(true);
+        }
+      }
+      console.log(subscriptions);
+    }
+  }, [address]);
 
-  // const style = {
-  //   position: "absolute",
-  //   top: "50%",
-  //   left: "50%",
-  //   transform: "translate(-50%, -50%)",
-  //   width: "50vw",
-  //   bgcolor: "background.paper",
-  //   borderRadius: "20px",
-  //   boxShadow: 24,
-  //   p: 0,
-  //   paddingBottom: "32px",
-  //   maxHeight: "70vh",
-  //   overflow: "auto",
-  //   overflowX: "hidden",
-  //   maxWidth: "700px",
-  // };
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "50vw",
+    bgcolor: "background.paper",
+    borderRadius: "20px",
+    boxShadow: 24,
+    p: 0,
+    paddingBottom: "32px",
+    maxHeight: "70vh",
+    overflow: "auto",
+    overflowX: "hidden",
+    maxWidth: "700px",
+  };
 
   return (
     <AppBar
@@ -150,7 +151,7 @@ function Navbar() {
       </Container>
 
       {/******************** push notification popup *******************/}
-      {/* <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -211,7 +212,7 @@ function Navbar() {
                   borderRadius: "10px",
                 }}
               >
-                <h4>Opt In Money-Router channel to get notification </h4>
+                <h4>Opt In Provylens channel to get notification </h4>
                 <p>
                   Channel address - 0x158a6720c0709F8B55dc9753B92DF1d555A9F577{" "}
                 </p>
@@ -219,7 +220,7 @@ function Navbar() {
             ) : null}
           </Typography>
         </Box>
-      </Modal> */}
+      </Modal>
     </AppBar>
   );
 }

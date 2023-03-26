@@ -17,7 +17,8 @@ import bubble3 from "../assets/fixed2.png";
 import bubble4 from "../assets/fixed4.png";
 import Navbar from "../components/Navbar";
 import Particles from "../components/Particles";
-import Loader from "../components/Loader"
+import Loader from "../components/Loader";
+import { Chat } from "@pushprotocol/uiweb";
 
 import { checkRegistration } from "../components/CheckRegistration";
 
@@ -70,72 +71,75 @@ function LandingPage() {
   }, []);
   return (
     <>
-      
-        {loading?
-        ( <Loader></Loader>
-        ):(
-        <> <section className="header" id="header-06"><div className="hero">
-          <Particles />
-          <div>
-            {/* <div className="gradient-3"></div>
+      {loading ? (
+        <Loader></Loader>
+      ) : (
+        <>
+          {" "}
+          <section className="header" id="header-06">
+            <div className="hero">
+              <Particles />
+              <div>
+                {/* <div className="gradient-3"></div>
         <div className="gradient-4"></div> */}
-            <img src={heroimg2} alt="hero" className="hero-image" />
-          </div>
-          <div className="hero-img-overlay"></div>
-          <h1>Welcome to the ProvyLens</h1>
-          <p>A supply chain management Dapp on web3.</p>
-          <div className="hero-btns">
-            <button className="create-dao-btn" onClick={() => checkReg()}>
-              Get Started
-            </button>
-            <button
-              className="existing-dao-btn"
-              onClick={() => verifyProduct()}
-            >
-              Verify Product
-            </button>
-          </div>
-        </div>
-        <span className="shape1 header-shape">
-          <img src={shape1}></img>
-        </span>
-        <span className="shape2 header-shape">
-          <img src={shape2}></img>
-        </span>
-        <span className="shape3 header-shape">
-          <img src={shape3}></img>
-        </span>
-        <span className="shape4 header-shape">
-          <img src={shape4}></img>
-        </span>
-        <span className="shape5 header-shape">
-          <img src={shape5}></img>
-        </span>
-        {/* <span className="shape6 header-shape">
+                <img src={heroimg2} alt="hero" className="hero-image" />
+              </div>
+              <div className="hero-img-overlay"></div>
+              <h1>Welcome to the ProvyLens</h1>
+              <p>A supply chain management Dapp on web3.</p>
+              <div className="hero-btns">
+                <button className="create-dao-btn" onClick={() => checkReg()}>
+                  Get Started
+                </button>
+                <button
+                  className="existing-dao-btn"
+                  onClick={() => verifyProduct()}
+                >
+                  Verify Product
+                </button>
+              </div>
+            </div>
+            <span className="shape1 header-shape">
+              <img src={shape1}></img>
+            </span>
+            <span className="shape2 header-shape">
+              <img src={shape2}></img>
+            </span>
+            <span className="shape3 header-shape">
+              <img src={shape3}></img>
+            </span>
+            <span className="shape4 header-shape">
+              <img src={shape4}></img>
+            </span>
+            <span className="shape5 header-shape">
+              <img src={shape5}></img>
+            </span>
+            {/* <span className="shape6 header-shape">
           <img src={shape6}></img>
         </span> */}
-        <span className="bubble1 header-shape">
-          <img src={bubble1}></img>
-        </span>
-        <span className="bubble2 header-shape">
-          <img src={bubble2}></img>
-        </span>
-        <span className="bubble3 header-shape">
-          <img src={bubble3}></img>
-        </span>
-        <span className="bubble4 header-shape">
-          <img src={bubble4}></img>
-        </span>
-        <footer id="footer">
-          <div className="copyright">
-            <p>
-              {" "}
-              Copyright © 2023, Created by <span>ProvyLense</span>
-            </p>
-          </div>
-        </footer> </section></>)}
-       
-     
+            <span className="bubble1 header-shape">
+              <img src={bubble1}></img>
+            </span>
+            <span className="bubble2 header-shape">
+              <img src={bubble2}></img>
+            </span>
+            <span className="bubble3 header-shape">
+              <img src={bubble3}></img>
+            </span>
+            <span className="bubble4 header-shape">
+              <img src={bubble4}></img>
+            </span>
+            <footer id="footer">
+              <div className="copyright">
+                <p>
+                  {" "}
+                  Copyright © 2023, Created by <span>ProvyLense</span>
+                </p>
+              </div>
+            </footer>{" "}
+          </section>
+        </>
+      )}
     </>
   );
 }

@@ -18,11 +18,30 @@ import Particles from "./components/Particles";
 import VerifyProduct from "./components/VerifyProduct";
 import Profile from "./components/Profile";
 import { useNavigate } from "react-router-dom";
-import { useAccount, useSigner } from "wagmi";
 import { ethers } from "ethers";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Chat } from "@pushprotocol/uiweb";
 
 function App() {
+  const [address, setAddress] = useState();
+  async function getAddressFromMetaMask() {
+    // Check if MetaMask is installed
+    if (!window.ethereum) {
+      throw new Error("MetaMask is not installed");
+    }
+
+    // Request access to the user's accounts
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+
+    // Create an Ethers.js provider with MetaMask as the signer
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    // Get the user's address
+    const signer = provider.getSigner();
+    const address = await signer.getAddress();
+    setAddress(address);
+    return address;
+  }
   const { chains, provider } = configureChains(
     [polygonMumbai],
     [
@@ -30,6 +49,7 @@ function App() {
       publicProvider(),
     ]
   );
+
   const { connectors } = getDefaultWallets({
     appName: "My RainbowKit App",
     chains,
@@ -39,6 +59,10 @@ function App() {
     connectors,
     provider,
   });
+
+  useEffect(() => {
+    getAddressFromMetaMask();
+  }, []);
 
   return (
     <WagmiConfig client={wagmiClient}>
@@ -56,6 +80,10 @@ function App() {
           </Router>
         </div>
       </RainbowKitProvider>
+      <Chat
+        account={address} //user address
+        supportAddress="0xe57f4c84539a6414C4Cf48f135210e01c477EFE0" //support address
+      />
     </WagmiConfig>
   );
 }
