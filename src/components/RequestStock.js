@@ -10,9 +10,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
-require("dotenv").config({ path: __dirname + "/.env" });
+import { useAccount, useSigner } from "wagmi";
 
 function RequestStock() {
+  const { address, isConnected } = useAccount();
   const PK = process.env.PRIVATE_KEY; // channel private key
   const Pkey = `0x${PK}`;
   const _signer = new ethers.Wallet(Pkey);
