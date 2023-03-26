@@ -17,10 +17,12 @@ import bubble3 from "../assets/fixed2.png";
 import bubble4 from "../assets/fixed4.png";
 import Navbar from "../components/Navbar";
 import Particles from "../components/Particles";
+import Loader from "../components/Loader"
 
 import { checkRegistration } from "../components/CheckRegistration";
 
 function LandingPage() {
+  const [loading, setLoading] = useState(true);
   const { address, isConnected } = useAccount();
   const navigate = useNavigate();
   const openCreateDaoPage = () => {
@@ -59,10 +61,20 @@ function LandingPage() {
       navigate("/");
     }
   }, [isConnected]);
+
+  useEffect(() => {
+    // simulate loading data
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
     <>
-      <section className="header" id="header-06">
-        <div className="hero">
+      
+        {loading?
+        ( <Loader></Loader>
+        ):(
+        <> <section className="header" id="header-06"><div className="hero">
           <Particles />
           <div>
             {/* <div className="gradient-3"></div>
@@ -121,8 +133,9 @@ function LandingPage() {
               Copyright © 2023, Created by <span>ProvyLense</span>
             </p>
           </div>
-        </footer>
-      </section>
+        </footer> </section></>)}
+       
+     
     </>
   );
 }

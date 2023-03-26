@@ -295,6 +295,18 @@ div.push-box {
   border-radius: 100px;
   margin-left: 20px;
 }
+.spinner{
+  width: 50% !important;
+  margin: 0 auto !important;
+  position: relative;
+}
+.loader{
+  position: absolute;
+  bottom: 0;
+  top: 45%;
+  right: 40%;
+
+}
 @media only screen and (max-width: 1200px) {
   .hero {
     padding: 10px;
