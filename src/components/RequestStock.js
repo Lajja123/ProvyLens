@@ -17,6 +17,9 @@ function RequestStock() {
   const PK = process.env.PRIVATE_KEY; // channel private key
   const Pkey = `0x${PK}`;
   const _signer = new ethers.Wallet(Pkey);
+
+  //push integration
+  //send notification
   const sendNotification = async () => {
     try {
       const apiResponse = await PushAPI.payloads.sendNotification({
