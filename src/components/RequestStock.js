@@ -12,7 +12,7 @@ import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
 import { useAccount, useSigner } from "wagmi";
 
-function RequestStock() {
+function RequestStock({ dashboardLinks }) {
   const { address, isConnected } = useAccount();
   const PK = process.env.PRIVATE_KEY; // channel private key
   const Pkey = `0x${PK}`;
