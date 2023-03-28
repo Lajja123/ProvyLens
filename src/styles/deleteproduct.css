@@ -184,12 +184,19 @@ button.create-proposal-btn-popup {
   line-height: 1.2;
   color: #666;
 }
+
 .css-p0rm37 {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 .css-1v4ccyo:hover .MuiOutlinedInput-notchedOutline {
   border-color: rgba(255, 255, 255, 0.5) !important;
 }
 .css-1v4ccyo:hover .MuiOutlinedInput-notchedOutline {
   border-color: rgba(255, 255, 255, 0.5) !important;
+}
+.css-1ald77x {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.css-1ald77x.Mui.focused {
+  color: rgba(255, 255, 255, 0.5) !important;
 }
