@@ -262,9 +262,6 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <label className="manufacture-details-quality">Unit</label>
-            </FormControl>
-            <div className="manufacture-details">
               <TextField
                 id="standard-basic"
                 label="Unit"
@@ -274,6 +271,8 @@ function Transfer() {
                   setQuantity(e.target.value);
                 }}
               />
+            </FormControl>
+            <div className="manufacture-details">
               <label className="manufacture-details-quality">
                 Total Amount : {amount ? amount + " Matic" : "--"}
               </label>
