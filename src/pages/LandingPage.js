@@ -74,21 +74,23 @@ function LandingPage() {
               <img src={heroimg2} alt="hero" className="hero-image" />
             </div>
             <div className="hero-img-overlay"></div>
-            <h1>Welcome to the ProvyLens</h1>
-            <p>
-              Transparency at every step: ProvyLens - your lens into the supply
-              chain
-            </p>
-            <div className="hero-btns">
-              <button className="create-dao-btn" onClick={() => checkReg()}>
-                Get Started
-              </button>
-              <button
-                className="existing-dao-btn"
-                onClick={() => verifyProduct()}
-              >
-                Verify Product
-              </button>
+            <div>
+              <h1>Welcome to the ProvyLens</h1>
+              <p>
+                Transparency at every step: ProvyLens - your lens into the
+                supply chain
+              </p>
+              <div className="hero-btns">
+                <button className="create-dao-btn" onClick={() => checkReg()}>
+                  Get Started
+                </button>
+                <button
+                  className="existing-dao-btn"
+                  onClick={() => verifyProduct()}
+                >
+                  Verify Product
+                </button>
+              </div>
             </div>
           </div>
           <span className="shape1 header-shape">

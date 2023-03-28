@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import "../styles/navbar.css";
 import Container from "@mui/material/Container";
 import ConnectButtonCustom from "./ConnectButtonCustom";
 // import logo from "../assets/datadaoverse_logo_1.png";
