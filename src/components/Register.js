@@ -175,6 +175,7 @@ function Register() {
               onChange={handleFileChange}
               inputProps={{ accept: "image/*" }}
               className="input-edit-profile"
+              id="register-file"
             />
 
             {preview && (
