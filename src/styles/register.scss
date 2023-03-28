@@ -42,6 +42,15 @@
 .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border-color: rgba(255, 255, 255, 0.5) !important;
 }
+.css-zrqpq1::before {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+.css-zrqpq1::after {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+.css-182didf {
+  color: #ffffff !important;
+}
 .css-xn6ruc > :not(style) {
   margin: 10px !important;
   width: 38ch !important;
