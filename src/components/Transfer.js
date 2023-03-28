@@ -178,7 +178,7 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Product Name</InputLabel>
+              <InputLabel id="select-label-status">Product</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -219,9 +219,7 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">
-                Manufacturer Name
-              </InputLabel>
+              <InputLabel id="select-label-status">Manufacturer</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
