@@ -75,7 +75,10 @@ function LandingPage() {
             </div>
             <div className="hero-img-overlay"></div>
             <h1>Welcome to the ProvyLens</h1>
-            <p>A supply chain management Dapp on web3.</p>
+            <p>
+              Transparency at every step: ProvyLens - your lens into the supply
+              chain
+            </p>
             <div className="hero-btns">
               <button className="create-dao-btn" onClick={() => checkReg()}>
                 Get Started
