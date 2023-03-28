@@ -295,17 +295,19 @@ div.push-box {
   border-radius: 100px;
   margin-left: 20px;
 }
-.spinner{
+.spinner {
   width: 50% !important;
   margin: 0 auto !important;
   position: relative;
 }
-.loader{
+.loader {
   position: absolute;
   bottom: 0;
   top: 45%;
   right: 40%;
-
+}
+.HMJwc {
+  z-index: 99 !important;
 }
 @media only screen and (max-width: 1200px) {
   .hero {
