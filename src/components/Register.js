@@ -253,7 +253,7 @@ function Register() {
           />
         </div>
         <span className="shape1 header-shape">
-          <img src={feature1}></img>
+          <img src={feature1} className="register-bgimg"></img>
         </span>
 
         <span className="bubble3 header-shape">

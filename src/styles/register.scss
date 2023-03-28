@@ -28,7 +28,9 @@
   letter-spacing: 5px;
   text-transform: uppercase;
 }
-#register-file {
+.css-1v4ccyo {
+  color: #ffffff !important;
+  font-family: "HammersmithOne-Regular" !important;
 }
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
   border-color: rgba(255, 255, 255, 0.5) !important;
@@ -39,6 +41,9 @@
 .css-xn6ruc > :not(style) {
   margin: 10px !important;
   width: 38ch !important;
+}
+.register-bgimg {
+  width: 100%;
 }
 .select-label-status {
   font-family: "HammersmithOne-Regular";
@@ -107,6 +112,7 @@
   top: -25%;
   left: 0;
   z-index: -1;
+  width: 100%;
 }
 
 .register-main-div .bubble3 {
