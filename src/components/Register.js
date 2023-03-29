@@ -175,6 +175,7 @@ function Register() {
               onChange={handleFileChange}
               inputProps={{ accept: "image/*" }}
               className="input-edit-profile"
+              id="register-file"
             />
 
             {preview && (
@@ -252,7 +253,7 @@ function Register() {
           />
         </div>
         <span className="shape1 header-shape">
-          <img src={feature1}></img>
+          <img src={feature1} className="register-bgimg"></img>
         </span>
 
         <span className="bubble3 header-shape">

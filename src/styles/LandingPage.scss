@@ -78,7 +78,7 @@
     // color: #f14c2c;
   }
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 10px 20px;
     font-family: "Carme-Regular";
     letter-spacing: 3px;
@@ -305,6 +305,12 @@ div.push-box {
   bottom: 0;
   top: 45%;
   right: 40%;
+}
+.fCNKUI {
+  z-index: 99 !important;
+}
+.css-1mh10eb {
+  height: 10vh !important;
 }
 @media only screen and (max-width: 1200px) {
   .hero {

@@ -653,7 +653,7 @@ l220 112 61 -32 c34 -18 297 -153 586 -300 l525 -267 70 0 70 0 370 190 c204
               setTransferHistoryDetails={setTransferHistoryDetails}
             />
           ) : stock ? (
-            <RequestStock />
+            <RequestStock dashboardLinks={dashboardLinks} />
           ) : null}
         </div>
       </div>

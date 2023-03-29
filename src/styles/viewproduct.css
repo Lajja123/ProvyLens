@@ -79,8 +79,19 @@
   font-weight: 500;
   letter-spacing: 3px;
 }
+.css-sofy6n.MuiTableCell-head {
+  background-color: #271e5f !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.css-1bqy5f7.MuiTableCell-head {
+  background-color: #1a1156 !important;
+  color: white !important;
+}
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   color: rgba(255, 255, 255, 0.5) !important;
+}
+.css-1bqy5f7 {
+  font-family: "Carme-Regular" !important;
 }
 .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
   color: rgba(255, 255, 255, 0.5) !important;

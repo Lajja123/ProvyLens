@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "@mui/material/Button";
 import { ethers } from "ethers";
+import "../styles/addproduct.css";
 
 import { SUPPLIERPRODUCT_CONTRACT_ADDRESS_MUMBAI } from "../config";
 import addproduct from "../artifacts/contracts/supplierProduct.sol/supplierProduct.json";

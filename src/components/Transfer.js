@@ -178,7 +178,7 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">Product Name</InputLabel>
+              <InputLabel id="select-label-status">Product</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -219,9 +219,7 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <InputLabel id="select-label-status">
-                Manufacturer Name
-              </InputLabel>
+              <InputLabel id="select-label-status">Manufacturer</InputLabel>
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
@@ -262,9 +260,6 @@ function Transfer() {
               id="dropdown-formcontrol"
               className="select-parent"
             >
-              <label className="manufacture-details-quality">Unit</label>
-            </FormControl>
-            <div className="manufacture-details">
               <TextField
                 id="standard-basic"
                 label="Unit"
@@ -274,6 +269,8 @@ function Transfer() {
                   setQuantity(e.target.value);
                 }}
               />
+            </FormControl>
+            <div className="manufacture-details">
               <label className="manufacture-details-quality">
                 Total Amount : {amount ? amount + " Matic" : "--"}
               </label>
