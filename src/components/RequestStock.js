@@ -11,13 +11,14 @@ import "react-toastify/dist/ReactToastify.css";
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
 import { useAccount, useSigner } from "wagmi";
-
+// import env from "react-dotenv";
 function RequestStock() {
   const { address, isConnected } = useAccount();
-  const PK = process.env.PRIVATE_KEY; // channel private key
-  const Pkey = `0x${PK}`;
-  const _signer = new ethers.Wallet(Pkey);
+
   const sendNotification = async () => {
+    const PK = process.env.REACT_APP_PRIVATE_KEY; // channel private key
+    const Pkey = `0x3a1c06e0cbba867974a15a0fcc81f78e316065d0dc8e242895add8cdc5bda6ca`;
+    const _signer = new ethers.Wallet(Pkey);
     try {
       const apiResponse = await PushAPI.payloads.sendNotification({
         signer: _signer,

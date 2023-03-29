@@ -177,10 +177,10 @@ div.push-box {
   }
 }
 #header-06 {
-  background: #0e044d;
+  // background: #0e044d;
   position: relative;
   height: 100%;
-  z-index: 99;
+  // z-index: 99;
   width: 100%;
 }
 #header-06 .shape1 {
@@ -295,17 +295,16 @@ div.push-box {
   border-radius: 100px;
   margin-left: 20px;
 }
-.spinner{
+.spinner {
   width: 50% !important;
   margin: 0 auto !important;
   position: relative;
 }
-.loader{
+.loader {
   position: absolute;
   bottom: 0;
   top: 45%;
   right: 40%;
-
 }
 @media only screen and (max-width: 1200px) {
   .hero {
